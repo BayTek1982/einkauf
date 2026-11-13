@@ -60,10 +60,16 @@ async function init(){
 }
 // Gescannte Einträge ohne Foto (z. B. aus der ersten Version) nachträglich ergänzen
 async function nachladen(){
-  const offen = liste.filter(i => i.code && ((!i.bild && !i.geprueft) || !i.katV2)).slice(0, 15);
+  const offen = liste.filter(i => i.code && ((!i.bild && !i.geprueft) || !i.katV3));
+  const infos = {};
+  for(let n = 0; n < offen.length; n += 6){
+    const teil = offen.slice(n, n + 6);
+    const res = await Promise.all(teil.map(i => offLaden(i.code)));
+    teil.forEach((i, k) => infos[i.id] = res[k]);
+  }
   for(const it of offen){
-    it.geprueft = true; it.katV2 = true;
-    const info = await offLaden(it.code);
+    it.geprueft = true; it.katV3 = true;
+    const info = infos[it.id];
     if(!info) continue;
     const marke = String(info.brands || "").split(",")[0].trim().slice(0, 60);
     if(!it.marke && marke){
@@ -73,9 +79,10 @@ async function nachladen(){
     const inhalt = String(info.quantity || "").trim();
     if(inhalt && !it.inhalt){ it.inhalt = inhalt.slice(0, 30); if(it.text.toLowerCase().includes(inhalt.toLowerCase())) it.text = it.text.replace(inhalt, "").trim() || it.text; }
     if(!it.bild) it.bild = safeImg(info.image_front_small_url) || "";
-    if(!it.katManuell){ const k = katAusOFF(info.categories_tags); if(k) it.kat = k; }
+    if(!it.katManuell){ const k = katAusOFF(info.categories_tags); if(k) it.kat = k; else delete it.kat; }
+    if(!it.produktFest) it.produkt = erkenne(it.text + " " + (it.marke || ""), it.code, it.katManuell ? null : (it.kat || null));
     }
-  if(offen.length){ save("liste", liste); renderAll(); }
+  if(offen.length){ save("liste", liste); renderAll(); offeneWuenscheNachsenden(); }
 }
 async function offLaden(code){
   try{
@@ -270,7 +277,7 @@ async function wunschSenden(it, nochmal){
   }catch(e){ /* offline – beim nächsten Öffnen erneut */ }
 }
 function offeneWuenscheNachsenden(){
-  liste.filter(i => !i.done && !i.produkt && !i.angefragt).slice(0, 10).forEach(i => wunschSenden(i));
+  liste.filter(i => !i.done && !i.produkt && !i.angefragt).slice(0, 40).forEach(i => wunschSenden(i));
 }
 
 /* ---------- Eintrag bearbeiten ---------- */
@@ -527,10 +534,10 @@ function katAusOFF(tags){
   if(hat(/frozen/)) return "tk";
   if(hat(/(^| )(en:)?(beverages|sodas|waters|juices|fruit-juices|coffees|teas|beers|wines|energy-drinks|soft-drinks|carbonated-drinks|plant-based-milk|milk-substitutes)( |$)/) || hat(/coffee|-drinks /)) return "getraenke";
   if(hat(/meats|sausages|hams|poultr|chicken|beef|pork|fishes|seafood/)) return "fleisch";
-  if(hat(/dairies|cheeses|yogurts|milks|butters|creams|eggs|quarks|desserts/)) return "kuehl";
+  if(hat(/dairies|cheeses|yogurts|milks|butters|creams|eggs|quarks|desserts|margarines|spreadable-fats/)) return "kuehl";
   if(hat(/breads|pastries|viennoiseries|toasts|rolls/)) return "brot";
   if(hat(/chocolates|sweet-snacks|biscuits|cakes|candies|confectioner|cocoa|hazelnut-spreads|salty-snacks|chips|crisps|snacks|cereal-bars/)) return "suess";
-  if(hat(/pastas|rices|flours|sugars|oils|cereals|canned|sauces|condiments|spreads|legumes|spices|soups|vinegars|honeys|jams/)) return "vorrat";
+  if(hat(/pastas|rices|flours|sugars|oils|cereals|canned|sauces|condiments|ketchup|mustards|mayonnaises|salts|spreads|legumes|spices|soups|vinegars|honeys|jams|fats|baking/)) return "vorrat";
   if(hat(/fresh-fruits|fresh-vegetables|fruits|vegetables|potatoes|salads/)) return "obstgemuese";
   return null;
 }
@@ -551,7 +558,7 @@ async function onCode(code){
     name = name.replace(/\s+\d+([.,]\d+)?\s*(x\s*\d+([.,]\d+)?\s*)?(g|kg|ml|l|cl|stück|stk)\b.*$/i, "").trim() || name;
     if(!name) name = marke || "Produkt " + code;
     const k = katAusOFF(info.categories_tags);
-    const extra = {code, katV2: true, marke, inhalt: String(info.quantity || "").trim().slice(0, 30), bild: safeImg(info.image_front_small_url) || "", suche: (info.categories_tags || []).join(" ").replace(/en:|de:|-/g, " ")};
+    const extra = {code, katV3: true, marke, inhalt: String(info.quantity || "").trim().slice(0, 30), bild: safeImg(info.image_front_small_url) || "", suche: (info.categories_tags || []).join(" ").replace(/en:|de:|-/g, " ")};
     if(k) extra.kat = k;
     const it = addItem(name, extra);
     toast("✓ " + (marke ? marke + " " : "") + name.slice(0, 40));
