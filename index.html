@@ -3,158 +3,218 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#16a34a">
+<meta name="theme-color" content="#15803d">
 <title>Bayazit Einkauf</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Einkauf">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; manifest-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://world.openfoodfacts.org; media-src 'self' blob: mediastream:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; manifest-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://images.openfoodfacts.org https://static.openfoodfacts.org; connect-src 'self' https://world.openfoodfacts.org; media-src 'self' blob: mediastream:; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <script src="vendor/html5-qrcode.min.js"></script>
 <style>
   :root{
-    --bg:#f5f7f4; --card:#ffffff; --line:#e3e8e1; --text:#1c2a1f; --muted:#6b7a6e;
-    --acc:#16a34a; --acc-soft:#e7f6ec; --warn:#b45309; --warn-soft:#fff4e0; --red:#dc2626;
+    --bg:#f3f6f2; --card:#ffffff; --line:#e4e9e2; --text:#17241a; --muted:#6a786c;
+    --acc:#16a34a; --acc2:#15803d; --acc-soft:#e6f6eb; --warn:#c2410c; --warn-soft:#fff1e3; --red:#dc2626;
+    --shadow:0 1px 2px rgba(20,40,25,.06), 0 4px 14px rgba(20,40,25,.06);
+    --tile-dark:0;
   }
   @media (prefers-color-scheme: dark){
-    :root{ --bg:#0f1712; --card:#18231c; --line:#2a3a2f; --text:#e6efe8; --muted:#93a597;
-      --acc:#22c55e; --acc-soft:#173322; --warn:#fbbf24; --warn-soft:#3a2d12; }
+    :root{ --bg:#0d1510; --card:#17211a; --line:#26352b; --text:#e6efe8; --muted:#93a597;
+      --acc:#22c55e; --acc2:#16a34a; --acc-soft:#16301f; --warn:#fb923c; --warn-soft:#3a2312;
+      --shadow:none; --tile-dark:1; }
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
   html,body{margin:0}
-  body{background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; font-size:17px; line-height:1.4; padding-bottom:calc(76px + env(safe-area-inset-bottom))}
-  header{position:sticky; top:0; z-index:5; background:var(--bg); padding:14px 16px 8px; padding-top:calc(14px + env(safe-area-inset-top))}
-  header h1{margin:0; font-size:1.45rem; display:flex; align-items:center; gap:8px}
-  header .sub{color:var(--muted); font-size:.82rem; margin-top:2px}
-  main{max-width:640px; margin:0 auto; padding:4px 14px 20px}
-  .view{display:none} .view.on{display:block}
+  body{background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; font-size:17px; line-height:1.4; padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  .wrap{max-width:720px; margin:0 auto; padding:0 14px}
+
+  /* Kopf */
+  .hero{background:linear-gradient(135deg,#16a34a 0%,#0f766e 100%); color:#fff; padding:calc(16px + env(safe-area-inset-top)) 0 54px; border-radius:0 0 26px 26px}
+  .hero h1{margin:0; font-size:1.55rem; letter-spacing:-.01em; display:flex; align-items:center; gap:10px}
+  .hero .logo{width:40px; height:40px; border-radius:12px; background:rgba(255,255,255,.18); display:grid; place-items:center; font-size:1.35rem}
+  .hero .stand{opacity:.85; font-size:.8rem; margin-top:6px}
+  .stats{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+  .stat{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.22); border-radius:12px; padding:7px 11px; font-size:.86rem; font-weight:600}
+  .stat b{font-size:1.02rem}
+  main{margin-top:-38px; position:relative}
+  .view{display:none} .view.on{display:block; animation:fade .18s ease}
+  @keyframes fade{from{opacity:.4; transform:translateY(4px)} to{opacity:1; transform:none}}
 
   /* Eingabe */
-  .add{display:flex; gap:8px; margin:6px 0 12px}
-  .add input{flex:1; min-width:0; font-size:1.05rem; padding:13px 14px; border-radius:14px; border:1.5px solid var(--line); background:var(--card); color:var(--text); outline:none}
-  .add input:focus{border-color:var(--acc)}
-  .btn{border:0; border-radius:14px; padding:0 16px; min-height:48px; font-size:1rem; font-weight:650; cursor:pointer; background:var(--acc); color:#fff}
+  .addbox{background:var(--card); border-radius:18px; box-shadow:var(--shadow); padding:10px; border:1px solid var(--line)}
+  .add{display:flex; gap:8px}
+  .add input{flex:1; min-width:0; font-size:1.05rem; padding:12px 14px; border-radius:13px; border:1.5px solid var(--line); background:var(--bg); color:var(--text); outline:none}
+  .add input:focus{border-color:var(--acc); background:var(--card)}
+  .btn{border:0; border-radius:13px; padding:0 16px; min-height:48px; font-size:1rem; font-weight:700; cursor:pointer; background:var(--acc); color:#fff; font-family:inherit}
+  .btn:active{transform:scale(.97)}
   .btn.ghost{background:var(--card); color:var(--text); border:1.5px solid var(--line)}
-  .btn.icon{width:52px; padding:0; font-size:1.35rem}
+  .btn.danger{background:none; color:var(--red); border:1.5px solid var(--line)}
+  .btn.icon{width:50px; padding:0; font-size:1.3rem}
   .btn.small{min-height:38px; padding:0 12px; font-size:.9rem; border-radius:11px}
-  .sugg{display:flex; flex-wrap:wrap; gap:6px; margin:-4px 0 12px}
-  .sugg button{border:1px solid var(--line); background:var(--card); color:var(--text); border-radius:999px; padding:7px 12px; font-size:.92rem; cursor:pointer}
+  .sugg{display:flex; gap:6px; margin-top:8px; overflow-x:auto; scrollbar-width:none}
+  .sugg::-webkit-scrollbar{display:none}
+  .sugg:empty{display:none}
+  .sugg button{flex:0 0 auto; border:1px solid var(--line); background:var(--bg); color:var(--text); border-radius:999px; padding:7px 12px; font-size:.9rem; cursor:pointer; font-family:inherit}
+  .sugg button.hot{border-color:#fdba74; background:var(--warn-soft)}
 
   /* Liste */
-  .list{list-style:none; margin:0; padding:0; background:var(--card); border-radius:16px; border:1px solid var(--line); overflow:hidden}
-  .list li{display:flex; align-items:center; gap:12px; padding:13px 14px; border-bottom:1px solid var(--line)}
+  .grp{margin-top:16px}
+  .grp-h{display:flex; align-items:center; gap:8px; font-size:.8rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:0 4px 7px}
+  .grp-h .n{margin-left:auto; font-weight:700; letter-spacing:0}
+  .list{list-style:none; margin:0; padding:0; background:var(--card); border-radius:18px; border:1px solid var(--line); overflow:hidden; box-shadow:var(--shadow)}
+  .list li{display:flex; align-items:center; gap:12px; padding:11px 12px; border-bottom:1px solid var(--line); cursor:pointer}
   .list li:last-child{border-bottom:0}
-  .chk{flex:0 0 auto; width:28px; height:28px; border-radius:50%; border:2px solid var(--line); display:grid; place-items:center; background:none; cursor:pointer; color:#fff; font-size:.95rem}
+  .chk{flex:0 0 auto; width:30px; height:30px; border-radius:50%; border:2px solid #c9d3c8; display:grid; place-items:center; background:none; cursor:pointer; color:#fff; font-size:1rem; font-weight:900}
   .done .chk{background:var(--acc); border-color:var(--acc)}
+  .tile{flex:0 0 auto; width:48px; height:48px; border-radius:13px; display:grid; place-items:center; font-size:1.55rem; overflow:hidden}
+  .tile img{width:100%; height:100%; object-fit:contain; background:#fff}
+  .done .tile{opacity:.45; filter:grayscale(1)}
   .li-main{flex:1; min-width:0}
-  .li-name{font-weight:550; overflow-wrap:anywhere}
-  .done .li-name{text-decoration:line-through; color:var(--muted); font-weight:400}
-  .deal{display:inline-block; margin-top:4px; font-size:.84rem; font-weight:650; color:var(--acc); background:var(--acc-soft); padding:3px 9px; border-radius:8px}
+  .li-name{font-weight:650; overflow-wrap:anywhere; display:flex; align-items:center; gap:6px; flex-wrap:wrap}
+  .qty{font-size:.78rem; font-weight:800; color:var(--acc2); background:var(--acc-soft); padding:1px 7px; border-radius:7px}
+  .li-sub{font-size:.84rem; color:var(--muted); overflow-wrap:anywhere}
+  .li-sub .brand{font-weight:650; color:var(--text)}
+  .done .li-name{text-decoration:line-through; color:var(--muted); font-weight:500}
+  .done .li-sub,.done .deal{display:none}
+  .deal{display:inline-flex; align-items:center; gap:4px; margin-top:5px; font-size:.82rem; font-weight:700; color:var(--acc2); background:var(--acc-soft); padding:3px 9px; border-radius:8px}
   .deal.soon{color:var(--warn); background:var(--warn-soft)}
-  .del{background:none; border:0; color:var(--muted); font-size:1.2rem; padding:6px; cursor:pointer}
-  .empty{text-align:center; color:var(--muted); padding:34px 10px}
-  .empty .big{font-size:2.6rem}
-  .row-actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+  .go{color:var(--muted); font-size:1.1rem}
+  .empty{text-align:center; color:var(--muted); padding:30px 10px}
+  .empty .big{font-size:2.8rem; margin-bottom:6px}
+  .row-actions{display:flex; gap:8px; margin-top:14px; flex-wrap:wrap}
   .row-actions .btn{flex:1}
 
   /* Angebote */
-  .chips{display:flex; gap:6px; margin:4px 0 12px; overflow-x:auto; padding-bottom:2px}
-  .chips button{flex:0 0 auto; border:1.5px solid var(--line); background:var(--card); color:var(--text); border-radius:999px; padding:8px 14px; font-size:.92rem; font-weight:600; cursor:pointer}
-  .chips button.on{background:var(--acc); border-color:var(--acc); color:#fff}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:12px 14px; margin-bottom:10px}
-  .card h3{margin:0 0 6px; font-size:1.05rem; display:flex; align-items:center; gap:8px}
-  .card h3 .em{font-size:1.3rem}
-  .card h3 .onlist{margin-left:auto; font-size:.72rem; font-weight:700; color:var(--acc); background:var(--acc-soft); padding:2px 8px; border-radius:6px}
-  .off{display:flex; gap:10px; align-items:center; padding:8px 0; border-top:1px dashed var(--line)}
+  .chips{display:flex; gap:6px; margin:0 0 6px; overflow-x:auto; padding:10px; background:var(--card); border-radius:18px; border:1px solid var(--line); box-shadow:var(--shadow)}
+  .chips button{flex:1 0 auto; border:0; background:none; color:var(--muted); border-radius:12px; padding:9px 14px; font-size:.95rem; font-weight:700; cursor:pointer; font-family:inherit}
+  .chips button.on{background:var(--acc); color:#fff}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:13px 14px; margin-bottom:10px; box-shadow:var(--shadow)}
+  .card h3{margin:0 0 4px; font-size:1.08rem; display:flex; align-items:center; gap:10px}
+  .card h3 .tile{width:40px; height:40px; font-size:1.3rem; border-radius:11px}
+  .card h3 .onlist{margin-left:auto; font-size:.7rem; font-weight:800; color:var(--acc2); background:var(--acc-soft); padding:3px 8px; border-radius:7px}
+  .off{display:flex; gap:10px; align-items:center; padding:9px 0; border-top:1px dashed var(--line)}
   .off:first-of-type{border-top:0}
-  .mk{flex:0 0 auto; min-width:66px; text-align:center; font-size:.74rem; font-weight:800; color:#fff; padding:4px 6px; border-radius:7px}
+  .mk{flex:0 0 auto; min-width:70px; text-align:center; font-size:.74rem; font-weight:800; color:#fff; padding:5px 6px; border-radius:8px}
   .off-main{flex:1; min-width:0; font-size:.93rem}
+  .off-main .brand{font-weight:750}
   .off-main .when{color:var(--muted); font-size:.8rem}
-  .off-main .when.soon{color:var(--warn); font-weight:600}
-  .price{flex:0 0 auto; text-align:right; font-weight:800; font-size:1.08rem}
+  .off-main .when.soon{color:var(--warn); font-weight:650}
+  .price{flex:0 0 auto; text-align:right; font-weight:850; font-size:1.12rem}
   .price s{display:block; font-weight:400; font-size:.78rem; color:var(--muted)}
-  .best .price{color:var(--acc)}
-  .note{font-size:.8rem; color:var(--muted)}
-  .sec-title{font-size:.8rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:16px 2px 8px}
+  .pct{display:inline-block; font-size:.72rem; font-weight:800; color:#fff; background:var(--red); border-radius:6px; padding:1px 5px; margin-bottom:2px}
+  .best .price{color:var(--acc2)}
+  .note{font-size:.82rem; color:var(--muted)}
+  .sec-title{font-size:.8rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:16px 4px 8px}
 
-  /* Produkte */
+  /* Verlauf */
   .prod{display:flex; align-items:center; gap:12px; cursor:pointer}
-  .prod .em{font-size:1.6rem}
   .prod .pm{flex:1; min-width:0}
   .prod .pm b{display:block}
   .prod .pm span{font-size:.84rem; color:var(--muted)}
-  .prod .arr{color:var(--muted)}
-  .detail{margin-top:10px; padding-top:10px; border-top:1px solid var(--line); font-size:.92rem}
-  .detail table{width:100%; border-collapse:collapse; font-size:.86rem; margin-top:6px}
-  .detail td{padding:6px 2px; border-bottom:1px solid var(--line); vertical-align:top}
-  .detail td.r{text-align:right; white-space:nowrap; font-weight:700}
-  .facts{display:grid; gap:6px}
-  .fact{display:flex; gap:8px} .fact .k{color:var(--muted); min-width:118px}
+  .prod .pm span.hot{color:var(--acc2); font-weight:650}
+  .detail{margin-top:12px; padding-top:12px; border-top:1px solid var(--line); font-size:.92rem}
+  .detail table{width:100%; border-collapse:collapse; font-size:.86rem; margin-top:8px}
+  .detail td{padding:7px 2px; border-bottom:1px solid var(--line); vertical-align:top}
+  .detail td.r{text-align:right; white-space:nowrap; font-weight:750}
+  .facts{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+  .fact{background:var(--bg); border-radius:12px; padding:9px 10px}
+  .fact .k{display:block; color:var(--muted); font-size:.74rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em}
+  .fact .v{font-weight:650; font-size:.9rem}
 
-  /* Navigation unten */
-  nav{position:fixed; left:0; right:0; bottom:0; z-index:10; display:flex; background:var(--card); border-top:1px solid var(--line); padding-bottom:env(safe-area-inset-bottom)}
-  nav button{flex:1; background:none; border:0; padding:9px 0 10px; color:var(--muted); font-size:.75rem; font-weight:650; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:2px}
-  nav button .i{font-size:1.4rem; line-height:1.1}
-  nav button.on{color:var(--acc)}
+  /* Navigation */
+  nav{position:fixed; left:0; right:0; bottom:0; z-index:10; background:var(--card); border-top:1px solid var(--line); padding-bottom:env(safe-area-inset-bottom)}
+  nav .in{max-width:720px; margin:0 auto; display:flex}
+  nav button{flex:1; background:none; border:0; padding:9px 0 10px; color:var(--muted); font-size:.74rem; font-weight:700; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:2px; font-family:inherit}
+  nav button .i{font-size:1.35rem; line-height:1.15; padding:2px 16px; border-radius:999px}
+  nav button.on{color:var(--acc2)}
+  nav button.on .i{background:var(--acc-soft)}
   nav .badge{position:relative}
-  nav .badge[data-n]:after{content:attr(data-n); position:absolute; top:-4px; right:-14px; background:var(--red); color:#fff; font-size:.65rem; border-radius:999px; padding:1px 5px}
+  nav .badge[data-n]:after{content:attr(data-n); position:absolute; top:-3px; right:4px; background:var(--red); color:#fff; font-size:.64rem; border-radius:999px; padding:1px 5px; font-weight:800}
 
-  /* Scanner + Dialoge */
-  .sheet{position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:20; display:none; align-items:flex-end; justify-content:center}
+  /* Blätter (unten aufklappend) */
+  .sheet{position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:20; display:none; align-items:flex-end; justify-content:center}
   .sheet.on{display:flex}
-  .sheet .box{background:var(--card); width:100%; max-width:640px; border-radius:20px 20px 0 0; padding:16px 16px calc(18px + env(safe-area-inset-bottom))}
-  .sheet h2{margin:0 0 8px; font-size:1.15rem}
+  .sheet .box{background:var(--card); width:100%; max-width:640px; max-height:92vh; overflow-y:auto; border-radius:22px 22px 0 0; padding:8px 16px calc(18px + env(safe-area-inset-bottom)); animation:up .2s ease}
+  @keyframes up{from{transform:translateY(40px); opacity:.5} to{transform:none; opacity:1}}
+  .grab{width:42px; height:5px; border-radius:9px; background:var(--line); margin:4px auto 12px}
+  .sheet h2{margin:0 0 10px; font-size:1.15rem}
   #reader{width:100%; border-radius:14px; overflow:hidden; background:#000; min-height:200px}
   #scanMsg{color:var(--muted); font-size:.9rem; margin:8px 0}
-  .banner{background:var(--acc-soft); border:1px solid var(--acc); border-radius:14px; padding:12px 14px; margin-bottom:12px}
-  .toast{position:fixed; left:50%; bottom:calc(86px + env(safe-area-inset-bottom)); transform:translateX(-50%); background:#1c2a1f; color:#fff; padding:10px 16px; border-radius:12px; font-size:.92rem; z-index:30; opacity:0; transition:opacity .25s; pointer-events:none; max-width:90%}
+  .ed-top{display:flex; gap:12px; align-items:center; margin-bottom:12px}
+  .ed-top .tile{width:64px; height:64px; font-size:2rem; border-radius:16px}
+  .ed-top input{flex:1; min-width:0; font-size:1.15rem; font-weight:700; border:0; border-bottom:2px solid var(--line); background:none; color:var(--text); padding:8px 2px; outline:none; font-family:inherit}
+  .ed-top input:focus{border-color:var(--acc)}
+  .lbl{display:block; font-size:.76rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:14px 2px 6px}
+  .stepper{display:flex; align-items:center; gap:10px}
+  .stepper button{width:46px; height:46px; border-radius:13px; border:1.5px solid var(--line); background:var(--bg); color:var(--text); font-size:1.4rem; font-weight:700; cursor:pointer}
+  .stepper .num{min-width:44px; text-align:center; font-size:1.35rem; font-weight:800}
+  .units{display:flex; gap:6px; flex-wrap:wrap}
+  .units button,.kats button{border:1.5px solid var(--line); background:var(--bg); color:var(--text); border-radius:999px; padding:7px 12px; font-size:.88rem; font-weight:650; cursor:pointer; font-family:inherit}
+  .units button.on,.kats button.on{background:var(--acc); border-color:var(--acc); color:#fff}
+  .kats{display:flex; gap:6px; flex-wrap:wrap}
+  .field{width:100%; font-size:1rem; padding:11px 13px; border-radius:13px; border:1.5px solid var(--line); background:var(--bg); color:var(--text); outline:none; font-family:inherit}
+  .field:focus{border-color:var(--acc); background:var(--card)}
+  textarea.field{min-height:74px; resize:vertical}
+  .ed-deals{margin-top:6px; background:var(--bg); border-radius:14px; padding:4px 12px}
+  .ed-actions{display:flex; gap:8px; margin-top:18px}
+  .ed-actions .btn{flex:1}
+
+  .banner{background:var(--card); border:2px solid var(--acc); border-radius:18px; padding:12px 14px; margin-bottom:12px; box-shadow:var(--shadow)}
+  .toast{position:fixed; left:50%; bottom:calc(92px + env(safe-area-inset-bottom)); transform:translateX(-50%); background:#17241a; color:#fff; padding:10px 16px; border-radius:12px; font-size:.92rem; z-index:30; opacity:0; transition:opacity .25s; pointer-events:none; max-width:90%; text-align:center}
   .toast.on{opacity:1}
-  .mk-set{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px}
-  .mk-set label{display:flex; align-items:center; gap:8px; padding:10px; border:1.5px solid var(--line); border-radius:12px; font-weight:600}
-  .mk-set input{width:20px; height:20px; accent-color:var(--acc)}
-  a{color:var(--acc)}
+  .mk-set{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px}
+  .mk-set label{display:flex; align-items:center; gap:8px; padding:10px; border:1.5px solid var(--line); border-radius:12px; font-weight:650; cursor:pointer}
+  .mk-set .dot{width:12px; height:12px; border-radius:50%}
+  .mk-set input{width:20px; height:20px; accent-color:var(--acc); margin-left:auto}
+  a{color:var(--acc2)}
   footer{color:var(--muted); font-size:.75rem; text-align:center; margin-top:22px}
+  @media (min-width:700px){ .hero h1{font-size:1.8rem} }
 </style>
 </head>
 <body>
-<header>
-  <h1>🛒 Einkauf</h1>
-  <div class="sub" id="stand">Angebote werden geladen …</div>
-</header>
+<div class="hero">
+  <div class="wrap">
+    <h1><span class="logo">🛒</span>Einkauf</h1>
+    <div class="stand" id="stand">Angebote werden geladen …</div>
+    <div class="stats" id="stats"></div>
+  </div>
+</div>
 
-<main>
+<main class="wrap">
   <!-- LISTE -->
   <section class="view on" id="v-liste">
     <div id="importBanner"></div>
-    <div class="add">
-      <input id="newItem" placeholder="Was brauchst du?" autocomplete="off" enterkeyhint="done" maxlength="80">
-      <button class="btn icon ghost" id="btnScan" title="Barcode scannen" aria-label="Barcode scannen">📷</button>
-      <button class="btn icon" id="btnAdd" aria-label="Hinzufügen">＋</button>
+    <div class="addbox">
+      <div class="add">
+        <input id="newItem" placeholder="Was brauchst du?" autocomplete="off" enterkeyhint="done" maxlength="80">
+        <button class="btn icon ghost" id="btnScan" title="Barcode scannen" aria-label="Barcode scannen">📷</button>
+        <button class="btn icon" id="btnAdd" aria-label="Hinzufügen">＋</button>
+      </div>
+      <div class="sugg" id="sugg"></div>
     </div>
-    <div class="sugg" id="sugg"></div>
-    <ul class="list" id="list"></ul>
+    <div id="list"></div>
     <div class="row-actions" id="listActions"></div>
   </section>
 
   <!-- ANGEBOTE -->
   <section class="view" id="v-angebote">
     <div class="chips" id="offFilter">
-      <button data-f="liste" class="on">Meine Liste</button>
-      <button data-f="alle">Alle Produkte</button>
+      <button data-f="liste" class="on">🧺 Meine Liste</button>
+      <button data-f="alle">🏷️ Alle Angebote</button>
     </div>
     <div id="offers"></div>
   </section>
 
-  <!-- PRODUKTE / VERLAUF -->
+  <!-- VERLAUF -->
   <section class="view" id="v-produkte">
-    <p class="note" style="margin:2px 2px 12px">Nach diesen Produkten wird jede Woche gesucht. Tippe auf ein Produkt, um den Verlauf zu sehen.</p>
+    <div class="card note" style="font-size:.88rem">📈 Nach diesen Produkten wird jede Woche gesucht. Tippe auf ein Produkt: Dann siehst du, wann es zuletzt im Angebot war und wann es wieder kommt.</div>
     <div id="products"></div>
-    <div class="card note">Fehlt ein Produkt oder ein Markt? Sag Bescheid. Ab der nächsten Suche wird es mit beobachtet.</div>
+    <div class="card note">Fehlt ein Produkt oder ein Markt? Sag Bescheid. Ab der nächsten Suche wird es mitgesucht.</div>
   </section>
 
-  <!-- EINSTELLUNGEN -->
+  <!-- MEHR -->
   <section class="view" id="v-mehr">
     <div class="card">
       <h3>🏪 Meine Märkte</h3>
@@ -162,32 +222,39 @@
       <div class="mk-set" id="mkSet"></div>
     </div>
     <div class="card">
-      <h3>ℹ️ So funktioniert's</h3>
+      <h3>💡 So funktioniert's</h3>
       <div class="note" style="font-size:.9rem">
-        <p>• <b>Liste:</b> Einträge tippen oder Barcode scannen. Hat ein Produkt gerade ein Angebot, steht es grün darunter. Orange heißt: Angebot kommt bald.</p>
-        <p>• <b>Teilen:</b> „Liste schicken“ erzeugt einen Link. Wer ihn öffnet, kann die Liste mit einem Tipp übernehmen.</p>
-        <p>• <b>Angebote:</b> Jedes Wochenende werden die neuen Prospekte durchsucht. Preise können je Filiale leicht abweichen. Was genau gilt, steht im Prospekt.</p>
+        <p>• <b>Eintragen:</b> Tippe oder scanne einen Barcode. Tippst du auf einen Eintrag, kannst du Menge, Marke und eine Notiz ergänzen.</p>
+        <p>• <b>Angebote:</b> Grün heißt: jetzt im Angebot. Orange heißt: kommt bald. Preise können je Filiale leicht abweichen. Was genau gilt, steht im Prospekt.</p>
+        <p>• <b>Teilen:</b> „Liste schicken“ erzeugt einen Link. Wer ihn öffnet, übernimmt die Liste mit einem Tipp.</p>
         <p>• Deine Liste bleibt nur auf deinem Handy gespeichert.</p>
       </div>
     </div>
-    <footer>Bayazit Einkauf · Produktnamen beim Scannen: <a href="https://de.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a></footer>
+    <footer>Bayazit Einkauf · Produktdaten beim Scannen: <a href="https://de.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a></footer>
   </section>
 </main>
 
-<nav>
+<nav><div class="in">
   <button data-v="liste" class="on"><span class="i">📝</span>Liste</button>
   <button data-v="angebote"><span class="i badge" id="dealBadge">🏷️</span>Angebote</button>
   <button data-v="produkte"><span class="i">📈</span>Verlauf</button>
   <button data-v="mehr"><span class="i">⚙️</span>Mehr</button>
-</nav>
+</div></nav>
 
+<!-- Scanner -->
 <div class="sheet" id="scanSheet">
   <div class="box">
+    <div class="grab"></div>
     <h2>📷 Barcode scannen</h2>
     <div id="reader"></div>
     <div id="scanMsg"></div>
     <button class="btn ghost" id="btnScanClose" style="width:100%">Schließen</button>
   </div>
+</div>
+
+<!-- Eintrag bearbeiten -->
+<div class="sheet" id="editSheet">
+  <div class="box" id="editBox"></div>
 </div>
 
 <div class="toast" id="toast"></div>

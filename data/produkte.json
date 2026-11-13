@@ -1,23 +1,278 @@
 {
-  "hinweis": "Produkte, nach denen jede Woche gesucht wird. Neues Produkt unten anhängen. 'woerter' = Begriffe, an denen ein Eintrag auf der Einkaufsliste oder ein gescanntes Produkt erkannt wird (klein geschrieben).",
+  "hinweis": "Produkte, nach denen jede Woche gesucht wird. Neues Produkt unten anhängen (kategorie = id aus 'kategorien'). 'woerter' = Begriffe in Kleinbuchstaben, an denen Einträge der Liste erkannt werden.",
+  "kategorien": [
+    {
+      "id": "obstgemuese",
+      "name": "Obst & Gemüse",
+      "emoji": "🥦",
+      "farbe": "#dcfce7"
+    },
+    {
+      "id": "brot",
+      "name": "Brot & Backwaren",
+      "emoji": "🥖",
+      "farbe": "#fef3c7"
+    },
+    {
+      "id": "kuehl",
+      "name": "Kühlregal",
+      "emoji": "🧊",
+      "farbe": "#e0f2fe"
+    },
+    {
+      "id": "fleisch",
+      "name": "Fleisch & Wurst",
+      "emoji": "🥩",
+      "farbe": "#fee2e2"
+    },
+    {
+      "id": "vorrat",
+      "name": "Vorrat",
+      "emoji": "🥫",
+      "farbe": "#ffedd5"
+    },
+    {
+      "id": "getraenke",
+      "name": "Kaffee & Getränke",
+      "emoji": "☕",
+      "farbe": "#ede9fe"
+    },
+    {
+      "id": "tk",
+      "name": "Tiefkühl",
+      "emoji": "❄️",
+      "farbe": "#e0e7ff"
+    },
+    {
+      "id": "suess",
+      "name": "Süßes & Snacks",
+      "emoji": "🍫",
+      "farbe": "#fce7f3"
+    },
+    {
+      "id": "drogerie",
+      "name": "Drogerie & Haushalt",
+      "emoji": "🧴",
+      "farbe": "#f1f5f9"
+    },
+    {
+      "id": "sonst",
+      "name": "Sonstiges",
+      "emoji": "🛍️",
+      "farbe": "#f3f4f6"
+    }
+  ],
   "produkte": [
-    { "id": "milch",      "name": "Milch",            "emoji": "🥛", "woerter": ["milch", "vollmilch", "weidemilch", "h-milch"] },
-    { "id": "butter",     "name": "Butter",           "emoji": "🧈", "woerter": ["butter", "markenbutter", "süßrahmbutter", "weidebutter"] },
-    { "id": "eier",       "name": "Eier",             "emoji": "🥚", "woerter": ["eier", "ei "] },
-    { "id": "kaese",      "name": "Käse",             "emoji": "🧀", "woerter": ["käse", "gouda", "emmentaler", "reibekäse", "scheiben"] },
-    { "id": "joghurt",    "name": "Joghurt",          "emoji": "🥣", "woerter": ["joghurt", "jogurt", "quark"] },
-    { "id": "kaffee",     "name": "Kaffee",           "emoji": "☕", "woerter": ["kaffee", "espresso", "crema", "kaffeebohnen", "kaffeepads"] },
-    { "id": "mehl",       "name": "Mehl",             "emoji": "🌾", "woerter": ["mehl", "weizenmehl"] },
-    { "id": "zucker",     "name": "Zucker",           "emoji": "🍬", "woerter": ["zucker"] },
-    { "id": "nudeln",     "name": "Nudeln",           "emoji": "🍝", "woerter": ["nudeln", "spaghetti", "penne", "fusilli", "pasta"] },
-    { "id": "reis",       "name": "Reis",             "emoji": "🍚", "woerter": ["reis", "basmati"] },
-    { "id": "oel",        "name": "Speiseöl",         "emoji": "🫒", "woerter": ["öl", "sonnenblumenöl", "rapsöl", "olivenöl"] },
-    { "id": "brot",       "name": "Brot & Toast",     "emoji": "🍞", "woerter": ["brot", "toast", "brötchen", "semmeln"] },
-    { "id": "hack",       "name": "Hackfleisch",      "emoji": "🥩", "woerter": ["hackfleisch", "hack", "gehacktes"] },
-    { "id": "haehnchen",  "name": "Hähnchen",         "emoji": "🍗", "woerter": ["hähnchen", "hühnchen", "hähnchenbrust", "chicken"] },
-    { "id": "kartoffeln", "name": "Kartoffeln",       "emoji": "🥔", "woerter": ["kartoffeln", "kartoffel"] },
-    { "id": "obst",       "name": "Obst",             "emoji": "🍎", "woerter": ["äpfel", "apfel", "bananen", "banane", "clementinen", "mandarinen", "orangen", "trauben"] },
-    { "id": "klopapier",  "name": "Toilettenpapier",  "emoji": "🧻", "woerter": ["toilettenpapier", "klopapier"] },
-    { "id": "waschmittel","name": "Waschmittel",      "emoji": "🧺", "woerter": ["waschmittel", "persil", "ariel", "waschpulver"] }
+    {
+      "id": "milch",
+      "name": "Milch",
+      "emoji": "🥛",
+      "woerter": [
+        "milch",
+        "vollmilch",
+        "weidemilch",
+        "h-milch"
+      ],
+      "kategorie": "kuehl"
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "emoji": "🧈",
+      "woerter": [
+        "butter",
+        "markenbutter",
+        "süßrahmbutter",
+        "weidebutter"
+      ],
+      "kategorie": "kuehl"
+    },
+    {
+      "id": "eier",
+      "name": "Eier",
+      "emoji": "🥚",
+      "woerter": [
+        "eier",
+        "ei "
+      ],
+      "kategorie": "kuehl"
+    },
+    {
+      "id": "kaese",
+      "name": "Käse",
+      "emoji": "🧀",
+      "woerter": [
+        "käse",
+        "gouda",
+        "emmentaler",
+        "reibekäse",
+        "scheiben"
+      ],
+      "kategorie": "kuehl"
+    },
+    {
+      "id": "joghurt",
+      "name": "Joghurt",
+      "emoji": "🥣",
+      "woerter": [
+        "joghurt",
+        "jogurt",
+        "quark"
+      ],
+      "kategorie": "kuehl"
+    },
+    {
+      "id": "kaffee",
+      "name": "Kaffee",
+      "emoji": "☕",
+      "woerter": [
+        "kaffee",
+        "espresso",
+        "crema",
+        "kaffeebohnen",
+        "kaffeepads"
+      ],
+      "kategorie": "getraenke"
+    },
+    {
+      "id": "mehl",
+      "name": "Mehl",
+      "emoji": "🌾",
+      "woerter": [
+        "mehl",
+        "weizenmehl"
+      ],
+      "kategorie": "vorrat"
+    },
+    {
+      "id": "zucker",
+      "name": "Zucker",
+      "emoji": "🍬",
+      "woerter": [
+        "zucker"
+      ],
+      "kategorie": "vorrat"
+    },
+    {
+      "id": "nudeln",
+      "name": "Nudeln",
+      "emoji": "🍝",
+      "woerter": [
+        "nudeln",
+        "spaghetti",
+        "penne",
+        "fusilli",
+        "pasta"
+      ],
+      "kategorie": "vorrat"
+    },
+    {
+      "id": "reis",
+      "name": "Reis",
+      "emoji": "🍚",
+      "woerter": [
+        "reis",
+        "basmati"
+      ],
+      "kategorie": "vorrat"
+    },
+    {
+      "id": "oel",
+      "name": "Speiseöl",
+      "emoji": "🫒",
+      "woerter": [
+        "speiseöl",
+        "öl",
+        "sonnenblumenöl",
+        "rapsöl",
+        "olivenöl"
+      ],
+      "kategorie": "vorrat"
+    },
+    {
+      "id": "brot",
+      "name": "Brot & Toast",
+      "emoji": "🍞",
+      "woerter": [
+        "brot",
+        "brot",
+        "toast",
+        "brötchen",
+        "semmeln"
+      ],
+      "kategorie": "brot"
+    },
+    {
+      "id": "hack",
+      "name": "Hackfleisch",
+      "emoji": "🥩",
+      "woerter": [
+        "hackfleisch",
+        "hack",
+        "gehacktes"
+      ],
+      "kategorie": "fleisch"
+    },
+    {
+      "id": "haehnchen",
+      "name": "Hähnchen",
+      "emoji": "🍗",
+      "woerter": [
+        "hähnchen",
+        "hühnchen",
+        "hähnchenbrust",
+        "chicken"
+      ],
+      "kategorie": "fleisch"
+    },
+    {
+      "id": "kartoffeln",
+      "name": "Kartoffeln",
+      "emoji": "🥔",
+      "woerter": [
+        "kartoffeln",
+        "kartoffel"
+      ],
+      "kategorie": "obstgemuese"
+    },
+    {
+      "id": "obst",
+      "name": "Obst",
+      "emoji": "🍎",
+      "woerter": [
+        "obst",
+        "äpfel",
+        "apfel",
+        "bananen",
+        "banane",
+        "clementinen",
+        "mandarinen",
+        "orangen",
+        "trauben"
+      ],
+      "kategorie": "obstgemuese"
+    },
+    {
+      "id": "klopapier",
+      "name": "Toilettenpapier",
+      "emoji": "🧻",
+      "woerter": [
+        "toilettenpapier",
+        "klopapier"
+      ],
+      "kategorie": "drogerie"
+    },
+    {
+      "id": "waschmittel",
+      "name": "Waschmittel",
+      "emoji": "🧺",
+      "woerter": [
+        "waschmittel",
+        "persil",
+        "ariel",
+        "waschpulver"
+      ],
+      "kategorie": "drogerie"
+    }
   ]
 }
