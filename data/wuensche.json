@@ -1,5 +1,5 @@
 {
-  "letzte_id": "sct4GhADV6iv",
+  "letzte_id": "b21x7DAfonR1",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -273,6 +273,30 @@
       "text": "Hot Dog Rolls",
       "marke": "American Style",
       "code": "4316268611640",
+      "status": "offen"
+    },
+    {
+      "id": "seTxTBY3WeuE",
+      "zeit": "2026-11-13T20:11:26+00:00",
+      "text": "Knusper-Dinos",
+      "marke": "Karli Kugelblitz",
+      "code": "4316268663052",
+      "status": "offen"
+    },
+    {
+      "id": "c67TVnVMsWy2",
+      "zeit": "2026-11-13T20:11:26+00:00",
+      "text": "Apfel-Zimt-Müsli",
+      "marke": "Seitenbacher",
+      "code": "4008391008731",
+      "status": "offen"
+    },
+    {
+      "id": "b21x7DAfonR1",
+      "zeit": "2026-11-13T20:11:26+00:00",
+      "text": "Mini Hänchenschnitzel",
+      "marke": "Chef Select",
+      "code": "4335619377059",
       "status": "offen"
     }
   ]
