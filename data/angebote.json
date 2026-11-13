@@ -261,6 +261,29 @@
       "bis": "2026-11-14",
       "hinweis": "mit EDEKA-App 9,99 € · zzgl. Pfand · Preise können je Region abweichen",
       "quelle": "https://www.aktionspreis.de/angebote/paulaner-spezi-kasten-20-x-0-5l"
+    },
+    {
+      "produkt": "mozzarella",
+      "markt": "netto",
+      "marke": "BioBio",
+      "artikel": "Bio-Mozzarella",
+      "preis": 1.29,
+      "grundpreis": "10,32 €/kg",
+      "von": "2026-11-09",
+      "bis": "2026-11-14",
+      "hinweis": "Italienische Woche",
+      "quelle": "https://www.kaufda.de/insights/netto-prospekt-09-11-2026-italienische-woche-entdecken/"
+    },
+    {
+      "produkt": "cornyfreeschoko",
+      "markt": "norma",
+      "marke": "Corny",
+      "artikel": "Riegel (Sorte nicht angegeben)",
+      "preis": 1.79,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "hinweis": "nur in der Filiale",
+      "quelle": "https://www.discounto.de/Aktuelle-Angebote/Corny/"
     }
   ]
 }

@@ -130,9 +130,15 @@
         "espresso",
         "crema",
         "kaffeebohnen",
-        "kaffeepads"
+        "kaffeepads",
+        "кава зернова qualita oro",
+        "lavazza",
+        "qualita oro"
       ],
-      "kategorie": "getraenke"
+      "kategorie": "getraenke",
+      "codes": [
+        "8000070020559"
+      ]
     },
     {
       "id": "mehl",
@@ -286,6 +292,35 @@
         "colamix"
       ],
       "kategorie": "getraenke"
+    },
+    {
+      "id": "mozzarella",
+      "name": "Mozzarella",
+      "emoji": "🧀",
+      "kategorie": "kuehl",
+      "woerter": [
+        "mozzarella",
+        "mondo italiano",
+        "büffelmozzarella"
+      ],
+      "codes": [
+        "4316268550420"
+      ]
+    },
+    {
+      "id": "cornyfreeschoko",
+      "name": "Corny Free Schoko",
+      "emoji": "🍫",
+      "kategorie": "suess",
+      "woerter": [
+        "free schoko",
+        "corny free",
+        "corny",
+        "müsliriegel"
+      ],
+      "codes": [
+        "4011800571214"
+      ]
     }
   ]
 }
