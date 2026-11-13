@@ -284,6 +284,33 @@
       "bis": "2026-11-21",
       "hinweis": "nur in der Filiale",
       "quelle": "https://www.discounto.de/Aktuelle-Angebote/Corny/"
+    },
+    {
+      "produkt": "nudeln",
+      "markt": "lidl",
+      "marke": "Barilla",
+      "artikel": "Pasta, versch. Sorten",
+      "menge": "1 kg",
+      "preis": 1.89,
+      "grundpreis": "1,89 €/kg",
+      "von": "2026-11-08",
+      "bis": "2026-11-14",
+      "quelle": "https://www.marktguru.de/b/barilla",
+      "link": "https://www.marktguru.de/b/barilla"
+    },
+    {
+      "produkt": "nudeln",
+      "markt": "penny",
+      "marke": "Barilla",
+      "artikel": "Pasta, versch. Sorten",
+      "menge": "500 g",
+      "preis": 0.89,
+      "grundpreis": "1,78 €/kg",
+      "von": "2026-11-08",
+      "bis": "2026-11-14",
+      "hinweis": "mit PENNY App 0,79 €",
+      "quelle": "https://www.marktguru.de/b/barilla",
+      "link": "https://www.marktguru.de/b/barilla"
     }
   ]
 }

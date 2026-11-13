@@ -168,9 +168,17 @@
         "spaghetti",
         "penne",
         "fusilli",
-        "pasta"
+        "pasta",
+        "nudeln fusilli",
+        "barilla",
+        "rigatoni n.89",
+        "rigatoni"
       ],
-      "kategorie": "vorrat"
+      "kategorie": "vorrat",
+      "codes": [
+        "8076802085981",
+        "8076802085899"
+      ]
     },
     {
       "id": "reis",
@@ -320,6 +328,110 @@
       ],
       "codes": [
         "4011800571214"
+      ]
+    },
+    {
+      "id": "suesssenf",
+      "name": "Händlmaier Süßer Senf",
+      "emoji": "🌭",
+      "kategorie": "vorrat",
+      "woerter": [
+        "süßer hausmachersenf",
+        "süßer senf",
+        "händlmaier",
+        "weißwurstsenf"
+      ],
+      "codes": [
+        "4104720001425"
+      ]
+    },
+    {
+      "id": "senf",
+      "name": "Senf",
+      "emoji": "🌭",
+      "kategorie": "vorrat",
+      "woerter": [
+        "senf mittelscharfer delikatess senf frisch vermahlen",
+        "senf",
+        "thomy senf",
+        "delikatess senf"
+      ],
+      "codes": [
+        "40056050"
+      ]
+    },
+    {
+      "id": "tomatenmark",
+      "name": "Tomatenmark",
+      "emoji": "🍅",
+      "kategorie": "vorrat",
+      "woerter": [
+        "tomatenmark",
+        "k-classic tomatenmark"
+      ],
+      "codes": [
+        "4063367633027"
+      ]
+    },
+    {
+      "id": "essigessenz",
+      "name": "Essigessenz",
+      "emoji": "🧪",
+      "kategorie": "drogerie",
+      "woerter": [
+        "essigessenz",
+        "essig-essenz",
+        "surig"
+      ],
+      "codes": [
+        "4003387001314"
+      ]
+    },
+    {
+      "id": "ketchup",
+      "name": "Ketchup",
+      "emoji": "🍅",
+      "kategorie": "vorrat",
+      "woerter": [
+        "ketchup",
+        "tomatenketchup",
+        "rich ketchup",
+        "tomaten ketchup",
+        "heinz ketchup",
+        "heinz"
+      ],
+      "codes": [
+        "4316268680509",
+        "87157277"
+      ]
+    },
+    {
+      "id": "isolight",
+      "name": "Iso Light (Stardrink)",
+      "emoji": "🥤",
+      "kategorie": "getraenke",
+      "woerter": [
+        "iso light",
+        "iso drink",
+        "isotonisch",
+        "stardrink iso"
+      ],
+      "codes": [
+        "42489924"
+      ]
+    },
+    {
+      "id": "apfelschorle",
+      "name": "Apfelschorle",
+      "emoji": "🍏",
+      "kategorie": "getraenke",
+      "woerter": [
+        "apfelschorle",
+        "apfelsaftschorle",
+        "apfel schorle"
+      ],
+      "codes": [
+        "42151760"
       ]
     }
   ]

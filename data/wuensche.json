@@ -45,7 +45,9 @@
       "text": "Süßer Hausmachersenf",
       "marke": "Händlmaier",
       "code": "4104720001425",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "suesssenf",
+      "angebote": 0
     },
     {
       "id": "jBPLasE033FR",
@@ -53,7 +55,9 @@
       "text": "Senf Mittelscharfer Delikatess Senf frisch vermahlen",
       "marke": "Thomy",
       "code": "40056050",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "senf",
+      "angebote": 0
     },
     {
       "id": "bZ8JTXxIEIpj",
@@ -61,7 +65,9 @@
       "text": "Tomatenmark",
       "marke": "K-Classic",
       "code": "4063367633027",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "tomatenmark",
+      "angebote": 0
     },
     {
       "id": "Vq9L9H8NOh2j",
@@ -69,7 +75,9 @@
       "text": "Essigessenz",
       "marke": "ALDI SURIG",
       "code": "4003387001314",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "essigessenz",
+      "angebote": 0
     },
     {
       "id": "5JxDVc8gNfJr",
@@ -77,7 +85,9 @@
       "text": "ketchup",
       "marke": "rich",
       "code": "4316268680509",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "ketchup",
+      "angebote": 0
     },
     {
       "id": "Z4jeAj6ZhmBL",
@@ -85,7 +95,9 @@
       "text": "Tomaten Ketchup",
       "marke": "Heinz",
       "code": "87157277",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "ketchup",
+      "angebote": 0
     },
     {
       "id": "7zXQE51El6d1",
@@ -93,7 +105,9 @@
       "text": "Nudeln Fusilli",
       "marke": "Barilla",
       "code": "8076802085981",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "nudeln",
+      "angebote": 2
     },
     {
       "id": "1pxqnPre5sJD",
@@ -101,7 +115,9 @@
       "text": "Rigatoni n.89",
       "marke": "Barilla",
       "code": "8076802085899",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "nudeln",
+      "angebote": 2
     },
     {
       "id": "QqytllZOvqRD",
@@ -109,7 +125,9 @@
       "text": "Iso Light",
       "marke": "Netto",
       "code": "42489924",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "isolight",
+      "angebote": 0
     },
     {
       "id": "imAety5s09xw",
@@ -117,7 +135,9 @@
       "text": "Apfelschorle",
       "marke": "Stardrink",
       "code": "42151760",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "apfelschorle",
+      "angebote": 0
     },
     {
       "id": "iV2WGaqLW0Ek",
