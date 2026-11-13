@@ -59,9 +59,9 @@ async function init(){
 }
 // Gescannte Einträge ohne Foto (z. B. aus der ersten Version) nachträglich ergänzen
 async function nachladen(){
-  const offen = liste.filter(i => i.code && !i.bild && !i.geprueft).slice(0, 10);
+  const offen = liste.filter(i => i.code && ((!i.bild && !i.geprueft) || !i.katV2)).slice(0, 15);
   for(const it of offen){
-    it.geprueft = true;
+    it.geprueft = true; it.katV2 = true;
     const info = await offLaden(it.code);
     if(!info) continue;
     const marke = String(info.brands || "").split(",")[0].trim().slice(0, 60);
@@ -71,10 +71,9 @@ async function nachladen(){
     }
     const inhalt = String(info.quantity || "").trim();
     if(inhalt && !it.inhalt){ it.inhalt = inhalt.slice(0, 30); if(it.text.toLowerCase().includes(inhalt.toLowerCase())) it.text = it.text.replace(inhalt, "").trim() || it.text; }
-    it.bild = safeImg(info.image_front_small_url) || "";
-    if(!it.kat){ const k = katAusOFF(info.categories_tags); if(k) it.kat = k; }
-    if(it.kat && it.produkt && produkt(it.produkt) && produkt(it.produkt).kategorie !== it.kat) it.produkt = null;
-  }
+    if(!it.bild) it.bild = safeImg(info.image_front_small_url) || "";
+    if(!it.katManuell){ const k = katAusOFF(info.categories_tags); if(k) it.kat = k; }
+    }
   if(offen.length){ save("liste", liste); renderAll(); }
 }
 async function offLaden(code){
@@ -100,7 +99,7 @@ const kat = id => KATS.find(k => k.id === id) || KATS.find(k => k.id === "sonst"
 const safeColor = c => /^#[0-9a-fA-F]{3,8}$/.test(c || "") ? c : "#64748b";
 const safeUrl = u => /^https:\/\//.test(u || "") ? u : null;
 const safeImg = u => (typeof u === "string" && /^https:\/\/(images|static)\.openfoodfacts\.org\//.test(u)) ? u : null;
-const itemKat = i => i.kat || (i.produkt && produkt(i.produkt) && produkt(i.produkt).kategorie) || "sonst";
+const itemKat = i => (i.katManuell && i.kat) || (i.produkt && produkt(i.produkt) && produkt(i.produkt).kategorie) || i.kat || "sonst";
 
 function tile(i){
   const k = kat(itemKat(i)); const p = i.produkt ? produkt(i.produkt) : null;
@@ -155,7 +154,6 @@ function addItem(text, extra = {}){
   if(dup){ dup.menge = (Number(dup.menge) || 1) + 1; save("liste", liste); renderAll(); toast(`${text}: jetzt ${mengeText(dup) || "2×"}`); return dup; }
   const it = {id: uid(), text, done:false, menge:1, einheit:"", marke:"", notiz:"", produkt: erkenne(text + " " + (extra.marke || "") + " " + (extra.suche || ""), extra.code), ...extra};
   delete it.suche;
-  if(it.kat && it.produkt && produkt(it.produkt) && produkt(it.produkt).kategorie !== it.kat) it.produkt = null;
   liste.unshift(it);
   save("liste", liste); renderAll();
   if(!it.produkt) wunschSenden(it);
@@ -319,7 +317,7 @@ $("#editBox").addEventListener("click", e => {
     if(it.einheit !== "g" && it.menge >= 50) it.menge = 1;
     keepInputs(it); renderEdit(); save("liste", liste);
   } else if(k){
-    it.kat = k.dataset.k; keepInputs(it); renderEdit(); save("liste", liste);
+    it.kat = k.dataset.k; it.katManuell = true; keepInputs(it); renderEdit(); save("liste", liste);
   } else if(e.target.id === "edOk"){ closeEdit(); }
   else if(e.target.id === "edWunsch"){ keepInputs(it); wunschSenden(it, true); }
   else if(e.target.id === "edDel"){ liste = liste.filter(i => i !== it); save("liste", liste); editId = null; $("#editSheet").classList.remove("on"); renderAll(); toast("Gelöscht"); }
@@ -382,6 +380,12 @@ function mkBadge(m){
   return u ? `<a class="mk" href="${esc(u)}" target="_blank" rel="noopener" style="background:${safeColor(m.farbe)}" title="Prospekt von ${esc(m.name)} öffnen">${esc(m.name)}<small>Prospekt ↗</small></a>`
            : `<span class="mk" style="background:${safeColor(m.farbe)}">${esc(m.name)}</span>`;
 }
+function prospektLink(o, m){
+  const u = safeUrl(o.link) || safeUrl(m.prospekt);
+  if(!u && !o.seite) return "";
+  const txt = o.seite ? `📄 Im Prospekt Seite ${esc(String(o.seite).slice(0, 10))}` : "📄 Zum Prospekt";
+  return u ? `<a class="plink" href="${esc(u)}" target="_blank" rel="noopener">${txt} ↗</a>` : `<span class="plink">${txt}</span>`;
+}
 function renderProspekte(){
   $("#prospekte").innerHTML = MAERKTE.filter(m => meineMaerkte.includes(m.id) && safeUrl(m.prospekt))
     .map(m => `<a href="${esc(m.prospekt)}" target="_blank" rel="noopener"><span class="dot" style="background:${safeColor(m.farbe)}"></span>${esc(m.name)} ↗</a>`).join("");
@@ -392,6 +396,7 @@ function offRow(o, best){
   return `<div class="off ${best ? "best" : ""}">
     ${mkBadge(m)}
     <div class="off-main">${o.marke ? `<span class="brand">${esc(o.marke)}</span> ` : ""}${esc(o.artikel)}${o.menge ? ` <span class="note">· ${esc(o.menge)}</span>` : ""}
+      ${prospektLink(o, m)}
       <div class="when ${w.soon ? "soon" : ""}">${esc(w.txt)}${o.grundpreis ? " · " + esc(o.grundpreis) : ""}${o.hinweis ? " · " + esc(o.hinweis) : ""}${q ? ` · <a href="${esc(q)}" target="_blank" rel="noopener">Quelle</a>` : ""}</div></div>
     <div class="price">${pct >= 5 ? `<span class="pct">−${pct} %</span><br>` : ""}${esc(euro(o.preis))}${o.statt ? `<s>${esc(euro(o.statt))}</s>` : ""}</div></div>`;
 }
@@ -509,11 +514,18 @@ async function stopScan(){
   scanning = false; $("#scanSheet").classList.remove("on");
 }
 function katAusOFF(tags){
-  const t = (tags || []).join(" ");
-  const regeln = [["obstgemuese", /fruits|vegetables|potatoes|salads/], ["fleisch", /meats|sausages|hams|poultry|chicken/], ["brot", /breads|pastries|viennoiseries/],
-    ["tk", /frozen/], ["kuehl", /dairies|cheeses|yogurts|milks|butters|eggs|creams|desserts/], ["getraenke", /beverages|coffees|teas|waters|juices/],
-    ["suess", /snacks|sweets|chocolates|biscuits|candies|confectioneries/], ["vorrat", /pastas|rices|flours|sugars|oils|cereals|canned|sauces|condiments|spreads/]];
-  for(const [k, re] of regeln) if(re.test(t)) return k;
+  // Oberbegriffe wie „plant-based-foods-and-beverages“ führen in die Irre und werden ignoriert
+  const weg = /^(en:)?(plant-based-foods-and-beverages|plant-based-foods|foods-and-beverages|beverages-and-beverages-preparations|groceries|meals)$/;
+  const t = " " + (tags || []).map(x => String(x).toLowerCase()).filter(x => !weg.test(x)).join(" ") + " ";
+  const hat = re => re.test(t);
+  if(hat(/frozen/)) return "tk";
+  if(hat(/(^| )(en:)?(beverages|sodas|waters|juices|fruit-juices|coffees|teas|beers|wines|energy-drinks|soft-drinks|carbonated-drinks|plant-based-milk|milk-substitutes)( |$)/) || hat(/coffee|-drinks /)) return "getraenke";
+  if(hat(/meats|sausages|hams|poultr|chicken|beef|pork|fishes|seafood/)) return "fleisch";
+  if(hat(/dairies|cheeses|yogurts|milks|butters|creams|eggs|quarks|desserts/)) return "kuehl";
+  if(hat(/breads|pastries|viennoiseries|toasts|rolls/)) return "brot";
+  if(hat(/chocolates|sweet-snacks|biscuits|cakes|candies|confectioner|cocoa|hazelnut-spreads|salty-snacks|chips|crisps|snacks|cereal-bars/)) return "suess";
+  if(hat(/pastas|rices|flours|sugars|oils|cereals|canned|sauces|condiments|spreads|legumes|spices|soups|vinegars|honeys|jams/)) return "vorrat";
+  if(hat(/fresh-fruits|fresh-vegetables|fruits|vegetables|potatoes|salads/)) return "obstgemuese";
   return null;
 }
 async function onCode(code){
@@ -533,7 +545,7 @@ async function onCode(code){
     name = name.replace(/\s+\d+([.,]\d+)?\s*(x\s*\d+([.,]\d+)?\s*)?(g|kg|ml|l|cl|stück|stk)\b.*$/i, "").trim() || name;
     if(!name) name = marke || "Produkt " + code;
     const k = katAusOFF(info.categories_tags);
-    const extra = {code, marke, inhalt: String(info.quantity || "").trim().slice(0, 30), bild: safeImg(info.image_front_small_url) || "", suche: (info.categories_tags || []).join(" ").replace(/en:|de:|-/g, " ")};
+    const extra = {code, katV2: true, marke, inhalt: String(info.quantity || "").trim().slice(0, 30), bild: safeImg(info.image_front_small_url) || "", suche: (info.categories_tags || []).join(" ").replace(/en:|de:|-/g, " ")};
     if(k) extra.kat = k;
     const it = addItem(name, extra);
     toast("✓ " + (marke ? marke + " " : "") + name.slice(0, 40));

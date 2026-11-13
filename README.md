@@ -30,7 +30,7 @@ Neuen Markt unten anhängen.
 }
 ```
 - Pflicht: `produkt` (id aus produkte.json), `markt` (id aus maerkte.json), `artikel`, `preis` (Zahl), `von`, `bis` (JJJJ-MM-TT).
-- Optional: `marke` (Markenname, z. B. "Weihenstephan"; dann steht er nicht mehr in `artikel`), `menge`, `statt` (Zahl), `grundpreis` (Text), `hinweis` (Text), `quelle` (nur https).
+- Optional: `seite` (Seitenzahl im Prospekt, z. B. 19), `link` (direkter https-Link zur Prospektseite oder zum Angebot, z. B. aus dem Blätterkatalog oder kaufda), `marke` (Markenname, z. B. "Weihenstephan"; dann steht er nicht mehr in `artikel`), `menge`, `statt` (Zahl), `grundpreis` (Text), `hinweis` (Text), `quelle` (nur https).
 - Alte Angebote **nicht löschen** (Verlauf). Nur Einträge älter als 2 Jahre entfernen. Keine doppelten Einträge (gleiches produkt + markt + artikel + von).
 
 ### data/wuensche.json (Produktwünsche aus der App)
