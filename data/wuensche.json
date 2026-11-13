@@ -1,5 +1,5 @@
 {
-  "letzte_id": "b21x7DAfonR1",
+  "letzte_id": "3Gk5BAjAOmFK",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -297,6 +297,86 @@
       "text": "Mini Hänchenschnitzel",
       "marke": "Chef Select",
       "code": "4335619377059",
+      "status": "offen"
+    },
+    {
+      "id": "oDShYsAJy7QC",
+      "zeit": "2026-11-13T20:42:13+00:00",
+      "text": "Lion Kellogs",
+      "marke": "Nestlé",
+      "code": "3387390321067",
+      "status": "offen"
+    },
+    {
+      "id": "lnyM5vXjARLg",
+      "zeit": "2026-11-13T20:42:52+00:00",
+      "text": "Schoko Hafer Müsli",
+      "marke": "kölln",
+      "code": "4000540081886",
+      "status": "offen"
+    },
+    {
+      "id": "YpH9yzM5lrpG",
+      "zeit": "2026-11-13T20:43:02+00:00",
+      "text": "Waffel-Hörnchen - Schoko-Vanille",
+      "marke": "Aldi",
+      "code": "4061458029988",
+      "status": "offen"
+    },
+    {
+      "id": "a3tDZmQo5SoB",
+      "zeit": "2026-11-13T20:43:17+00:00",
+      "text": "Eier aus Freilandhaltung",
+      "marke": "Vom Land",
+      "code": "4316268651530",
+      "status": "offen"
+    },
+    {
+      "id": "Ox1tV1AYiVz8",
+      "zeit": "2026-11-13T20:44:11+00:00",
+      "text": "Brennnesseltee-Mischung mit Zitronengeschmack",
+      "marke": "Captains Tea",
+      "code": "4316268217026",
+      "status": "offen"
+    },
+    {
+      "id": "u5GbaZGo9X9Z",
+      "zeit": "2026-11-13T20:44:19+00:00",
+      "text": "Klassik Schwarzer Tee",
+      "marke": "Meßmer",
+      "code": "4001257218503",
+      "status": "offen"
+    },
+    {
+      "id": "8RUQ1VnR6rlB",
+      "zeit": "2026-11-13T20:44:25+00:00",
+      "text": "Brennessel-Mischung Teebeutel",
+      "marke": "Meßmer",
+      "code": "4001257159004",
+      "status": "offen"
+    },
+    {
+      "id": "dGV9LqJEY4b5",
+      "zeit": "2026-11-13T20:44:35+00:00",
+      "text": "Tee 9-Kräuter Tee, Kräutertee",
+      "marke": "Captains Tea",
+      "code": "4316268620628",
+      "status": "offen"
+    },
+    {
+      "id": "zVBKWxXYGd6q",
+      "zeit": "2026-11-13T20:44:50+00:00",
+      "text": "Mais Waffeln mit Meersalz Bio",
+      "marke": "Sondey",
+      "code": "20884697",
+      "status": "offen"
+    },
+    {
+      "id": "3Gk5BAjAOmFK",
+      "zeit": "2026-11-13T20:45:33+00:00",
+      "text": "Essig-Essenz, 24,9 % Säure",
+      "marke": "WürzGut",
+      "code": "4017881005006",
       "status": "offen"
     }
   ]
