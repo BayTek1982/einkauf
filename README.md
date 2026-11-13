@@ -9,7 +9,8 @@ Einkaufsliste mit Angeboten für Familie und Freunde – https://einkauf.kompass
 ## Datenformat
 
 ### data/maerkte.json
-`{ "maerkte": [ { "id": "aldi", "name": "ALDI SÜD", "farbe": "#1c4fa1" } ] }`
+`{ "maerkte": [ { "id": "aldi", "name": "ALDI SÜD", "farbe": "#1c4fa1", "prospekt": "https://www.aldi-sued.de/angebote" } ] }`
+`prospekt` = Link zur Angebots-/Prospektseite des Markts.
 Neuen Markt unten anhängen.
 
 ### data/produkte.json

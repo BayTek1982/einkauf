@@ -97,6 +97,12 @@
   .off{display:flex; gap:10px; align-items:center; padding:9px 0; border-top:1px dashed var(--line)}
   .off:first-of-type{border-top:0}
   .mk{flex:0 0 auto; min-width:70px; text-align:center; font-size:.74rem; font-weight:800; color:#fff; padding:5px 6px; border-radius:8px}
+  a.mk{text-decoration:none; display:flex; flex-direction:column; align-items:center; line-height:1.15}
+  .mk small{font-size:.6rem; font-weight:700; opacity:.85; margin-top:1px}
+  .prosp{display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; margin-bottom:4px; scrollbar-width:none}
+  .prosp::-webkit-scrollbar{display:none}
+  .prosp a{flex:0 0 auto; display:flex; align-items:center; gap:6px; text-decoration:none; color:var(--text); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:8px 13px; font-size:.9rem; font-weight:700; box-shadow:var(--shadow)}
+  .prosp .dot{width:10px; height:10px; border-radius:50%}
   .off-main{flex:1; min-width:0; font-size:.93rem}
   .off-main .brand{font-weight:750}
   .off-main .when{color:var(--muted); font-size:.8rem}
@@ -204,6 +210,8 @@
       <button data-f="liste" class="on">🧺 Meine Liste</button>
       <button data-f="alle">🏷️ Alle Angebote</button>
     </div>
+    <div class="sec-title">📰 Prospekte direkt öffnen</div>
+    <div class="prosp" id="prospekte"></div>
     <div id="offers"></div>
   </section>
 
@@ -258,6 +266,6 @@
 </div>
 
 <div class="toast" id="toast"></div>
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

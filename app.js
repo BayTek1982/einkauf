@@ -341,11 +341,20 @@ function checkImport(){
 }
 
 /* ---------- Angebote ---------- */
+function mkBadge(m){
+  const u = safeUrl(m.prospekt);
+  return u ? `<a class="mk" href="${esc(u)}" target="_blank" rel="noopener" style="background:${safeColor(m.farbe)}" title="Prospekt von ${esc(m.name)} öffnen">${esc(m.name)}<small>Prospekt ↗</small></a>`
+           : `<span class="mk" style="background:${safeColor(m.farbe)}">${esc(m.name)}</span>`;
+}
+function renderProspekte(){
+  $("#prospekte").innerHTML = MAERKTE.filter(m => meineMaerkte.includes(m.id) && safeUrl(m.prospekt))
+    .map(m => `<a href="${esc(m.prospekt)}" target="_blank" rel="noopener"><span class="dot" style="background:${safeColor(m.farbe)}"></span>${esc(m.name)} ↗</a>`).join("");
+}
 function offRow(o, best){
   const w = wann(o); const m = markt(o.markt); const q = safeUrl(o.quelle);
   const pct = typeof o.statt === "number" && o.statt > o.preis ? Math.round((1 - o.preis / o.statt) * 100) : 0;
   return `<div class="off ${best ? "best" : ""}">
-    <span class="mk" style="background:${safeColor(m.farbe)}">${esc(m.name)}</span>
+    ${mkBadge(m)}
     <div class="off-main">${o.marke ? `<span class="brand">${esc(o.marke)}</span> ` : ""}${esc(o.artikel)}${o.menge ? ` <span class="note">· ${esc(o.menge)}</span>` : ""}
       <div class="when ${w.soon ? "soon" : ""}">${esc(w.txt)}${o.grundpreis ? " · " + esc(o.grundpreis) : ""}${o.hinweis ? " · " + esc(o.hinweis) : ""}${q ? ` · <a href="${esc(q)}" target="_blank" rel="noopener">Quelle</a>` : ""}</div></div>
     <div class="price">${pct >= 5 ? `<span class="pct">−${pct} %</span><br>` : ""}${esc(euro(o.preis))}${o.statt ? `<s>${esc(euro(o.statt))}</s>` : ""}</div></div>`;
@@ -432,7 +441,7 @@ function renderMaerkte(){
 }
 $("#mkSet").addEventListener("change", () => {
   meineMaerkte = [...document.querySelectorAll("#mkSet input:checked")].map(i => i.value);
-  save("maerkte", meineMaerkte); renderListe(); renderAngebote(); renderProdukte();
+  save("maerkte", meineMaerkte); renderListe(); renderAngebote(); renderProdukte(); renderProspekte();
 });
 
 /* ---------- Navigation ---------- */
@@ -442,7 +451,7 @@ function show(v){
   window.scrollTo({top:0});
 }
 document.querySelector("nav").addEventListener("click", e => { const b = e.target.closest("button[data-v]"); if(b) show(b.dataset.v); });
-function renderAll(){ renderListe(); renderAngebote(); renderProdukte(); renderMaerkte(); }
+function renderAll(){ renderListe(); renderAngebote(); renderProdukte(); renderMaerkte(); renderProspekte(); }
 
 /* ---------- Scanner ---------- */
 let scanner = null, scanning = false, busy = false;

@@ -1,15 +1,65 @@
 {
-  "hinweis": "Liste der Märkte. Neuen Markt einfach unten anhängen (id klein, ohne Leerzeichen).",
+  "hinweis": "Liste der Märkte. Neuen Markt einfach unten anhängen (id klein, ohne Leerzeichen; prospekt = Link zur Angebotsseite des Markts).",
   "maerkte": [
-    { "id": "aldi",      "name": "ALDI SÜD",  "farbe": "#1c4fa1" },
-    { "id": "lidl",      "name": "Lidl",      "farbe": "#0050aa" },
-    { "id": "netto",     "name": "Netto",     "farbe": "#e2001a" },
-    { "id": "penny",     "name": "Penny",     "farbe": "#cd1719" },
-    { "id": "kaufland",  "name": "Kaufland",  "farbe": "#e10915" },
-    { "id": "rewe",      "name": "REWE",      "farbe": "#cc071e" },
-    { "id": "edeka",     "name": "EDEKA",     "farbe": "#1a4a9c" },
-    { "id": "norma",     "name": "Norma",     "farbe": "#d6001c" },
-    { "id": "dm",        "name": "dm",        "farbe": "#002878" },
-    { "id": "rossmann",  "name": "Rossmann",  "farbe": "#c3002f" }
+    {
+      "id": "aldi",
+      "name": "ALDI SÜD",
+      "farbe": "#1c4fa1",
+      "prospekt": "https://www.aldi-sued.de/angebote"
+    },
+    {
+      "id": "lidl",
+      "name": "Lidl",
+      "farbe": "#0050aa",
+      "prospekt": "https://www.lidl.de/c/online-prospekte"
+    },
+    {
+      "id": "netto",
+      "name": "Netto",
+      "farbe": "#e2001a",
+      "prospekt": "https://www.netto-online.de/prospekte"
+    },
+    {
+      "id": "penny",
+      "name": "Penny",
+      "farbe": "#cd1719",
+      "prospekt": "https://www.penny.de/angebote"
+    },
+    {
+      "id": "kaufland",
+      "name": "Kaufland",
+      "farbe": "#e10915",
+      "prospekt": "https://filiale.kaufland.de/prospekte.html"
+    },
+    {
+      "id": "rewe",
+      "name": "REWE",
+      "farbe": "#cc071e",
+      "prospekt": "https://www.rewe.de/angebote"
+    },
+    {
+      "id": "edeka",
+      "name": "EDEKA",
+      "farbe": "#1a4a9c",
+      "prospekt": "https://www.edeka.de/eh/angebote.jsp"
+    },
+    {
+      "id": "norma",
+      "name": "Norma",
+      "farbe": "#d6001c",
+      "prospekt": "https://www.norma-online.de/de/angebote/"
+    },
+    {
+      "id": "dm",
+      "name": "dm",
+      "farbe": "#002878",
+      "prospekt": "https://www.dm.de"
+    },
+    {
+      "id": "rossmann",
+      "name": "Rossmann",
+      "farbe": "#c3002f",
+      "prospekt": "https://www.rossmann.de/de/angebote/prospekte"
+    }
   ]
 }
