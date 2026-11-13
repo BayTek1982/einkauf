@@ -25,6 +25,8 @@ let meineMaerkte = load("maerkte", null);
 let offFilter = load("filter", "liste");
 let openProd = null, editId = null;
 
+const WUNSCH_URL = "https://ntfy.sh/kompassapps-einkauf-38fb2649f869a822";
+let WUENSCHE = [];
 const FALLBACK_KAT = {id:"sonst", name:"Sonstiges", emoji:"🛍️", farbe:"#f3f4f6"};
 
 /* ---------- Daten laden ---------- */
@@ -43,6 +45,7 @@ function setData(m, p, a){
 async function init(){
   try{
     const [m, p, a] = await Promise.all([getJSON("data/maerkte.json"), getJSON("data/produkte.json"), getJSON("data/angebote.json")]);
+    try{ const w = await getJSON("data/wuensche.json"); WUENSCHE = Array.isArray(w.wuensche) ? w.wuensche : []; }catch(e){}
     setData(m, p, a); META = {stand: a.stand, naechste: a.naechste_suche};
     try{ localStorage.setItem("einkauf.cache", JSON.stringify({m, p, a})); }catch(e){}
   }catch(e){
@@ -51,8 +54,8 @@ async function init(){
   }
   if(!Array.isArray(meineMaerkte)) meineMaerkte = MAERKTE.map(x => x.id);
   // ältere Einträge nachträglich erkennen
-  liste.forEach(i => { if(i.produkt === undefined || i.produkt === null) i.produkt = erkenne(i.text); });
-  renderStand(); renderAll(); checkImport(); nachladen();
+  liste.forEach(i => { if(i.produkt === undefined || i.produkt === null) i.produkt = erkenne(i.text + " " + (i.marke || ""), i.code); });
+  renderStand(); renderAll(); checkImport(); nachladen(); offeneWuenscheNachsenden();
 }
 // Gescannte Einträge ohne Foto (z. B. aus der ersten Version) nachträglich ergänzen
 async function nachladen(){
@@ -114,7 +117,8 @@ function mengeText(i){
   if(i.einheit) return `${String(m).replace(".", ",")} ${i.einheit}`;
   return m > 1 ? `${m}×` : "";
 }
-function erkenne(text){
+function erkenne(text, code){
+  if(code){ const pc = PRODUKTE.find(p => Array.isArray(p.codes) && p.codes.includes(String(code))); if(pc) return pc.id; }
   const t = " " + String(text).toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, " ") + " ";
   let best = null, bestLen = 0;
   for(const p of PRODUKTE){
@@ -149,11 +153,12 @@ function addItem(text, extra = {}){
   if(!text) return null;
   const dup = liste.find(i => !i.done && i.text.toLowerCase() === text.toLowerCase() && (i.marke || "") === (extra.marke || ""));
   if(dup){ dup.menge = (Number(dup.menge) || 1) + 1; save("liste", liste); renderAll(); toast(`${text}: jetzt ${mengeText(dup) || "2×"}`); return dup; }
-  const it = {id: uid(), text, done:false, menge:1, einheit:"", marke:"", notiz:"", produkt: erkenne(text + " " + (extra.suche || "")), ...extra};
+  const it = {id: uid(), text, done:false, menge:1, einheit:"", marke:"", notiz:"", produkt: erkenne(text + " " + (extra.marke || "") + " " + (extra.suche || ""), extra.code), ...extra};
   delete it.suche;
   if(it.kat && it.produkt && produkt(it.produkt) && produkt(it.produkt).kategorie !== it.kat) it.produkt = null;
   liste.unshift(it);
   save("liste", liste); renderAll();
+  if(!it.produkt) wunschSenden(it);
   return it;
 }
 function itemRow(i){
@@ -161,6 +166,11 @@ function itemRow(i){
   if(!i.done && i.produkt){
     const o = relevante(i.produkt)[0];
     if(o){ const w = wann(o); deal = `<span class="deal ${w.soon ? "soon" : ""}">🏷️ ${esc(euro(o.preis))} · ${esc(markt(o.markt).name)} · ${esc(w.txt)}</span>`; }
+  }
+  if(!i.done && !i.produkt){
+    const st = wunschStatus(i);
+    if(st === "offen" || st === "gesendet") deal = `<span class="deal soon">🔎 Angebote werden gesucht …</span>`;
+    else if(st === "erledigt") deal = `<span class="deal" style="background:var(--bg); color:var(--muted)">🔎 gerade kein Angebot – wird weiter beobachtet</span>`;
   }
   const sub = [];
   if(i.marke) sub.push(`<span class="brand">${esc(i.marke)}</span>`);
@@ -237,6 +247,28 @@ $("#btnAdd").onclick = () => { addItem($("#newItem").value); $("#newItem").value
 $("#newItem").addEventListener("keydown", e => { if(e.key === "Enter") $("#btnAdd").click(); });
 $("#newItem").addEventListener("input", renderSugg);
 
+/* ---------- Angebotssuche für neue Produkte anfragen ---------- */
+function wunschStatus(it){
+  const t = it.text.toLowerCase();
+  const w = WUENSCHE.filter(x => (x.text || "").toLowerCase() === t || (it.code && x.code === it.code)).pop();
+  if(w) return w.status || "offen";
+  return it.angefragt ? "gesendet" : null;
+}
+async function wunschSenden(it, nochmal){
+  const gesendet = load("gesendet", {});
+  const key = it.text.toLowerCase() + "|" + (it.code || "");
+  if(gesendet[key] && !nochmal){ it.angefragt = true; save("liste", liste); return; }
+  try{
+    await fetch(WUNSCH_URL, {method:"POST", body: JSON.stringify({t: it.text, b: it.marke || "", c: it.code || ""})});
+    gesendet[key] = Date.now(); save("gesendet", gesendet);
+    it.angefragt = true; save("liste", liste); renderListe();
+    toast("🔎 Angebotssuche für „" + it.text.slice(0, 30) + "“ angefragt");
+  }catch(e){ /* offline – beim nächsten Öffnen erneut */ }
+}
+function offeneWuenscheNachsenden(){
+  liste.filter(i => !i.done && !i.produkt && !i.angefragt).slice(0, 10).forEach(i => wunschSenden(i));
+}
+
 /* ---------- Eintrag bearbeiten ---------- */
 function openEdit(id){
   editId = id; renderEdit(); $("#editSheet").classList.add("on");
@@ -247,7 +279,8 @@ function closeEdit(){
     const n = $("#edName"); if(n && n.value.trim()) it.text = n.value.trim().slice(0, 80);
     it.marke = ($("#edMarke")?.value || "").trim().slice(0, 60);
     it.notiz = ($("#edNotiz")?.value || "").trim().slice(0, 200);
-    if(!it.kat) it.produkt = erkenne(it.text) || it.produkt;
+    it.produkt = erkenne(it.text + " " + (it.marke || ""), it.code) || null;
+    if(!it.produkt && !it.angefragt) setTimeout(() => wunschSenden(it), 0);
     save("liste", liste);
   }
   editId = null; $("#editSheet").classList.remove("on"); renderAll();
@@ -267,7 +300,8 @@ function renderEdit(){
     <textarea class="field" id="edNotiz" maxlength="200" placeholder="z. B. laktosefrei, für den Kuchen am Sonntag">${esc(it.notiz || "")}</textarea>
     <span class="lbl">Bereich im Laden</span>
     <div class="kats">${KATS.map(k => `<button data-k="${esc(k.id)}" class="${ik === k.id ? "on" : ""}">${esc(k.emoji)} ${esc(k.name)}</button>`).join("")}</div>
-    ${!it.produkt ? `<div class="banner" style="border-width:1px; margin-top:14px; font-size:.9rem">🔔 Für „${esc(it.text)}“ wird noch nicht nach Angeboten gesucht. Sag Tekin Bescheid, dann kommt es ab der nächsten Suche dazu.</div>` : ""}
+    ${!it.produkt ? `<div class="banner" style="border-width:1px; margin-top:14px; font-size:.9rem">🔎 Für „${esc(it.text)}“ ist die Angebotssuche angefragt. Das Ergebnis kommt meist innerhalb von 1–3 Stunden, danach wird es jede Woche automatisch mitgesucht.
+      <div style="margin-top:8px"><button class="btn ghost small" id="edWunsch">Nochmal anfragen</button></div></div>` : ""}
     ${offs.length ? `<span class="lbl">🏷️ Angebote dafür</span><div class="ed-deals">${offs.map(offRow).join("")}</div>` : ""}
     ${it.inhalt || it.code ? `<p class="note">${it.inhalt ? "Inhalt: " + esc(it.inhalt) : ""}${it.code ? ` · Barcode ${esc(it.code)}` : ""}</p>` : ""}
     <div class="ed-actions"><button class="btn danger" id="edDel">🗑️ Löschen</button><button class="btn" id="edOk">Fertig</button></div>`;
@@ -287,6 +321,7 @@ $("#editBox").addEventListener("click", e => {
   } else if(k){
     it.kat = k.dataset.k; keepInputs(it); renderEdit(); save("liste", liste);
   } else if(e.target.id === "edOk"){ closeEdit(); }
+  else if(e.target.id === "edWunsch"){ keepInputs(it); wunschSenden(it, true); }
   else if(e.target.id === "edDel"){ liste = liste.filter(i => i !== it); save("liste", liste); editId = null; $("#editSheet").classList.remove("on"); renderAll(); toast("Gelöscht"); }
 });
 function keepInputs(it){

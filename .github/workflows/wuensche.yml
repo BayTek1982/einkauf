@@ -1,0 +1,19 @@
+name: Produktwünsche abholen
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: wuensche
+jobs:
+  holen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/wuensche_holen.py
+      - run: |
+          git config user.name "Wunsch-Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/wuensche.json
+          git diff --cached --quiet || (git commit -m "Neue Produktwünsche aus der App" && git pull --rebase -q && git push)
