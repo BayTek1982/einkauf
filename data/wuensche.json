@@ -1,5 +1,5 @@
 {
-  "letzte_id": "OoYel3B6uLea",
+  "letzte_id": "sct4GhADV6iv",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -38,6 +38,222 @@
       "status": "erledigt",
       "produkt": "kaffee",
       "angebote": 0
+    },
+    {
+      "id": "bFDaFcXIlGr9",
+      "zeit": "2026-11-13T19:10:45+00:00",
+      "text": "Süßer Hausmachersenf",
+      "marke": "Händlmaier",
+      "code": "4104720001425",
+      "status": "offen"
+    },
+    {
+      "id": "jBPLasE033FR",
+      "zeit": "2026-11-13T19:10:57+00:00",
+      "text": "Senf Mittelscharfer Delikatess Senf frisch vermahlen",
+      "marke": "Thomy",
+      "code": "40056050",
+      "status": "offen"
+    },
+    {
+      "id": "bZ8JTXxIEIpj",
+      "zeit": "2026-11-13T19:11:06+00:00",
+      "text": "Tomatenmark",
+      "marke": "K-Classic",
+      "code": "4063367633027",
+      "status": "offen"
+    },
+    {
+      "id": "Vq9L9H8NOh2j",
+      "zeit": "2026-11-13T19:11:47+00:00",
+      "text": "Essigessenz",
+      "marke": "ALDI SURIG",
+      "code": "4003387001314",
+      "status": "offen"
+    },
+    {
+      "id": "5JxDVc8gNfJr",
+      "zeit": "2026-11-13T19:11:57+00:00",
+      "text": "ketchup",
+      "marke": "rich",
+      "code": "4316268680509",
+      "status": "offen"
+    },
+    {
+      "id": "Z4jeAj6ZhmBL",
+      "zeit": "2026-11-13T19:12:16+00:00",
+      "text": "Tomaten Ketchup",
+      "marke": "Heinz",
+      "code": "87157277",
+      "status": "offen"
+    },
+    {
+      "id": "7zXQE51El6d1",
+      "zeit": "2026-11-13T19:12:36+00:00",
+      "text": "Nudeln Fusilli",
+      "marke": "Barilla",
+      "code": "8076802085981",
+      "status": "offen"
+    },
+    {
+      "id": "1pxqnPre5sJD",
+      "zeit": "2026-11-13T19:12:50+00:00",
+      "text": "Rigatoni n.89",
+      "marke": "Barilla",
+      "code": "8076802085899",
+      "status": "offen"
+    },
+    {
+      "id": "QqytllZOvqRD",
+      "zeit": "2026-11-13T19:13:00+00:00",
+      "text": "Iso Light",
+      "marke": "Netto",
+      "code": "42489924",
+      "status": "offen"
+    },
+    {
+      "id": "imAety5s09xw",
+      "zeit": "2026-11-13T19:13:09+00:00",
+      "text": "Apfelschorle",
+      "marke": "Stardrink",
+      "code": "42151760",
+      "status": "offen"
+    },
+    {
+      "id": "iV2WGaqLW0Ek",
+      "zeit": "2026-11-13T19:14:18+00:00",
+      "text": "Thon au naturel",
+      "marke": "Nixe",
+      "code": "4056489254386",
+      "status": "offen"
+    },
+    {
+      "id": "0nDpQDVEC1yM",
+      "zeit": "2026-11-13T19:14:34+00:00",
+      "text": "Körniger Frischkäse Halbfettstufe",
+      "marke": "Gutes Land",
+      "code": "4316268646826",
+      "status": "offen"
+    },
+    {
+      "id": "r2C3F7PQvKKm",
+      "zeit": "2026-11-13T19:14:39+00:00",
+      "text": "Geflügel-Paprikalyoner",
+      "marke": "Hofmaier",
+      "code": "4316268735704",
+      "status": "offen"
+    },
+    {
+      "id": "pFIbQzQH3o16",
+      "zeit": "2026-11-13T19:14:44+00:00",
+      "text": "Geflügel-Mortadella",
+      "marke": "Hofmaier",
+      "code": "4316268736725",
+      "status": "offen"
+    },
+    {
+      "id": "yJH2VT610E2u",
+      "zeit": "2026-11-13T19:14:50+00:00",
+      "text": "Geflügelsalami",
+      "marke": "Dulano",
+      "code": "4056489928645",
+      "status": "offen"
+    },
+    {
+      "id": "0QU7YTDw7U0i",
+      "zeit": "2026-11-13T19:15:44+00:00",
+      "text": "Geflügel-Wiener",
+      "marke": "Wolf",
+      "code": "4316268503204",
+      "status": "offen"
+    },
+    {
+      "id": "vaiWgeq2RwMP",
+      "zeit": "2026-11-13T19:15:55+00:00",
+      "text": "Margarine",
+      "marke": "Rama",
+      "code": "8719200233041",
+      "status": "offen"
+    },
+    {
+      "id": "GvXClCd4CGPy",
+      "zeit": "2026-11-13T19:16:03+00:00",
+      "text": "Mayonnaise",
+      "marke": "Heinz",
+      "code": "8715700209128",
+      "status": "offen"
+    },
+    {
+      "id": "weVsQ1ftNxuC",
+      "zeit": "2026-11-13T19:16:44+00:00",
+      "text": "Himbeere weniger Zucker",
+      "marke": "Schwartau",
+      "code": "4011800844417",
+      "status": "offen"
+    },
+    {
+      "id": "B2BCbXMpF9Ue",
+      "zeit": "2026-11-13T19:17:03+00:00",
+      "text": "Coconut Yogurt",
+      "marke": "Gutes Land",
+      "code": "4316268712811",
+      "status": "offen"
+    },
+    {
+      "id": "wXnqv0D6t5Vd",
+      "zeit": "2026-11-13T19:17:21+00:00",
+      "text": "Sandwich Scheiben Vollkorn",
+      "marke": "American Style",
+      "code": "4316268572392",
+      "status": "offen"
+    },
+    {
+      "id": "d6gJgVci7Ou1",
+      "zeit": "2026-11-13T19:17:29+00:00",
+      "text": "Zartes Bircher",
+      "marke": "Kölln",
+      "code": "4000540001549",
+      "status": "offen"
+    },
+    {
+      "id": "4a0AKZOUvUon",
+      "zeit": "2026-11-13T19:17:58+00:00",
+      "text": "Crunchy Müsli Amaranth",
+      "marke": "Bio Zentrale",
+      "code": "4005009101020",
+      "status": "offen"
+    },
+    {
+      "id": "Goo9GM5r5IZI",
+      "zeit": "2026-11-13T19:18:15+00:00",
+      "text": "Erdbeerzeit Tiramisuschnitte",
+      "marke": "Dr. Oetker",
+      "code": "4000521033927",
+      "status": "offen"
+    },
+    {
+      "id": "mx3ZavgvjwQ7",
+      "zeit": "2026-11-13T19:18:24+00:00",
+      "text": "Früchte Hafer-Müsli",
+      "marke": "Kölln",
+      "code": "4000540001341",
+      "status": "offen"
+    },
+    {
+      "id": "SHAvFArrRIiY",
+      "zeit": "2026-11-13T19:18:43+00:00",
+      "text": "Knusper Dinkel Müsli",
+      "marke": "BioBio",
+      "code": "4316268706216",
+      "status": "offen"
+    },
+    {
+      "id": "sct4GhADV6iv",
+      "zeit": "2026-11-13T19:19:05+00:00",
+      "text": "Hot Dog Rolls",
+      "marke": "American Style",
+      "code": "4316268611640",
+      "status": "offen"
     }
   ]
 }
