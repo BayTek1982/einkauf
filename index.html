@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16a34a">
+<title>Bayazit Einkauf</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Einkauf">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; manifest-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://world.openfoodfacts.org; media-src 'self' blob: mediastream:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<script src="vendor/html5-qrcode.min.js"></script>
+<style>
+  :root{
+    --bg:#f5f7f4; --card:#ffffff; --line:#e3e8e1; --text:#1c2a1f; --muted:#6b7a6e;
+    --acc:#16a34a; --acc-soft:#e7f6ec; --warn:#b45309; --warn-soft:#fff4e0; --red:#dc2626;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0f1712; --card:#18231c; --line:#2a3a2f; --text:#e6efe8; --muted:#93a597;
+      --acc:#22c55e; --acc-soft:#173322; --warn:#fbbf24; --warn-soft:#3a2d12; }
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+  html,body{margin:0}
+  body{background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; font-size:17px; line-height:1.4; padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  header{position:sticky; top:0; z-index:5; background:var(--bg); padding:14px 16px 8px; padding-top:calc(14px + env(safe-area-inset-top))}
+  header h1{margin:0; font-size:1.45rem; display:flex; align-items:center; gap:8px}
+  header .sub{color:var(--muted); font-size:.82rem; margin-top:2px}
+  main{max-width:640px; margin:0 auto; padding:4px 14px 20px}
+  .view{display:none} .view.on{display:block}
+
+  /* Eingabe */
+  .add{display:flex; gap:8px; margin:6px 0 12px}
+  .add input{flex:1; min-width:0; font-size:1.05rem; padding:13px 14px; border-radius:14px; border:1.5px solid var(--line); background:var(--card); color:var(--text); outline:none}
+  .add input:focus{border-color:var(--acc)}
+  .btn{border:0; border-radius:14px; padding:0 16px; min-height:48px; font-size:1rem; font-weight:650; cursor:pointer; background:var(--acc); color:#fff}
+  .btn.ghost{background:var(--card); color:var(--text); border:1.5px solid var(--line)}
+  .btn.icon{width:52px; padding:0; font-size:1.35rem}
+  .btn.small{min-height:38px; padding:0 12px; font-size:.9rem; border-radius:11px}
+  .sugg{display:flex; flex-wrap:wrap; gap:6px; margin:-4px 0 12px}
+  .sugg button{border:1px solid var(--line); background:var(--card); color:var(--text); border-radius:999px; padding:7px 12px; font-size:.92rem; cursor:pointer}
+
+  /* Liste */
+  .list{list-style:none; margin:0; padding:0; background:var(--card); border-radius:16px; border:1px solid var(--line); overflow:hidden}
+  .list li{display:flex; align-items:center; gap:12px; padding:13px 14px; border-bottom:1px solid var(--line)}
+  .list li:last-child{border-bottom:0}
+  .chk{flex:0 0 auto; width:28px; height:28px; border-radius:50%; border:2px solid var(--line); display:grid; place-items:center; background:none; cursor:pointer; color:#fff; font-size:.95rem}
+  .done .chk{background:var(--acc); border-color:var(--acc)}
+  .li-main{flex:1; min-width:0}
+  .li-name{font-weight:550; overflow-wrap:anywhere}
+  .done .li-name{text-decoration:line-through; color:var(--muted); font-weight:400}
+  .deal{display:inline-block; margin-top:4px; font-size:.84rem; font-weight:650; color:var(--acc); background:var(--acc-soft); padding:3px 9px; border-radius:8px}
+  .deal.soon{color:var(--warn); background:var(--warn-soft)}
+  .del{background:none; border:0; color:var(--muted); font-size:1.2rem; padding:6px; cursor:pointer}
+  .empty{text-align:center; color:var(--muted); padding:34px 10px}
+  .empty .big{font-size:2.6rem}
+  .row-actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+  .row-actions .btn{flex:1}
+
+  /* Angebote */
+  .chips{display:flex; gap:6px; margin:4px 0 12px; overflow-x:auto; padding-bottom:2px}
+  .chips button{flex:0 0 auto; border:1.5px solid var(--line); background:var(--card); color:var(--text); border-radius:999px; padding:8px 14px; font-size:.92rem; font-weight:600; cursor:pointer}
+  .chips button.on{background:var(--acc); border-color:var(--acc); color:#fff}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:12px 14px; margin-bottom:10px}
+  .card h3{margin:0 0 6px; font-size:1.05rem; display:flex; align-items:center; gap:8px}
+  .card h3 .em{font-size:1.3rem}
+  .card h3 .onlist{margin-left:auto; font-size:.72rem; font-weight:700; color:var(--acc); background:var(--acc-soft); padding:2px 8px; border-radius:6px}
+  .off{display:flex; gap:10px; align-items:center; padding:8px 0; border-top:1px dashed var(--line)}
+  .off:first-of-type{border-top:0}
+  .mk{flex:0 0 auto; min-width:66px; text-align:center; font-size:.74rem; font-weight:800; color:#fff; padding:4px 6px; border-radius:7px}
+  .off-main{flex:1; min-width:0; font-size:.93rem}
+  .off-main .when{color:var(--muted); font-size:.8rem}
+  .off-main .when.soon{color:var(--warn); font-weight:600}
+  .price{flex:0 0 auto; text-align:right; font-weight:800; font-size:1.08rem}
+  .price s{display:block; font-weight:400; font-size:.78rem; color:var(--muted)}
+  .best .price{color:var(--acc)}
+  .note{font-size:.8rem; color:var(--muted)}
+  .sec-title{font-size:.8rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:16px 2px 8px}
+
+  /* Produkte */
+  .prod{display:flex; align-items:center; gap:12px; cursor:pointer}
+  .prod .em{font-size:1.6rem}
+  .prod .pm{flex:1; min-width:0}
+  .prod .pm b{display:block}
+  .prod .pm span{font-size:.84rem; color:var(--muted)}
+  .prod .arr{color:var(--muted)}
+  .detail{margin-top:10px; padding-top:10px; border-top:1px solid var(--line); font-size:.92rem}
+  .detail table{width:100%; border-collapse:collapse; font-size:.86rem; margin-top:6px}
+  .detail td{padding:6px 2px; border-bottom:1px solid var(--line); vertical-align:top}
+  .detail td.r{text-align:right; white-space:nowrap; font-weight:700}
+  .facts{display:grid; gap:6px}
+  .fact{display:flex; gap:8px} .fact .k{color:var(--muted); min-width:118px}
+
+  /* Navigation unten */
+  nav{position:fixed; left:0; right:0; bottom:0; z-index:10; display:flex; background:var(--card); border-top:1px solid var(--line); padding-bottom:env(safe-area-inset-bottom)}
+  nav button{flex:1; background:none; border:0; padding:9px 0 10px; color:var(--muted); font-size:.75rem; font-weight:650; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:2px}
+  nav button .i{font-size:1.4rem; line-height:1.1}
+  nav button.on{color:var(--acc)}
+  nav .badge{position:relative}
+  nav .badge[data-n]:after{content:attr(data-n); position:absolute; top:-4px; right:-14px; background:var(--red); color:#fff; font-size:.65rem; border-radius:999px; padding:1px 5px}
+
+  /* Scanner + Dialoge */
+  .sheet{position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:20; display:none; align-items:flex-end; justify-content:center}
+  .sheet.on{display:flex}
+  .sheet .box{background:var(--card); width:100%; max-width:640px; border-radius:20px 20px 0 0; padding:16px 16px calc(18px + env(safe-area-inset-bottom))}
+  .sheet h2{margin:0 0 8px; font-size:1.15rem}
+  #reader{width:100%; border-radius:14px; overflow:hidden; background:#000; min-height:200px}
+  #scanMsg{color:var(--muted); font-size:.9rem; margin:8px 0}
+  .banner{background:var(--acc-soft); border:1px solid var(--acc); border-radius:14px; padding:12px 14px; margin-bottom:12px}
+  .toast{position:fixed; left:50%; bottom:calc(86px + env(safe-area-inset-bottom)); transform:translateX(-50%); background:#1c2a1f; color:#fff; padding:10px 16px; border-radius:12px; font-size:.92rem; z-index:30; opacity:0; transition:opacity .25s; pointer-events:none; max-width:90%}
+  .toast.on{opacity:1}
+  .mk-set{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px}
+  .mk-set label{display:flex; align-items:center; gap:8px; padding:10px; border:1.5px solid var(--line); border-radius:12px; font-weight:600}
+  .mk-set input{width:20px; height:20px; accent-color:var(--acc)}
+  a{color:var(--acc)}
+  footer{color:var(--muted); font-size:.75rem; text-align:center; margin-top:22px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🛒 Einkauf</h1>
+  <div class="sub" id="stand">Angebote werden geladen …</div>
+</header>
+
+<main>
+  <!-- LISTE -->
+  <section class="view on" id="v-liste">
+    <div id="importBanner"></div>
+    <div class="add">
+      <input id="newItem" placeholder="Was brauchst du?" autocomplete="off" enterkeyhint="done" maxlength="80">
+      <button class="btn icon ghost" id="btnScan" title="Barcode scannen" aria-label="Barcode scannen">📷</button>
+      <button class="btn icon" id="btnAdd" aria-label="Hinzufügen">＋</button>
+    </div>
+    <div class="sugg" id="sugg"></div>
+    <ul class="list" id="list"></ul>
+    <div class="row-actions" id="listActions"></div>
+  </section>
+
+  <!-- ANGEBOTE -->
+  <section class="view" id="v-angebote">
+    <div class="chips" id="offFilter">
+      <button data-f="liste" class="on">Meine Liste</button>
+      <button data-f="alle">Alle Produkte</button>
+    </div>
+    <div id="offers"></div>
+  </section>
+
+  <!-- PRODUKTE / VERLAUF -->
+  <section class="view" id="v-produkte">
+    <p class="note" style="margin:2px 2px 12px">Nach diesen Produkten wird jede Woche gesucht. Tippe auf ein Produkt, um den Verlauf zu sehen.</p>
+    <div id="products"></div>
+    <div class="card note">Fehlt ein Produkt oder ein Markt? Sag Bescheid. Ab der nächsten Suche wird es mit beobachtet.</div>
+  </section>
+
+  <!-- EINSTELLUNGEN -->
+  <section class="view" id="v-mehr">
+    <div class="card">
+      <h3>🏪 Meine Märkte</h3>
+      <div class="note">Nur Angebote aus diesen Märkten werden gezeigt.</div>
+      <div class="mk-set" id="mkSet"></div>
+    </div>
+    <div class="card">
+      <h3>ℹ️ So funktioniert's</h3>
+      <div class="note" style="font-size:.9rem">
+        <p>• <b>Liste:</b> Einträge tippen oder Barcode scannen. Hat ein Produkt gerade ein Angebot, steht es grün darunter. Orange heißt: Angebot kommt bald.</p>
+        <p>• <b>Teilen:</b> „Liste schicken“ erzeugt einen Link. Wer ihn öffnet, kann die Liste mit einem Tipp übernehmen.</p>
+        <p>• <b>Angebote:</b> Jedes Wochenende werden die neuen Prospekte durchsucht. Preise können je Filiale leicht abweichen. Was genau gilt, steht im Prospekt.</p>
+        <p>• Deine Liste bleibt nur auf deinem Handy gespeichert.</p>
+      </div>
+    </div>
+    <footer>Bayazit Einkauf · Produktnamen beim Scannen: <a href="https://de.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a></footer>
+  </section>
+</main>
+
+<nav>
+  <button data-v="liste" class="on"><span class="i">📝</span>Liste</button>
+  <button data-v="angebote"><span class="i badge" id="dealBadge">🏷️</span>Angebote</button>
+  <button data-v="produkte"><span class="i">📈</span>Verlauf</button>
+  <button data-v="mehr"><span class="i">⚙️</span>Mehr</button>
+</nav>
+
+<div class="sheet" id="scanSheet">
+  <div class="box">
+    <h2>📷 Barcode scannen</h2>
+    <div id="reader"></div>
+    <div id="scanMsg"></div>
+    <button class="btn ghost" id="btnScanClose" style="width:100%">Schließen</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

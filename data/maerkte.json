@@ -1,0 +1,15 @@
+{
+  "hinweis": "Liste der Märkte. Neuen Markt einfach unten anhängen (id klein, ohne Leerzeichen).",
+  "maerkte": [
+    { "id": "aldi",      "name": "ALDI SÜD",  "farbe": "#1c4fa1" },
+    { "id": "lidl",      "name": "Lidl",      "farbe": "#0050aa" },
+    { "id": "netto",     "name": "Netto",     "farbe": "#e2001a" },
+    { "id": "penny",     "name": "Penny",     "farbe": "#cd1719" },
+    { "id": "kaufland",  "name": "Kaufland",  "farbe": "#e10915" },
+    { "id": "rewe",      "name": "REWE",      "farbe": "#cc071e" },
+    { "id": "edeka",     "name": "EDEKA",     "farbe": "#1a4a9c" },
+    { "id": "norma",     "name": "Norma",     "farbe": "#d6001c" },
+    { "id": "dm",        "name": "dm",        "farbe": "#002878" },
+    { "id": "rossmann",  "name": "Rossmann",  "farbe": "#c3002f" }
+  ]
+}

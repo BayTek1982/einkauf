@@ -1,0 +1,23 @@
+{
+  "hinweis": "Produkte, nach denen jede Woche gesucht wird. Neues Produkt unten anhängen. 'woerter' = Begriffe, an denen ein Eintrag auf der Einkaufsliste oder ein gescanntes Produkt erkannt wird (klein geschrieben).",
+  "produkte": [
+    { "id": "milch",      "name": "Milch",            "emoji": "🥛", "woerter": ["milch", "vollmilch", "weidemilch", "h-milch"] },
+    { "id": "butter",     "name": "Butter",           "emoji": "🧈", "woerter": ["butter", "markenbutter", "süßrahmbutter", "weidebutter"] },
+    { "id": "eier",       "name": "Eier",             "emoji": "🥚", "woerter": ["eier", "ei "] },
+    { "id": "kaese",      "name": "Käse",             "emoji": "🧀", "woerter": ["käse", "gouda", "emmentaler", "reibekäse", "scheiben"] },
+    { "id": "joghurt",    "name": "Joghurt",          "emoji": "🥣", "woerter": ["joghurt", "jogurt", "quark"] },
+    { "id": "kaffee",     "name": "Kaffee",           "emoji": "☕", "woerter": ["kaffee", "espresso", "crema", "kaffeebohnen", "kaffeepads"] },
+    { "id": "mehl",       "name": "Mehl",             "emoji": "🌾", "woerter": ["mehl", "weizenmehl"] },
+    { "id": "zucker",     "name": "Zucker",           "emoji": "🍬", "woerter": ["zucker"] },
+    { "id": "nudeln",     "name": "Nudeln",           "emoji": "🍝", "woerter": ["nudeln", "spaghetti", "penne", "fusilli", "pasta"] },
+    { "id": "reis",       "name": "Reis",             "emoji": "🍚", "woerter": ["reis", "basmati"] },
+    { "id": "oel",        "name": "Speiseöl",         "emoji": "🫒", "woerter": ["öl", "sonnenblumenöl", "rapsöl", "olivenöl"] },
+    { "id": "brot",       "name": "Brot & Toast",     "emoji": "🍞", "woerter": ["brot", "toast", "brötchen", "semmeln"] },
+    { "id": "hack",       "name": "Hackfleisch",      "emoji": "🥩", "woerter": ["hackfleisch", "hack", "gehacktes"] },
+    { "id": "haehnchen",  "name": "Hähnchen",         "emoji": "🍗", "woerter": ["hähnchen", "hühnchen", "hähnchenbrust", "chicken"] },
+    { "id": "kartoffeln", "name": "Kartoffeln",       "emoji": "🥔", "woerter": ["kartoffeln", "kartoffel"] },
+    { "id": "obst",       "name": "Obst",             "emoji": "🍎", "woerter": ["äpfel", "apfel", "bananen", "banane", "clementinen", "mandarinen", "orangen", "trauben"] },
+    { "id": "klopapier",  "name": "Toilettenpapier",  "emoji": "🧻", "woerter": ["toilettenpapier", "klopapier"] },
+    { "id": "waschmittel","name": "Waschmittel",      "emoji": "🧺", "woerter": ["waschmittel", "persil", "ariel", "waschpulver"] }
+  ]
+}
