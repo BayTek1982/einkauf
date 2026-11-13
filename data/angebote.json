@@ -247,6 +247,20 @@
       "bis": "2026-07-11",
       "quelle": "https://www.mydealz.de/deals/bayernkrone-butter-250-g-fur-099-eur-bei-lidl-ab-0607-60-rabatt-2806526",
       "marke": "Bayernkrone"
+    },
+    {
+      "produkt": "spezi",
+      "markt": "edeka",
+      "marke": "Paulaner",
+      "artikel": "Spezi, versch. Sorten",
+      "menge": "Kasten 20 × 0,5 l",
+      "preis": 10.99,
+      "statt": 16.49,
+      "grundpreis": "1,10 €/l",
+      "von": "2026-11-09",
+      "bis": "2026-11-14",
+      "hinweis": "mit EDEKA-App 9,99 € · zzgl. Pfand · Preise können je Region abweichen",
+      "quelle": "https://www.aktionspreis.de/angebote/paulaner-spezi-kasten-20-x-0-5l"
     }
   ]
 }

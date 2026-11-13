@@ -267,6 +267,7 @@ function renderEdit(){
     <textarea class="field" id="edNotiz" maxlength="200" placeholder="z. B. laktosefrei, für den Kuchen am Sonntag">${esc(it.notiz || "")}</textarea>
     <span class="lbl">Bereich im Laden</span>
     <div class="kats">${KATS.map(k => `<button data-k="${esc(k.id)}" class="${ik === k.id ? "on" : ""}">${esc(k.emoji)} ${esc(k.name)}</button>`).join("")}</div>
+    ${!it.produkt ? `<div class="banner" style="border-width:1px; margin-top:14px; font-size:.9rem">🔔 Für „${esc(it.text)}“ wird noch nicht nach Angeboten gesucht. Sag Tekin Bescheid, dann kommt es ab der nächsten Suche dazu.</div>` : ""}
     ${offs.length ? `<span class="lbl">🏷️ Angebote dafür</span><div class="ed-deals">${offs.map(offRow).join("")}</div>` : ""}
     ${it.inhalt || it.code ? `<p class="note">${it.inhalt ? "Inhalt: " + esc(it.inhalt) : ""}${it.code ? ` · Barcode ${esc(it.code)}` : ""}</p>` : ""}
     <div class="ed-actions"><button class="btn danger" id="edDel">🗑️ Löschen</button><button class="btn" id="edOk">Fertig</button></div>`;

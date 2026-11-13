@@ -273,6 +273,19 @@
         "waschpulver"
       ],
       "kategorie": "drogerie"
+    },
+    {
+      "id": "spezi",
+      "name": "Spezi",
+      "emoji": "🥤",
+      "woerter": [
+        "spezi",
+        "mezzo mix",
+        "mezzomix",
+        "cola-mix",
+        "colamix"
+      ],
+      "kategorie": "getraenke"
     }
   ]
 }
