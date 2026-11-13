@@ -52,7 +52,34 @@ async function init(){
   if(!Array.isArray(meineMaerkte)) meineMaerkte = MAERKTE.map(x => x.id);
   // ältere Einträge nachträglich erkennen
   liste.forEach(i => { if(i.produkt === undefined || i.produkt === null) i.produkt = erkenne(i.text); });
-  renderStand(); renderAll(); checkImport();
+  renderStand(); renderAll(); checkImport(); nachladen();
+}
+// Gescannte Einträge ohne Foto (z. B. aus der ersten Version) nachträglich ergänzen
+async function nachladen(){
+  const offen = liste.filter(i => i.code && !i.bild && !i.geprueft).slice(0, 10);
+  for(const it of offen){
+    it.geprueft = true;
+    const info = await offLaden(it.code);
+    if(!info) continue;
+    const marke = String(info.brands || "").split(",")[0].trim().slice(0, 60);
+    if(!it.marke && marke){
+      it.marke = marke;
+      if(it.text.toLowerCase().startsWith(marke.toLowerCase())) it.text = it.text.slice(marke.length).trim() || it.text;
+    }
+    const inhalt = String(info.quantity || "").trim();
+    if(inhalt && !it.inhalt){ it.inhalt = inhalt.slice(0, 30); if(it.text.toLowerCase().includes(inhalt.toLowerCase())) it.text = it.text.replace(inhalt, "").trim() || it.text; }
+    it.bild = safeImg(info.image_front_small_url) || "";
+    if(!it.kat){ const k = katAusOFF(info.categories_tags); if(k) it.kat = k; }
+    if(it.kat && it.produkt && produkt(it.produkt) && produkt(it.produkt).kategorie !== it.kat) it.produkt = null;
+  }
+  if(offen.length){ save("liste", liste); renderAll(); }
+}
+async function offLaden(code){
+  try{
+    const r = await fetch(`https://world.openfoodfacts.org/api/v2/product/${encodeURIComponent(code)}.json?fields=product_name_de,product_name,generic_name_de,brands,quantity,image_front_small_url,categories_tags`);
+    const j = await r.json();
+    return (j && j.status === 1 && j.product) ? j.product : null;
+  }catch(e){ return null; }
 }
 function renderStand(){
   if(!META.stand){ $("#stand").textContent = "Keine Angebotsdaten erreichbar."; return; }
@@ -124,6 +151,7 @@ function addItem(text, extra = {}){
   if(dup){ dup.menge = (Number(dup.menge) || 1) + 1; save("liste", liste); renderAll(); toast(`${text}: jetzt ${mengeText(dup) || "2×"}`); return dup; }
   const it = {id: uid(), text, done:false, menge:1, einheit:"", marke:"", notiz:"", produkt: erkenne(text + " " + (extra.suche || "")), ...extra};
   delete it.suche;
+  if(it.kat && it.produkt && produkt(it.produkt) && produkt(it.produkt).kategorie !== it.kat) it.produkt = null;
   liste.unshift(it);
   save("liste", liste); renderAll();
   return it;
@@ -449,17 +477,15 @@ async function onCode(code){
   await stopScan();
   if(code.length < 8 || code.length > 14){ busy = false; toast("Barcode nicht erkannt"); return; }
   toast("Suche Produkt …");
-  let info = null;
-  try{
-    const r = await fetch(`https://world.openfoodfacts.org/api/v2/product/${code}.json?fields=product_name_de,product_name,generic_name_de,brands,quantity,image_front_small_url,categories_tags`);
-    const j = await r.json();
-    if(j && j.status === 1 && j.product) info = j.product;
-  }catch(e){}
+  const info = await offLaden(code);
   busy = false;
   if(info){
     const marke = String(info.brands || "").split(",")[0].trim().slice(0, 60);
     let name = String(info.product_name_de || info.product_name || info.generic_name_de || "").trim();
     if(marke && name.toLowerCase().startsWith(marke.toLowerCase())) name = name.slice(marke.length).trim() || name;
+    const inhalt = String(info.quantity || "").trim();
+    if(inhalt && name.toLowerCase().includes(inhalt.toLowerCase())) name = name.replace(new RegExp(inhalt.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "").trim();
+    name = name.replace(/\s+\d+([.,]\d+)?\s*(x\s*\d+([.,]\d+)?\s*)?(g|kg|ml|l|cl|stück|stk)\b.*$/i, "").trim() || name;
     if(!name) name = marke || "Produkt " + code;
     const k = katAusOFF(info.categories_tags);
     const extra = {code, marke, inhalt: String(info.quantity || "").trim().slice(0, 30), bild: safeImg(info.image_front_small_url) || "", suche: (info.categories_tags || []).join(" ").replace(/en:|de:|-/g, " ")};
