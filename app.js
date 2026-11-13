@@ -54,7 +54,8 @@ async function init(){
   }
   if(!Array.isArray(meineMaerkte)) meineMaerkte = MAERKTE.map(x => x.id);
   // ältere Einträge nachträglich erkennen
-  liste.forEach(i => { if(i.produkt === undefined || i.produkt === null) i.produkt = erkenne(i.text + " " + (i.marke || ""), i.code); });
+  liste.forEach(i => { if(!i.produktFest) i.produkt = erkenne(i.text + " " + (i.marke || ""), i.code, i.code && !i.katManuell ? i.kat : null); });
+  save("liste", liste);
   renderStand(); renderAll(); checkImport(); nachladen(); offeneWuenscheNachsenden();
 }
 // Gescannte Einträge ohne Foto (z. B. aus der ersten Version) nachträglich ergänzen
@@ -116,16 +117,20 @@ function mengeText(i){
   if(i.einheit) return `${String(m).replace(".", ",")} ${i.einheit}`;
   return m > 1 ? `${m}×` : "";
 }
-function erkenne(text, code){
+function erkenne(text, code, katHinweis){
   if(code){ const pc = PRODUKTE.find(p => Array.isArray(p.codes) && p.codes.includes(String(code))); if(pc) return pc.id; }
-  const t = " " + String(text).toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, " ") + " ";
+  const t = " " + String(text).toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, " ").replace(/\s+/g, " ").trim() + " ";
+  const woerter = t.trim().split(" ");
   let best = null, bestLen = 0;
   for(const p of PRODUKTE){
-    const woerter = [p.name.toLowerCase(), ...(p.woerter || [])];
-    for(const w0 of woerter){
+    // Bei gescannten Produkten passt nur ein Produkt aus demselben Bereich (Schoko-Banane ist kein Obst)
+    if(katHinweis && p.kategorie && p.kategorie !== katHinweis) continue;
+    for(const w0 of [p.name.toLowerCase(), ...(p.woerter || [])]){
       const w = String(w0).trim().toLowerCase(); if(!w) continue;
-      // kurze Wörter nur am Wortanfang, längere auch in zusammengesetzten Wörtern (z. B. „Alpenmilch“)
-      const treffer = w.length >= 5 ? t.includes(w) : t.includes(" " + w);
+      let treffer;
+      if(w.includes(" ")) treffer = t.includes(" " + w + " ");
+      // Ganzes Wort, oder Ende eines zusammengesetzten Worts: „Alpenmilch“ = Milch, aber „Apfel-Zimt-Müsli“ ≠ Apfel
+      else treffer = woerter.some(x => x === w || (w.length >= 4 && x.endsWith(w) && !x.endsWith("-" + w) ));
       if(treffer && w.length > bestLen){ best = p.id; bestLen = w.length; }
     }
   }
@@ -152,7 +157,8 @@ function addItem(text, extra = {}){
   if(!text) return null;
   const dup = liste.find(i => !i.done && i.text.toLowerCase() === text.toLowerCase() && (i.marke || "") === (extra.marke || ""));
   if(dup){ dup.menge = (Number(dup.menge) || 1) + 1; save("liste", liste); renderAll(); toast(`${text}: jetzt ${mengeText(dup) || "2×"}`); return dup; }
-  const it = {id: uid(), text, done:false, menge:1, einheit:"", marke:"", notiz:"", produkt: erkenne(text + " " + (extra.marke || "") + " " + (extra.suche || ""), extra.code), ...extra};
+  const it = {id: uid(), text, done:false, menge:1, einheit:"", marke:"", notiz:"", produkt: erkenne(text + " " + (extra.marke || ""), extra.code, extra.code ? extra.kat : null), ...extra};
+  if(extra.produkt) it.produktFest = true;
   delete it.suche;
   liste.unshift(it);
   save("liste", liste); renderAll();
@@ -277,7 +283,7 @@ function closeEdit(){
     const n = $("#edName"); if(n && n.value.trim()) it.text = n.value.trim().slice(0, 80);
     it.marke = ($("#edMarke")?.value || "").trim().slice(0, 60);
     it.notiz = ($("#edNotiz")?.value || "").trim().slice(0, 200);
-    it.produkt = erkenne(it.text + " " + (it.marke || ""), it.code) || null;
+    if(!it.produktFest) it.produkt = erkenne(it.text + " " + (it.marke || ""), it.code, it.code && !it.katManuell ? it.kat : null) || null;
     if(!it.produkt && !it.angefragt) setTimeout(() => wunschSenden(it), 0);
     save("liste", liste);
   }
