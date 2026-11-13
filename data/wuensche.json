@@ -1,4 +1,37 @@
 {
-  "letzte_id": "",
-  "wuensche": []
+  "letzte_id": "OoYel3B6uLea",
+  "wuensche": [
+    {
+      "id": "SbO53hXqaHYn",
+      "zeit": "2026-11-13T17:59:34+00:00",
+      "text": "Mozzarella",
+      "marke": "Mondo Italiano",
+      "code": "4316268550420",
+      "status": "offen"
+    },
+    {
+      "id": "IuKt42C6vOQ6",
+      "zeit": "2026-11-13T17:59:34+00:00",
+      "text": "Free Schoko",
+      "marke": "Corny",
+      "code": "4011800571214",
+      "status": "offen"
+    },
+    {
+      "id": "YjWd0UCdiL1P",
+      "zeit": "2026-11-13T18:02:59+00:00",
+      "text": "Aldi",
+      "marke": "Aldi",
+      "code": "4069365833674",
+      "status": "offen"
+    },
+    {
+      "id": "6BpEZxhADDcp",
+      "zeit": "2026-11-13T18:28:34+00:00",
+      "text": "Кава зернова Qualita Oro",
+      "marke": "Lavazza",
+      "code": "8000070020559",
+      "status": "offen"
+    }
+  ]
 }
