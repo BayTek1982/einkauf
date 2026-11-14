@@ -445,7 +445,9 @@
       "text": "Nassfutter",
       "marke": "",
       "code": "",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "nassfutter",
+      "angebote": 1
     },
     {
       "id": "Vtd4FgvlMqY0",
@@ -453,7 +455,9 @@
       "text": "Milchschnitte 10er-Pack",
       "marke": "Kinder",
       "code": "4008400191423",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "milchschnitte",
+      "angebote": 2
     },
     {
       "id": "QLTfOBpxTUbI",
@@ -461,7 +465,9 @@
       "text": "Käseaufschnitt",
       "marke": "Gutes Land",
       "code": "4316268728829",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "kaese",
+      "angebote": 0
     },
     {
       "id": "S6epWKiiKs8n",
@@ -469,7 +475,9 @@
       "text": "Carré Gourmet",
       "marke": "Président",
       "code": "3155250346327",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "presidentcarre",
+      "angebote": 0
     }
   ]
 }

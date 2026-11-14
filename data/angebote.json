@@ -463,6 +463,44 @@
       "bis": "2026-11-21",
       "link": "https://www.prospektangebote.de/geschaefte/lidl/angebote/frische-eier-angebot-70579263/",
       "quelle": "https://www.prospektangebote.de/geschaefte/lidl/angebote/frische-eier-angebot-70579263/"
+    },
+    {
+      "produkt": "milchschnitte",
+      "markt": "lidl",
+      "marke": "Kinder",
+      "artikel": "Milchschnitte",
+      "preis": 3.29,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "seite": 68,
+      "link": "https://rabatt-kompass.de/lidl-prospekte/prospekt-3580980-0#page_68",
+      "quelle": "https://www.kaufda.de/Lidl/Sortiment/Milchschnitte"
+    },
+    {
+      "produkt": "milchschnitte",
+      "markt": "netto",
+      "marke": "Kinder",
+      "artikel": "Milchschnitte",
+      "preis": 2.49,
+      "statt": 3.29,
+      "von": "2026-11-09",
+      "bis": "2026-11-14",
+      "seite": 32,
+      "link": "https://www.kaufda.de/Netto-Marken-Discount/Sortiment/Milchschnitte",
+      "quelle": "https://www.kaufda.de/Netto-Marken-Discount/Sortiment/Milchschnitte"
+    },
+    {
+      "produkt": "nassfutter",
+      "markt": "norma",
+      "marke": "Felix",
+      "artikel": "Katzen-Nassfutter",
+      "menge": "60 x 85 g",
+      "preis": 15.99,
+      "statt": 18.69,
+      "von": "2026-11-23",
+      "bis": "2026-11-29",
+      "link": "https://www.prospektangebote.de/geschaefte/norma/angebote/felix-katzen-nassfutter-angebot-70885955/",
+      "quelle": "https://www.prospektangebote.de/geschaefte/norma/angebote/felix-katzen-nassfutter-angebot-70885955/"
     }
   ]
 }

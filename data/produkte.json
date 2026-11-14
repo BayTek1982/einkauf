@@ -111,9 +111,13 @@
         "gouda",
         "emmentaler",
         "reibekäse",
-        "scheiben"
+        "scheiben",
+        "käseaufschnitt"
       ],
-      "kategorie": "kuehl"
+      "kategorie": "kuehl",
+      "codes": [
+        "4316268728829"
+      ]
     },
     {
       "id": "joghurt",
@@ -819,6 +823,46 @@
       ],
       "codes": [
         "20884697"
+      ]
+    },
+    {
+      "id": "nassfutter",
+      "name": "Nassfutter (Tier)",
+      "emoji": "🐾",
+      "kategorie": "sonst",
+      "woerter": [
+        "nassfutter",
+        "katzenfutter nass",
+        "hundefutter nass"
+      ]
+    },
+    {
+      "id": "milchschnitte",
+      "name": "Kinder Milch-Schnitte",
+      "emoji": "🥛",
+      "kategorie": "kuehl",
+      "woerter": [
+        "milchschnitte 10er-pack",
+        "milchschnitte",
+        "milch-schnitte"
+      ],
+      "codes": [
+        "4008400191423"
+      ]
+    },
+    {
+      "id": "presidentcarre",
+      "name": "Président Carré Gourmet",
+      "emoji": "🧀",
+      "kategorie": "kuehl",
+      "woerter": [
+        "carré gourmet",
+        "carre gourmet",
+        "président carré",
+        "president"
+      ],
+      "codes": [
+        "3155250346327"
       ]
     }
   ]
