@@ -454,19 +454,6 @@
     },
     {
       "produkt": "eier",
-      "markt": "edeka",
-      "marke": "EDEKA Heimatliebe",
-      "artikel": "Eier aus Freilandhaltung",
-      "preis": 2.79,
-      "statt": 3.49,
-      "von": "2026-11-12",
-      "bis": "2026-11-14",
-      "link": "https://www.prospektangebote.de/geschaefte/edeka-herkules/angebote/edeka-heimatliebe-eier-aus-freilandhaltung-angebot-70435405/",
-      "quelle": "https://www.prospektangebote.de/geschaefte/edeka-herkules/angebote/edeka-heimatliebe-eier-aus-freilandhaltung-angebot-70435405/",
-      "hinweis": "Edeka Herkules, regional verschieden"
-    },
-    {
-      "produkt": "eier",
       "markt": "lidl",
       "artikel": "Frische Eier",
       "menge": "18 Stück",

@@ -1,0 +1,17 @@
+{
+  "hinweis": "Wo Tekin einkauft. Die Angebotssuche nimmt nur Angebote, die in diesen Orten gelten. Orte können hier ergänzt oder entfernt werden.",
+  "orte": ["Ergoldsbach", "Essenbach", "Landshut", "Rottenburg an der Laaber", "Hohenthann"],
+  "orte_manchmal": ["Regensburg"],
+  "regionen": {
+    "aldi": "ALDI SÜD (nicht ALDI Nord)",
+    "netto": "Netto Marken-Discount (nicht „Netto mit dem Scottie“)",
+    "edeka": "EDEKA Südbayern (z. B. EDEKA-Märkte, E center oder Marktkauf in Niederbayern/Oberpfalz)",
+    "rewe": "REWE Region Süd (Bayern)"
+  },
+  "regeln": [
+    "Bundesweite Prospekte von ALDI SÜD, Lidl, Netto Marken-Discount, Penny, Kaufland, Norma, dm und Rossmann gelten auch hier.",
+    "EDEKA und REWE nur, wenn das Angebot aus dem Prospekt für Südbayern bzw. einem Markt in den Orten oben stammt.",
+    "Angebote eines bestimmten Markts aus einer anderen Gegend (z. B. „Edeka Herkules“ in Hessen) nie aufnehmen.",
+    "Ist unklar, ob ein Angebot hier gilt: weglassen."
+  ]
+}

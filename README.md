@@ -33,6 +33,11 @@ Neuen Markt unten anhängen.
 - Optional: `seite` (Seitenzahl im Prospekt, z. B. 19), `link` (direkter https-Link zur Prospektseite oder zum Angebot, z. B. aus dem Blätterkatalog oder kaufda), `marke` (Markenname, z. B. "Weihenstephan"; dann steht er nicht mehr in `artikel`), `menge`, `statt` (Zahl), `grundpreis` (Text), `hinweis` (Text), `quelle` (nur https).
 - Alte Angebote **nicht löschen** (Verlauf). Nur Einträge älter als 2 Jahre entfernen. Keine doppelten Einträge (gleiches produkt + markt + artikel + von).
 
+### data/region.json (Wo eingekauft wird)
+`{ "orte": ["Ergoldsbach", "Landshut", ...], "orte_manchmal": ["Regensburg"], "regionen": {...}, "regeln": [...] }`
+Die Angebotssuche nimmt nur Angebote auf, die in diesen Orten gelten (bundesweite Discounter-Prospekte, EDEKA Südbayern, REWE Süd).
+Angebote bestimmter Märkte aus anderen Gegenden werden nicht aufgenommen.
+
 ### data/wuensche.json (Produktwünsche aus der App)
 Tippt oder scannt jemand ein Produkt, nach dem noch nicht gesucht wird, schickt die App den Namen an den ntfy.sh-Kanal
 `kompassapps-einkauf-38fb2649f869a822`. Die GitHub Action „Produktwünsche abholen“ (alle 30 Min.) schreibt neue Wünsche hierher:
