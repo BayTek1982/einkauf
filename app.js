@@ -15,6 +15,18 @@ const parseDay = s => { const [y,m,d] = String(s).split("-").map(Number); return
 const kurz = s => { const d = parseDay(s); return `${TAGE[d.getDay()]} ${pad(d.getDate())}.${pad(d.getMonth()+1)}.`; };
 const datum = s => { const d = parseDay(s); return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${String(d.getFullYear()).slice(2)}`; };
 const euro = n => (typeof n === "number" && isFinite(n)) ? n.toFixed(2).replace(".", ",") + " €" : "";
+// Preis pro kg bzw. Liter: aus "grundpreis" oder aus "menge" (z. B. "500 g", "10 x 0,2 l") berechnet
+function grundpreis(o){
+  if(o.grundpreis) return String(o.grundpreis);
+  if(typeof o.preis !== "number" || !o.menge) return "";
+  const t = String(o.menge).toLowerCase().replace(/,/g, ".");
+  const r = t.match(/^(?:(?:kasten\s+)?(\d+)\s*[x×]\s*)?(\d+(?:\.\d+)?)\s*(kg|g|ml|l)$/);
+  if(!r) return "";
+  const anz = r[1] ? Number(r[1]) : 1; let w = Number(r[2]) * anz; const e = r[3];
+  if(!(w > 0)) return "";
+  if(e === "g" || e === "ml") w /= 1000;
+  return euro(o.preis / w) + (e === "g" || e === "kg" ? "/kg" : "/l");
+}
 const heute = () => isoDay(new Date());
 const tageBis = s => Math.round((parseDay(s) - parseDay(heute())) / 86400000);
 
@@ -410,8 +422,8 @@ function offRow(o, best){
     ${mkBadge(m)}
     <div class="off-main">${o.marke ? `<span class="brand">${esc(o.marke)}</span> ` : ""}${esc(o.artikel)}${o.menge ? ` <span class="note">· ${esc(o.menge)}</span>` : ""}
       ${prospektLink(o, m)}
-      <div class="when ${w.soon ? "soon" : ""}">${esc(w.txt)}${o.grundpreis ? " · " + esc(o.grundpreis) : ""}${o.hinweis ? " · " + esc(o.hinweis) : ""}${q ? ` · <a href="${esc(q)}" target="_blank" rel="noopener">Quelle</a>` : ""}</div></div>
-    <div class="price">${pct >= 5 ? `<span class="pct">−${pct} %</span><br>` : ""}${esc(euro(o.preis))}${o.statt ? `<s>${esc(euro(o.statt))}</s>` : ""}</div></div>`;
+      <div class="when ${w.soon ? "soon" : ""}">${esc(w.txt)}${o.hinweis ? " · " + esc(o.hinweis) : ""}${q ? ` · <a href="${esc(q)}" target="_blank" rel="noopener">Quelle</a>` : ""}</div></div>
+    <div class="price">${pct >= 5 ? `<span class="pct">−${pct} %</span><br>` : ""}${esc(euro(o.preis))}${o.statt ? `<s>${esc(euro(o.statt))}</s>` : ""}${grundpreis(o) ? `<span class="gp">${esc(grundpreis(o))}</span>` : ""}</div></div>`;
 }
 function renderAngebote(){
   document.querySelectorAll("#offFilter button").forEach(b => b.classList.toggle("on", b.dataset.f === offFilter));
@@ -476,7 +488,7 @@ function renderProdukte(){
         <div class="fact"><span class="k">Rhythmus</span><span class="v">${r ? `etwa alle ${r.wochen} Woche${r.wochen > 1 ? "n" : ""}` : `<span class="note">noch zu wenig Daten</span>`}</span></div>
         <div class="fact"><span class="k">Bester Preis</span><span class="v">${tief ? `${esc(euro(tief.preis))}<br><span class="note">${esc(titel(tief))}</span>` : "–"}</span></div>
       </div>
-      ${hist.length ? `<table>${hist.slice(0, 25).map(o => `<tr><td>${esc(datum(o.von))}</td><td>${esc(markt(o.markt).name)}<br><span class="note">${esc(titel(o))}${o.menge ? " · " + esc(o.menge) : ""}</span></td><td class="r">${esc(euro(o.preis))}</td></tr>`).join("")}</table>` : ""}
+      ${hist.length ? `<table>${hist.slice(0, 25).map(o => `<tr><td>${esc(datum(o.von))}</td><td>${esc(markt(o.markt).name)}<br><span class="note">${esc(titel(o))}${o.menge ? " · " + esc(o.menge) : ""}</span></td><td class="r">${esc(euro(o.preis))}${grundpreis(o) ? `<br><span class="note">${esc(grundpreis(o))}</span>` : ""}</td></tr>`).join("")}</table>` : ""}
       </div>`;
     }
     return `<div class="card" data-p="${esc(p.id)}"><div class="prod">${prodTile(p)}
