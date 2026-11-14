@@ -311,6 +311,106 @@
       "hinweis": "mit PENNY App 0,79 €",
       "quelle": "https://www.marktguru.de/b/barilla",
       "link": "https://www.marktguru.de/b/barilla"
+    },
+    {
+      "produkt": "margarine",
+      "markt": "netto",
+      "marke": "Rama",
+      "artikel": "Margarine",
+      "preis": 1.11,
+      "statt": 2.29,
+      "grundpreis": "2,78 €/kg",
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "quelle": "https://www.meinprospekt.de/angebote/rama",
+      "link": "https://www.meinprospekt.de/angebote/rama"
+    },
+    {
+      "produkt": "margarine",
+      "markt": "edeka",
+      "marke": "Rama",
+      "artikel": "zum Backen, Kochen & Streichen",
+      "preis": 1.29,
+      "von": "2026-11-09",
+      "bis": "2026-11-14",
+      "quelle": "https://www.meinprospekt.de/angebote/rama",
+      "link": "https://www.meinprospekt.de/angebote/rama"
+    },
+    {
+      "produkt": "margarine",
+      "markt": "lidl",
+      "marke": "Rama",
+      "artikel": "Margarine",
+      "preis": 1.79,
+      "grundpreis": "2,47 €/kg",
+      "von": "2026-11-09",
+      "bis": "2026-11-14",
+      "quelle": "https://www.meinprospekt.de/angebote/rama",
+      "link": "https://www.meinprospekt.de/angebote/rama"
+    },
+    {
+      "produkt": "mayonnaise",
+      "markt": "penny",
+      "marke": "Heinz",
+      "artikel": "Mayonnaise",
+      "menge": "800 ml",
+      "preis": 2.99,
+      "von": "2026-11-09",
+      "bis": "2026-11-14",
+      "quelle": "https://www.prospektangebote.de/angebote/heinz",
+      "link": "https://www.prospektangebote.de/geschaefte/penny/angebote/heinz-mayonnaise-angebot-70382447/"
+    },
+    {
+      "produkt": "mayonnaise",
+      "markt": "edeka",
+      "marke": "Heinz",
+      "artikel": "Mayonnaise",
+      "preis": 4.99,
+      "von": "2026-11-09",
+      "bis": "2026-11-14",
+      "seite": 29,
+      "quelle": "https://www.kaufda.de/Angebote/Mayonnaise",
+      "link": "https://www.kaufda.de/Angebote/Mayonnaise"
+    },
+    {
+      "produkt": "thunfisch",
+      "markt": "netto",
+      "marke": "Sea Gold",
+      "artikel": "Thunfischfilets",
+      "preis": 1.11,
+      "statt": 1.29,
+      "grundpreis": "5,69–7,40 €/kg",
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "seite": 47,
+      "quelle": "https://www.kaufda.de/Angebote/Thunfisch",
+      "link": "https://www.kaufda.de/Angebote/Thunfisch"
+    },
+    {
+      "produkt": "thunfisch",
+      "markt": "edeka",
+      "marke": "EDEKA Herzstücke",
+      "artikel": "Thunfischfilets",
+      "preis": 2.99,
+      "grundpreis": "18,69 €/kg",
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "seite": 22,
+      "quelle": "https://www.kaufda.de/Angebote/Thunfisch",
+      "link": "https://www.kaufda.de/Angebote/Thunfisch"
+    },
+    {
+      "produkt": "thunfisch",
+      "markt": "edeka",
+      "marke": "followfish",
+      "artikel": "Thunfisch-Filets MSC",
+      "preis": 2.89,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "seite": 22,
+      "hinweis": "ab 2,89 €",
+      "quelle": "https://www.kaufda.de/Angebote/Thunfisch",
+      "link": "https://www.kaufda.de/Angebote/Thunfisch"
     }
   ]
 }

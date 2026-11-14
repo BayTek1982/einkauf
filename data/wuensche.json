@@ -145,7 +145,9 @@
       "text": "Thon au naturel",
       "marke": "Nixe",
       "code": "4056489254386",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "thunfisch",
+      "angebote": 3
     },
     {
       "id": "0nDpQDVEC1yM",
@@ -153,7 +155,9 @@
       "text": "Körniger Frischkäse Halbfettstufe",
       "marke": "Gutes Land",
       "code": "4316268646826",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "huettenkaese",
+      "angebote": 0
     },
     {
       "id": "r2C3F7PQvKKm",
@@ -161,7 +165,9 @@
       "text": "Geflügel-Paprikalyoner",
       "marke": "Hofmaier",
       "code": "4316268735704",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "paprikalyoner",
+      "angebote": 0
     },
     {
       "id": "pFIbQzQH3o16",
@@ -169,7 +175,9 @@
       "text": "Geflügel-Mortadella",
       "marke": "Hofmaier",
       "code": "4316268736725",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "gefluegelmortadella",
+      "angebote": 0
     },
     {
       "id": "yJH2VT610E2u",
@@ -177,7 +185,9 @@
       "text": "Geflügelsalami",
       "marke": "Dulano",
       "code": "4056489928645",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "gefluegelsalami",
+      "angebote": 0
     },
     {
       "id": "0QU7YTDw7U0i",
@@ -185,7 +195,9 @@
       "text": "Geflügel-Wiener",
       "marke": "Wolf",
       "code": "4316268503204",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "gefluegelwiener",
+      "angebote": 0
     },
     {
       "id": "vaiWgeq2RwMP",
@@ -193,7 +205,9 @@
       "text": "Margarine",
       "marke": "Rama",
       "code": "8719200233041",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "margarine",
+      "angebote": 3
     },
     {
       "id": "GvXClCd4CGPy",
@@ -201,7 +215,9 @@
       "text": "Mayonnaise",
       "marke": "Heinz",
       "code": "8715700209128",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "mayonnaise",
+      "angebote": 2
     },
     {
       "id": "weVsQ1ftNxuC",
@@ -209,7 +225,9 @@
       "text": "Himbeere weniger Zucker",
       "marke": "Schwartau",
       "code": "4011800844417",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "himbeeraufstrich",
+      "angebote": 0
     },
     {
       "id": "B2BCbXMpF9Ue",
@@ -217,7 +235,9 @@
       "text": "Coconut Yogurt",
       "marke": "Gutes Land",
       "code": "4316268712811",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "kokosjoghurt",
+      "angebote": 0
     },
     {
       "id": "wXnqv0D6t5Vd",

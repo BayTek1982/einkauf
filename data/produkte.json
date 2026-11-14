@@ -433,6 +433,152 @@
       "codes": [
         "42151760"
       ]
+    },
+    {
+      "id": "thunfisch",
+      "name": "Thunfisch naturell",
+      "emoji": "🐟",
+      "kategorie": "vorrat",
+      "woerter": [
+        "thon au naturel",
+        "thunfisch",
+        "thunfischfilets",
+        "nixe"
+      ],
+      "codes": [
+        "4056489254386"
+      ]
+    },
+    {
+      "id": "huettenkaese",
+      "name": "Hüttenkäse",
+      "emoji": "🧀",
+      "kategorie": "kuehl",
+      "woerter": [
+        "körniger frischkäse halbfettstufe",
+        "körniger frischkäse",
+        "hüttenkäse",
+        "cottage cheese"
+      ],
+      "codes": [
+        "4316268646826"
+      ]
+    },
+    {
+      "id": "paprikalyoner",
+      "name": "Geflügel-Paprikalyoner",
+      "emoji": "🥓",
+      "kategorie": "fleisch",
+      "woerter": [
+        "geflügel-paprikalyoner",
+        "paprikalyoner",
+        "geflügellyoner",
+        "lyoner"
+      ],
+      "codes": [
+        "4316268735704"
+      ]
+    },
+    {
+      "id": "gefluegelmortadella",
+      "name": "Geflügel-Mortadella",
+      "emoji": "🥓",
+      "kategorie": "fleisch",
+      "woerter": [
+        "geflügel-mortadella",
+        "mortadella",
+        "geflügelmortadella"
+      ],
+      "codes": [
+        "4316268736725"
+      ]
+    },
+    {
+      "id": "gefluegelsalami",
+      "name": "Geflügelsalami",
+      "emoji": "🍕",
+      "kategorie": "fleisch",
+      "woerter": [
+        "geflügelsalami",
+        "geflügel-salami",
+        "salami",
+        "dulano"
+      ],
+      "codes": [
+        "4056489928645"
+      ]
+    },
+    {
+      "id": "gefluegelwiener",
+      "name": "Wolf Geflügel-Wiener",
+      "emoji": "🌭",
+      "kategorie": "fleisch",
+      "woerter": [
+        "geflügel-wiener",
+        "geflügelwiener",
+        "wiener würstchen",
+        "wolf"
+      ],
+      "codes": [
+        "4316268503204"
+      ]
+    },
+    {
+      "id": "margarine",
+      "name": "Rama Margarine",
+      "emoji": "🧈",
+      "kategorie": "kuehl",
+      "woerter": [
+        "margarine",
+        "rama"
+      ],
+      "codes": [
+        "8719200233041"
+      ]
+    },
+    {
+      "id": "mayonnaise",
+      "name": "Heinz Mayonnaise",
+      "emoji": "🫙",
+      "kategorie": "vorrat",
+      "woerter": [
+        "mayonnaise",
+        "mayo",
+        "heinz mayonnaise"
+      ],
+      "codes": [
+        "8715700209128"
+      ]
+    },
+    {
+      "id": "himbeeraufstrich",
+      "name": "Schwartau Himbeere weniger Zucker",
+      "emoji": "🍓",
+      "kategorie": "vorrat",
+      "woerter": [
+        "himbeere weniger zucker",
+        "fruchtaufstrich",
+        "marmelade",
+        "schwartau"
+      ],
+      "codes": [
+        "4011800844417"
+      ]
+    },
+    {
+      "id": "kokosjoghurt",
+      "name": "Kokos-Joghurt (vegan)",
+      "emoji": "🥥",
+      "kategorie": "kuehl",
+      "woerter": [
+        "coconut yogurt",
+        "kokosjoghurt",
+        "kokos-joghurt",
+        "kokos joghurt"
+      ],
+      "codes": [
+        "4316268712811"
+      ]
     }
   ]
 }
