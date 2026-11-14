@@ -1,5 +1,5 @@
 {
-  "letzte_id": "Z79TEeiQtnjl",
+  "letzte_id": "S6epWKiiKs8n",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -445,6 +445,30 @@
       "text": "Nassfutter",
       "marke": "",
       "code": "",
+      "status": "offen"
+    },
+    {
+      "id": "Vtd4FgvlMqY0",
+      "zeit": "2026-11-14T10:49:38+00:00",
+      "text": "Milchschnitte 10er-Pack",
+      "marke": "Kinder",
+      "code": "4008400191423",
+      "status": "offen"
+    },
+    {
+      "id": "QLTfOBpxTUbI",
+      "zeit": "2026-11-14T10:54:34+00:00",
+      "text": "Käseaufschnitt",
+      "marke": "Gutes Land",
+      "code": "4316268728829",
+      "status": "offen"
+    },
+    {
+      "id": "S6epWKiiKs8n",
+      "zeit": "2026-11-14T11:07:12+00:00",
+      "text": "Carré Gourmet",
+      "marke": "Président",
+      "code": "3155250346327",
       "status": "offen"
     }
   ]
