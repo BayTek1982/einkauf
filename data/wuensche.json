@@ -1,5 +1,5 @@
 {
-  "letzte_id": "S6epWKiiKs8n",
+  "letzte_id": "ZF6uMYtcODFk",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -478,6 +478,14 @@
       "status": "erledigt",
       "produkt": "presidentcarre",
       "angebote": 0
+    },
+    {
+      "id": "ZF6uMYtcODFk",
+      "zeit": "2026-11-14T19:05:13+00:00",
+      "text": "Carprisonne Cola",
+      "marke": "Capri-Sun",
+      "code": "4000177035634",
+      "status": "offen"
     }
   ]
 }
