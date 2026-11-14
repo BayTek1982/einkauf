@@ -436,6 +436,46 @@
       "bis": "2026-11-14",
       "quelle": "https://www.prospektangebote.de/geschaefte/kaufland/angebote/kolln-schoko-hafer-musli-angebot-70681357/",
       "link": "https://www.prospektangebote.de/geschaefte/kaufland/angebote/kolln-schoko-hafer-musli-angebot-70681357/"
+    },
+    {
+      "produkt": "maiswaffeln",
+      "markt": "lidl",
+      "marke": "Sondey",
+      "artikel": "Maiswaffeln",
+      "preis": 1.69,
+      "statt": 1.99,
+      "grundpreis": "11,27 €/kg",
+      "von": "2026-10-18",
+      "bis": "2026-12-31",
+      "seite": 6,
+      "link": "https://www.kaufda.de/Angebote/Maiswaffeln",
+      "quelle": "https://www.kaufda.de/Angebote/Maiswaffeln",
+      "hinweis": "Dauerpreis-Aktion"
+    },
+    {
+      "produkt": "eier",
+      "markt": "edeka",
+      "marke": "EDEKA Heimatliebe",
+      "artikel": "Eier aus Freilandhaltung",
+      "preis": 2.79,
+      "statt": 3.49,
+      "von": "2026-11-12",
+      "bis": "2026-11-14",
+      "link": "https://www.prospektangebote.de/geschaefte/edeka-herkules/angebote/edeka-heimatliebe-eier-aus-freilandhaltung-angebot-70435405/",
+      "quelle": "https://www.prospektangebote.de/geschaefte/edeka-herkules/angebote/edeka-heimatliebe-eier-aus-freilandhaltung-angebot-70435405/",
+      "hinweis": "Edeka Herkules, regional verschieden"
+    },
+    {
+      "produkt": "eier",
+      "markt": "lidl",
+      "artikel": "Frische Eier",
+      "menge": "18 Stück",
+      "preis": 3.69,
+      "statt": 4.19,
+      "von": "2026-11-15",
+      "bis": "2026-11-21",
+      "link": "https://www.prospektangebote.de/geschaefte/lidl/angebote/frische-eier-angebot-70579263/",
+      "quelle": "https://www.prospektangebote.de/geschaefte/lidl/angebote/frische-eier-angebot-70579263/"
     }
   ]
 }

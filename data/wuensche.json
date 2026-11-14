@@ -345,7 +345,9 @@
       "text": "Lion Kellogs",
       "marke": "Nestlé",
       "code": "3387390321067",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "lioncerealien",
+      "angebote": 0
     },
     {
       "id": "lnyM5vXjARLg",
@@ -353,7 +355,9 @@
       "text": "Schoko Hafer Müsli",
       "marke": "kölln",
       "code": "4000540081886",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "koellnmuesli",
+      "angebote": 0
     },
     {
       "id": "YpH9yzM5lrpG",
@@ -361,7 +365,9 @@
       "text": "Waffel-Hörnchen - Schoko-Vanille",
       "marke": "Aldi",
       "code": "4061458029988",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "eiswaffelhoernchen",
+      "angebote": 0
     },
     {
       "id": "a3tDZmQo5SoB",
@@ -369,7 +375,9 @@
       "text": "Eier aus Freilandhaltung",
       "marke": "Vom Land",
       "code": "4316268651530",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "eier",
+      "angebote": 2
     },
     {
       "id": "Ox1tV1AYiVz8",
@@ -377,7 +385,9 @@
       "text": "Brennnesseltee-Mischung mit Zitronengeschmack",
       "marke": "Captains Tea",
       "code": "4316268217026",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "brennnesseltee",
+      "angebote": 0
     },
     {
       "id": "u5GbaZGo9X9Z",
@@ -385,7 +395,9 @@
       "text": "Klassik Schwarzer Tee",
       "marke": "Meßmer",
       "code": "4001257218503",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "schwarzertee",
+      "angebote": 0
     },
     {
       "id": "8RUQ1VnR6rlB",
@@ -393,7 +405,9 @@
       "text": "Brennessel-Mischung Teebeutel",
       "marke": "Meßmer",
       "code": "4001257159004",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "brennnesseltee",
+      "angebote": 0
     },
     {
       "id": "dGV9LqJEY4b5",
@@ -401,7 +415,9 @@
       "text": "Tee 9-Kräuter Tee, Kräutertee",
       "marke": "Captains Tea",
       "code": "4316268620628",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "kraeutertee",
+      "angebote": 0
     },
     {
       "id": "zVBKWxXYGd6q",
@@ -409,7 +425,9 @@
       "text": "Mais Waffeln mit Meersalz Bio",
       "marke": "Sondey",
       "code": "20884697",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "maiswaffeln",
+      "angebote": 1
     },
     {
       "id": "3Gk5BAjAOmFK",
@@ -417,7 +435,9 @@
       "text": "Essig-Essenz, 24,9 % Säure",
       "marke": "WürzGut",
       "code": "4017881005006",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "essigessenz",
+      "angebote": 0
     },
     {
       "id": "Z79TEeiQtnjl",

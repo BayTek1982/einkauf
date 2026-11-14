@@ -93,9 +93,14 @@
       "emoji": "🥚",
       "woerter": [
         "eier",
-        "ei "
+        "ei ",
+        "eier aus freilandhaltung",
+        "freilandeier"
       ],
-      "kategorie": "kuehl"
+      "kategorie": "kuehl",
+      "codes": [
+        "4316268651530"
+      ]
     },
     {
       "id": "kaese",
@@ -381,10 +386,13 @@
       "woerter": [
         "essigessenz",
         "essig-essenz",
-        "surig"
+        "surig",
+        "essig-essenz, 24,9 % säure",
+        "würzgut"
       ],
       "codes": [
-        "4003387001314"
+        "4003387001314",
+        "4017881005006"
       ]
     },
     {
@@ -606,11 +614,14 @@
         "kölln müsli",
         "kölln",
         "hafer-müsli",
-        "bircher müsli"
+        "bircher müsli",
+        "schoko hafer müsli",
+        "schoko-hafer-müsli"
       ],
       "codes": [
         "4000540001549",
-        "4000540001341"
+        "4000540001341",
+        "4000540081886"
       ]
     },
     {
@@ -714,6 +725,100 @@
       ],
       "codes": [
         "4335619377059"
+      ]
+    },
+    {
+      "id": "lioncerealien",
+      "name": "Nestlé Lion Cereals",
+      "emoji": "🥣",
+      "kategorie": "vorrat",
+      "woerter": [
+        "lion kellogs",
+        "lion cereals",
+        "lion müsli",
+        "nestlé lion"
+      ],
+      "codes": [
+        "3387390321067"
+      ]
+    },
+    {
+      "id": "eiswaffelhoernchen",
+      "name": "Mucci Waffelhörnchen Schoko-Vanille (Eis)",
+      "emoji": "🍦",
+      "kategorie": "tk",
+      "woerter": [
+        "waffel-hörnchen - schoko-vanille",
+        "waffelhörnchen",
+        "eishörnchen",
+        "mucci"
+      ],
+      "codes": [
+        "4061458029988"
+      ]
+    },
+    {
+      "id": "brennnesseltee",
+      "name": "Brennnesseltee",
+      "emoji": "🍵",
+      "kategorie": "getraenke",
+      "woerter": [
+        "brennnesseltee-mischung mit zitronengeschmack",
+        "brennnesseltee",
+        "brennnessel",
+        "captains tea",
+        "brennessel-mischung teebeutel",
+        "brennessel",
+        "meßmer brennnessel"
+      ],
+      "codes": [
+        "4316268217026",
+        "4001257159004"
+      ]
+    },
+    {
+      "id": "schwarzertee",
+      "name": "Meßmer Schwarzer Tee Klassik",
+      "emoji": "🫖",
+      "kategorie": "getraenke",
+      "woerter": [
+        "klassik schwarzer tee",
+        "schwarzer tee",
+        "schwarztee",
+        "meßmer"
+      ],
+      "codes": [
+        "4001257218503"
+      ]
+    },
+    {
+      "id": "kraeutertee",
+      "name": "Captain's Tea 9-Kräuter-Tee",
+      "emoji": "🌿",
+      "kategorie": "getraenke",
+      "woerter": [
+        "tee 9-kräuter tee, kräutertee",
+        "9-kräuter tee",
+        "kräutertee",
+        "captains tea"
+      ],
+      "codes": [
+        "4316268620628"
+      ]
+    },
+    {
+      "id": "maiswaffeln",
+      "name": "Sondey Bio Maiswaffeln Meersalz",
+      "emoji": "🌽",
+      "kategorie": "suess",
+      "woerter": [
+        "mais waffeln mit meersalz bio",
+        "maiswaffeln",
+        "mais waffeln",
+        "sondey"
+      ],
+      "codes": [
+        "20884697"
       ]
     }
   ]
