@@ -485,7 +485,9 @@
       "text": "Carprisonne Cola",
       "marke": "Capri-Sun",
       "code": "4000177035634",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "caprisun",
+      "angebote": 1
     }
   ]
 }

@@ -864,6 +864,22 @@
       "codes": [
         "3155250346327"
       ]
+    },
+    {
+      "id": "caprisun",
+      "name": "Capri-Sun Cola Mix",
+      "emoji": "🧃",
+      "kategorie": "getraenke",
+      "woerter": [
+        "carprisonne cola",
+        "capri-sun",
+        "capri sun",
+        "capri sonne",
+        "caprisonne"
+      ],
+      "codes": [
+        "4000177035634"
+      ]
     }
   ]
 }
