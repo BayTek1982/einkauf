@@ -1,5 +1,5 @@
 {
-  "letzte_id": "ZF6uMYtcODFk",
+  "letzte_id": "KKzIKe6YBspC",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -488,6 +488,22 @@
       "status": "erledigt",
       "produkt": "caprisun",
       "angebote": 1
+    },
+    {
+      "id": "I0t7wwBRFEkt",
+      "zeit": "2026-11-14T23:04:05+00:00",
+      "text": "FELIX Knabber mix Grillspaß",
+      "marke": "",
+      "code": "7613033742484",
+      "status": "offen"
+    },
+    {
+      "id": "KKzIKe6YBspC",
+      "zeit": "2026-11-14T23:04:37+00:00",
+      "text": "Nutella",
+      "marke": "Nutella",
+      "code": "4008400401829",
+      "status": "offen"
     }
   ]
 }
