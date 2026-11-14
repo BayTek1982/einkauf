@@ -411,6 +411,31 @@
       "hinweis": "ab 2,89 €",
       "quelle": "https://www.kaufda.de/Angebote/Thunfisch",
       "link": "https://www.kaufda.de/Angebote/Thunfisch"
+    },
+    {
+      "produkt": "koellnmuesli",
+      "markt": "penny",
+      "marke": "Kölln",
+      "artikel": "Knusper Hafer-Müsli",
+      "menge": "380 g",
+      "preis": 2.49,
+      "statt": 3.79,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "quelle": "https://www.prospektangebote.de/geschaefte/penny/angebote/kolln-knusper-hafer-musli-angebot-70808772/",
+      "link": "https://www.prospektangebote.de/geschaefte/penny/angebote/kolln-knusper-hafer-musli-angebot-70808772/"
+    },
+    {
+      "produkt": "koellnmuesli",
+      "markt": "kaufland",
+      "marke": "Kölln",
+      "artikel": "Schoko Hafer-Müsli",
+      "menge": "500 g",
+      "preis": 1.99,
+      "von": "2026-11-09",
+      "bis": "2026-11-14",
+      "quelle": "https://www.prospektangebote.de/geschaefte/kaufland/angebote/kolln-schoko-hafer-musli-angebot-70681357/",
+      "link": "https://www.prospektangebote.de/geschaefte/kaufland/angebote/kolln-schoko-hafer-musli-angebot-70681357/"
     }
   ]
 }

@@ -579,6 +579,142 @@
       "codes": [
         "4316268712811"
       ]
+    },
+    {
+      "id": "sandwichvollkorn",
+      "name": "American Style Sandwich Vollkorn",
+      "emoji": "🍞",
+      "kategorie": "brot",
+      "woerter": [
+        "sandwich scheiben vollkorn",
+        "sandwich vollkorn",
+        "sandwichtoast",
+        "american style"
+      ],
+      "codes": [
+        "4316268572392"
+      ]
+    },
+    {
+      "id": "koellnmuesli",
+      "name": "Kölln Müsli",
+      "emoji": "🥣",
+      "kategorie": "vorrat",
+      "woerter": [
+        "zartes bircher",
+        "früchte hafer-müsli",
+        "kölln müsli",
+        "kölln",
+        "hafer-müsli",
+        "bircher müsli"
+      ],
+      "codes": [
+        "4000540001549",
+        "4000540001341"
+      ]
+    },
+    {
+      "id": "amaranthmuesli",
+      "name": "Bio Zentrale Crunchy Amaranth",
+      "emoji": "🥣",
+      "kategorie": "vorrat",
+      "woerter": [
+        "crunchy müsli amaranth",
+        "amaranth müsli",
+        "biozentrale",
+        "bio zentrale"
+      ],
+      "codes": [
+        "4005009101020"
+      ]
+    },
+    {
+      "id": "tiramisuschnitte",
+      "name": "Dr. Oetker Erdbeer Zeit Tiramisu-Schnitte",
+      "emoji": "🍰",
+      "kategorie": "vorrat",
+      "woerter": [
+        "erdbeerzeit tiramisuschnitte",
+        "erdbeer zeit",
+        "tiramisu schnitte",
+        "backmischung"
+      ],
+      "codes": [
+        "4000521033927"
+      ]
+    },
+    {
+      "id": "dinkelmuesli",
+      "name": "BioBio Knusper Dinkel Müsli",
+      "emoji": "🥣",
+      "kategorie": "vorrat",
+      "woerter": [
+        "knusper dinkel müsli",
+        "dinkel müsli",
+        "dinkelmüsli",
+        "biobio"
+      ],
+      "codes": [
+        "4316268706216"
+      ]
+    },
+    {
+      "id": "hotdogbroetchen",
+      "name": "Hot-Dog-Brötchen",
+      "emoji": "🌭",
+      "kategorie": "brot",
+      "woerter": [
+        "hot dog rolls",
+        "hot dog brötchen",
+        "hotdog brötchen",
+        "hot dog"
+      ],
+      "codes": [
+        "4316268611640"
+      ]
+    },
+    {
+      "id": "knusperdinos",
+      "name": "Karli Kugelblitz Knusper-Dinos",
+      "emoji": "🦕",
+      "kategorie": "vorrat",
+      "woerter": [
+        "knusper-dinos",
+        "knusper dinos",
+        "karli kugelblitz"
+      ],
+      "codes": [
+        "4316268663052"
+      ]
+    },
+    {
+      "id": "seitenbachermuesli",
+      "name": "Seitenbacher Apfel-Zimt-Müsli",
+      "emoji": "🥣",
+      "kategorie": "vorrat",
+      "woerter": [
+        "apfel-zimt-müsli",
+        "apfel zimt müsli",
+        "seitenbacher"
+      ],
+      "codes": [
+        "4008391008731"
+      ]
+    },
+    {
+      "id": "minihaehnchenschnitzel",
+      "name": "Chef Select Mini-Hähnchenschnitzel",
+      "emoji": "🍗",
+      "kategorie": "fleisch",
+      "woerter": [
+        "mini hänchenschnitzel",
+        "mini hähnchenschnitzel",
+        "hähnchenschnitzel",
+        "chef select"
+      ],
+      "codes": [
+        "4335619377059"
+      ]
     }
   ]
 }
