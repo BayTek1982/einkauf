@@ -1,5 +1,5 @@
 {
-  "letzte_id": "3Gk5BAjAOmFK",
+  "letzte_id": "Z79TEeiQtnjl",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -377,6 +377,14 @@
       "text": "Essig-Essenz, 24,9 % Säure",
       "marke": "WürzGut",
       "code": "4017881005006",
+      "status": "offen"
+    },
+    {
+      "id": "Z79TEeiQtnjl",
+      "zeit": "2026-11-14T00:34:37+00:00",
+      "text": "Nassfutter",
+      "marke": "",
+      "code": "",
       "status": "offen"
     }
   ]
