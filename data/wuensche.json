@@ -1,5 +1,5 @@
 {
-  "letzte_id": "KKzIKe6YBspC",
+  "letzte_id": "re5hgPm9oxFw",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -508,6 +508,38 @@
       "status": "erledigt",
       "produkt": "nutella",
       "angebote": 0
+    },
+    {
+      "id": "bjvPlbuRMhVA",
+      "zeit": "2026-11-15T12:04:18+00:00",
+      "text": "Schlagobers",
+      "marke": "Milsani",
+      "code": "4099200047898",
+      "status": "offen"
+    },
+    {
+      "id": "agpLGZod704t",
+      "zeit": "2026-11-15T12:04:30+00:00",
+      "text": "Creme Fraiche",
+      "marke": "Milprima Penny",
+      "code": "26326917",
+      "status": "offen"
+    },
+    {
+      "id": "tbwscQzJ8NKa",
+      "zeit": "2026-11-15T12:04:46+00:00",
+      "text": "Mascarpone",
+      "marke": "Milbona",
+      "code": "40899145",
+      "status": "offen"
+    },
+    {
+      "id": "re5hgPm9oxFw",
+      "zeit": "2026-11-15T12:05:10+00:00",
+      "text": "Kalinka Kefir Fettarm Mild Pur",
+      "marke": "Müller",
+      "code": "4025500287955",
+      "status": "offen"
     }
   ]
 }
