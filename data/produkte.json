@@ -880,6 +880,37 @@
       "codes": [
         "4000177035634"
       ]
+    },
+    {
+      "id": "nutella",
+      "name": "Nutella",
+      "emoji": "🍫",
+      "kategorie": "vorrat",
+      "woerter": [
+        "nutella",
+        "nuss-nougat-creme",
+        "nusscreme",
+        "ferrero"
+      ],
+      "codes": [
+        "4008400401829"
+      ]
+    },
+    {
+      "id": "felixknabbermix",
+      "name": "Felix Knabber Mix Grillspaß",
+      "emoji": "🐱",
+      "kategorie": "sonst",
+      "woerter": [
+        "felix knabber mix grillspaß",
+        "knabber mix",
+        "knabbermix",
+        "katzensnack",
+        "felix"
+      ],
+      "codes": [
+        "7613033742484"
+      ]
     }
   ]
 }

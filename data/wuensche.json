@@ -495,7 +495,9 @@
       "text": "FELIX Knabber mix Grillspaß",
       "marke": "",
       "code": "7613033742484",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "felixknabbermix",
+      "angebote": 0
     },
     {
       "id": "KKzIKe6YBspC",
@@ -503,7 +505,9 @@
       "text": "Nutella",
       "marke": "Nutella",
       "code": "4008400401829",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "nutella",
+      "angebote": 0
     }
   ]
 }
