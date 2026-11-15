@@ -911,6 +911,64 @@
       "codes": [
         "7613033742484"
       ]
+    },
+    {
+      "id": "schlagsahne",
+      "name": "Schlagsahne",
+      "emoji": "🥛",
+      "kategorie": "kuehl",
+      "woerter": [
+        "schlagobers",
+        "schlagsahne",
+        "sahne",
+        "milsani"
+      ],
+      "codes": [
+        "4099200047898"
+      ]
+    },
+    {
+      "id": "cremefraiche",
+      "name": "Crème fraîche",
+      "emoji": "🥣",
+      "kategorie": "kuehl",
+      "woerter": [
+        "creme fraiche",
+        "crème fraîche",
+        "cremefraiche",
+        "milprima"
+      ],
+      "codes": [
+        "26326917"
+      ]
+    },
+    {
+      "id": "mascarpone",
+      "name": "Mascarpone",
+      "emoji": "🧀",
+      "kategorie": "kuehl",
+      "woerter": [
+        "mascarpone",
+        "milbona"
+      ],
+      "codes": [
+        "40899145"
+      ]
+    },
+    {
+      "id": "kalinkakefir",
+      "name": "Müller Kalinka Kefir",
+      "emoji": "🥛",
+      "kategorie": "kuehl",
+      "woerter": [
+        "kalinka kefir fettarm mild pur",
+        "kalinka",
+        "kefir",
+        "müller"
+      ],
+      "codes": [
+        "4025500287955"
+      ]
     }
   ]
 }

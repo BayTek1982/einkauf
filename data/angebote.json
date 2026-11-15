@@ -514,6 +514,88 @@
       "bis": "2026-11-14",
       "link": "https://www.aktionspreis.de/angebote/kaufland/capri-sun-10-x-0-2l",
       "quelle": "https://www.aktionspreis.de/angebote/kaufland/capri-sun-10-x-0-2l"
+    },
+    {
+      "produkt": "schlagsahne",
+      "markt": "penny",
+      "marke": "Penny Zukunftsbauer",
+      "artikel": "Koch- oder Schlagsahne",
+      "preis": 0.95,
+      "statt": 1.19,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "seite": 33,
+      "link": "https://rabatt-kompass.de/penny-prospekte/prospekt-3584721-0#page_33",
+      "quelle": "https://rabatt-kompass.de/produkte/schlagsahne"
+    },
+    {
+      "produkt": "schlagsahne",
+      "markt": "kaufland",
+      "marke": "K-Bio Bioland",
+      "artikel": "Schlagsahne",
+      "preis": 1.19,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "seite": 4,
+      "link": "https://rabatt-kompass.de/kaufland-prospekte/prospekt-3585021-0#page_4",
+      "quelle": "https://rabatt-kompass.de/produkte/schlagsahne"
+    },
+    {
+      "produkt": "schlagsahne",
+      "markt": "aldi",
+      "marke": "Milsani",
+      "artikel": "Sprühsahne",
+      "preis": 1.49,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "seite": 10,
+      "link": "https://rabatt-kompass.de/aldi-sued-prospekte/prospekt-3577302-0#page_10",
+      "quelle": "https://rabatt-kompass.de/produkte/schlagsahne",
+      "hinweis": "Sprühsahne aus der Dose"
+    },
+    {
+      "produkt": "cremefraiche",
+      "markt": "kaufland",
+      "marke": "K-Classic",
+      "artikel": "Crème fraîche",
+      "menge": "200 g",
+      "preis": 0.79,
+      "statt": 0.99,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "seite": 15,
+      "link": "https://www.prospektangebote.de/geschaefte/kaufland/angebote/k-classic-creme-fraiche-angebot-70883132/",
+      "quelle": "https://www.prospektangebote.de/geschaefte/kaufland/angebote/k-classic-creme-fraiche-angebot-70883132/"
+    },
+    {
+      "produkt": "mascarpone",
+      "markt": "edeka",
+      "marke": "Galbani",
+      "artikel": "Mascarpone",
+      "menge": "500 g",
+      "preis": 4.49,
+      "grundpreis": "8,98 €/kg",
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "link": "https://www.edeka.de/maerkte/031709/angebote/",
+      "quelle": "https://www.meinprospekt.de/angebote/mascarpone",
+      "hinweis": "EDEKA Südbayern"
+    },
+    {
+      "produkt": "kalinkakefir",
+      "markt": "lidl",
+      "marke": "Müller",
+      "artikel": "Kalinka Kefir oder Ayran",
+      "menge": "500 g",
+      "preis": 0.89,
+      "statt": 1.29,
+      "grundpreis": "1,78 €/kg",
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "seite": 13,
+      "hinweis": "nur mit Lidl Plus App, zzgl. Pfand",
+      "link": "https://www.prospektangebote.de/geschaefte/lidl/angebote/muller-kalinka-kefir-ayran-angebot-70579041/",
+      "quelle": "https://www.marktguru.de/rb/lidl/mueller"
     }
   ]
 }
