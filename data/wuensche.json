@@ -555,7 +555,9 @@
       "text": "Yoghurt",
       "marke": "",
       "code": "",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "joghurt",
+      "angebote": 9
     }
   ]
 }

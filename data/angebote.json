@@ -816,6 +816,70 @@
       "bis": "2026-11-21",
       "link": "https://www.aktionspreis.de/angebote/lidl/nutella-glas-450g",
       "quelle": "https://www.aktionspreis.de/prospekte/lidl-angebote-naechsteWoche"
+    },
+    {
+      "produkt": "joghurt",
+      "markt": "lidl",
+      "marke": "Milbona",
+      "artikel": "Joghurt",
+      "menge": "500 g",
+      "preis": 0.79,
+      "statt": 0.89,
+      "von": "2026-11-15",
+      "bis": "2026-11-21",
+      "link": "https://www.prospektangebote.de/geschaefte/lidl/angebote/milbona-joghurt-angebot-70579013/",
+      "quelle": "https://www.prospektangebote.de/angebote/joghurt"
+    },
+    {
+      "produkt": "joghurt",
+      "markt": "norma",
+      "marke": "Meandros",
+      "artikel": "Joghurt",
+      "menge": "1 kg",
+      "preis": 1.99,
+      "statt": 2.49,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "link": "https://www.prospektangebote.de/geschaefte/norma/angebote/meandros-joghurt-angebot-70469040/",
+      "quelle": "https://www.prospektangebote.de/angebote/joghurt"
+    },
+    {
+      "produkt": "joghurt",
+      "markt": "kaufland",
+      "marke": "Landliebe",
+      "artikel": "Joghurt",
+      "menge": "500 g",
+      "preis": 0.99,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "link": "https://www.prospektangebote.de/geschaefte/kaufland/angebote/landliebe-joghurt-angebot-70882953/",
+      "quelle": "https://www.prospektangebote.de/angebote/joghurt"
+    },
+    {
+      "produkt": "joghurt",
+      "markt": "aldi",
+      "marke": "Weihenstephan",
+      "artikel": "Joghurt",
+      "menge": "500 g",
+      "preis": 0.89,
+      "statt": 1.78,
+      "von": "2026-11-23",
+      "bis": "2026-11-29",
+      "link": "https://www.prospektangebote.de/geschaefte/aldi-sud/angebote/weihenstephan-joghurt-angebot-70919362/",
+      "quelle": "https://www.prospektangebote.de/angebote/joghurt"
+    },
+    {
+      "produkt": "joghurt",
+      "markt": "netto",
+      "marke": "frija",
+      "artikel": "Joghurt",
+      "menge": "600 g",
+      "preis": 0.79,
+      "statt": 0.95,
+      "von": "2026-11-22",
+      "bis": "2026-11-28",
+      "link": "https://www.prospektangebote.de/geschaefte/netto/angebote/frija-joghurt-angebot-70939929/",
+      "quelle": "https://www.prospektangebote.de/angebote/joghurt"
     }
   ]
 }
