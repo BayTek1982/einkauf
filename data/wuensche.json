@@ -1,5 +1,5 @@
 {
-  "letzte_id": "re5hgPm9oxFw",
+  "letzte_id": "BooPHCrDSBdx",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -548,6 +548,14 @@
       "status": "erledigt",
       "produkt": "kalinkakefir",
       "angebote": 1
+    },
+    {
+      "id": "BooPHCrDSBdx",
+      "zeit": "2026-11-16T12:42:12+00:00",
+      "text": "Yoghurt",
+      "marke": "",
+      "code": "",
+      "status": "offen"
     }
   ]
 }
