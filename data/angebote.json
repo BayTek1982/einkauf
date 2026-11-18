@@ -1,6 +1,6 @@
 {
-  "stand": "2026-11-15T19:00:00+01:00",
-  "naechste_suche": "2026-11-18",
+  "stand": "2026-11-18T18:52:00+01:00",
+  "naechste_suche": "2026-11-22",
   "angebote": [
     {
       "produkt": "nudeln",
@@ -880,6 +880,178 @@
       "bis": "2026-11-28",
       "link": "https://www.prospektangebote.de/geschaefte/netto/angebote/frija-joghurt-angebot-70939929/",
       "quelle": "https://www.prospektangebote.de/angebote/joghurt"
+    },
+    {
+      "produkt": "nudeln",
+      "markt": "kaufland",
+      "marke": "Barilla",
+      "artikel": "Classic Pasta, versch. Sorten",
+      "menge": "500 g",
+      "preis": 0.75,
+      "statt": 1.59,
+      "quelle": "https://prospektland.com/kaufland-prospekt/",
+      "link": "https://prospektland.com/kaufland-prospekt/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "nudeln",
+      "markt": "kaufland",
+      "marke": "Birkel",
+      "artikel": "Nudeln, versch. Ausformungen",
+      "menge": "400–500 g",
+      "preis": 0.99,
+      "quelle": "https://prospektland.com/kaufland-prospekt/",
+      "link": "https://prospektland.com/kaufland-prospekt/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "kartoffeln",
+      "markt": "kaufland",
+      "artikel": "Deutsche Speisekartoffeln",
+      "menge": "2,5 kg",
+      "preis": 2.49,
+      "statt": 3.99,
+      "quelle": "https://prospektland.com/kaufland-prospekt/",
+      "link": "https://prospektland.com/kaufland-prospekt/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "obst",
+      "markt": "kaufland",
+      "artikel": "Tafeläpfel Elstar oder Gala",
+      "menge": "2 kg",
+      "preis": 2.49,
+      "statt": 3.59,
+      "quelle": "https://prospektland.com/kaufland-prospekt/",
+      "link": "https://prospektland.com/kaufland-prospekt/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "obst",
+      "markt": "kaufland",
+      "artikel": "Orangen",
+      "menge": "2 kg",
+      "preis": 2.99,
+      "statt": 3.99,
+      "quelle": "https://prospektland.com/kaufland-prospekt/",
+      "link": "https://prospektland.com/kaufland-prospekt/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "tomatenmark",
+      "markt": "kaufland",
+      "marke": "K-Classic",
+      "artikel": "Tomatenmark, 3-fach konzentriert",
+      "menge": "200 g",
+      "preis": 0.77,
+      "quelle": "https://prospektland.com/kaufland-prospekt/",
+      "link": "https://prospektland.com/kaufland-prospekt/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "nudeln",
+      "markt": "aldi",
+      "marke": "Landfreude",
+      "artikel": "Frischei-Nudeln, versch. Sorten",
+      "menge": "500 g",
+      "preis": 1.49,
+      "quelle": "https://prospektland.com/aldi-sud-prospekte/",
+      "link": "https://prospektland.com/aldi-sud-prospekte/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "kaese",
+      "markt": "aldi",
+      "marke": "BIO",
+      "artikel": "Bio-Käsestücke, versch. Sorten",
+      "menge": "200 g",
+      "preis": 2.29,
+      "quelle": "https://prospektland.com/aldi-sud-prospekte/",
+      "link": "https://prospektland.com/aldi-sud-prospekte/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "kaese",
+      "markt": "netto",
+      "artikel": "Goudascheiben",
+      "menge": "400 g",
+      "preis": 1.99,
+      "quelle": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "link": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "kaffee",
+      "markt": "netto",
+      "marke": "Jacobs",
+      "artikel": "Krönung",
+      "menge": "500 g",
+      "preis": 6.49,
+      "hinweis": "mit App 5,99 €",
+      "quelle": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "link": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "klopapier",
+      "markt": "netto",
+      "marke": "The Papermakers",
+      "artikel": "Toilettenpapier",
+      "menge": "20 Rollen",
+      "preis": 5.99,
+      "quelle": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "link": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "spezi",
+      "markt": "netto",
+      "marke": "Paulaner",
+      "artikel": "Spezi, Cola oder Limonaden",
+      "menge": "0,33 l",
+      "preis": 0.69,
+      "hinweis": "mit App 0,59 €",
+      "quelle": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "link": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "joghurt",
+      "markt": "netto",
+      "marke": "Ehrmann",
+      "artikel": "Almighurt",
+      "menge": "100–150 g",
+      "preis": 0.29,
+      "quelle": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "link": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
+    },
+    {
+      "produkt": "nutella",
+      "markt": "lidl",
+      "marke": "Ferrero",
+      "artikel": "Nutella",
+      "menge": "450 g",
+      "preis": 1.99,
+      "statt": 3.99,
+      "hinweis": "nur mit Lidl Plus",
+      "quelle": "https://www.discounto.de/Prospekte/Anbieter:lidl/naechste-woche/",
+      "link": "https://www.discounto.de/Angebot/Nutella-450-g-Glas-9907380/",
+      "von": "2026-11-23",
+      "bis": "2026-11-28"
     }
   ]
 }
