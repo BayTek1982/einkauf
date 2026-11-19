@@ -970,6 +970,21 @@
       "codes": [
         "4025500287955"
       ]
+    },
+    {
+      "id": "sodastreamco2",
+      "name": "SodaStream CO2-Zylinder",
+      "emoji": "🫧",
+      "kategorie": "getraenke",
+      "woerter": [
+        "co2 patrone",
+        "co2 zylinder",
+        "sodastream",
+        "tauschzylinder"
+      ],
+      "codes": [
+        "8719128118734"
+      ]
     }
   ]
 }

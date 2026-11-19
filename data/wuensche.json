@@ -565,7 +565,9 @@
       "text": "CO2 Patrone",
       "marke": "SodaStream Quick Connect",
       "code": "8719128118734",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "sodastreamco2",
+      "angebote": 0
     }
   ]
 }
