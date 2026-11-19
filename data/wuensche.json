@@ -1,5 +1,5 @@
 {
-  "letzte_id": "BooPHCrDSBdx",
+  "letzte_id": "oFBCIcpDZMHF",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -558,6 +558,14 @@
       "status": "erledigt",
       "produkt": "joghurt",
       "angebote": 9
+    },
+    {
+      "id": "oFBCIcpDZMHF",
+      "zeit": "2026-11-19T01:10:04+00:00",
+      "text": "CO2 Patrone",
+      "marke": "SodaStream Quick Connect",
+      "code": "8719128118734",
+      "status": "offen"
     }
   ]
 }
