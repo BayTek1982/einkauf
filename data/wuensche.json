@@ -1,5 +1,5 @@
 {
-  "letzte_id": "pkgg0QxFMymt",
+  "letzte_id": "x7mycMrNYglk",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -608,6 +608,14 @@
       "status": "erledigt",
       "produkt": "piccolinis",
       "angebote": 3
+    },
+    {
+      "id": "x7mycMrNYglk",
+      "zeit": "2026-11-21T17:35:39+00:00",
+      "text": "Dattel Tomaten",
+      "marke": "Natur Lieblinge",
+      "code": "4061458240673",
+      "status": "offen"
     }
   ]
 }
