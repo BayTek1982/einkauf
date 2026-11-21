@@ -615,7 +615,9 @@
       "text": "Dattel Tomaten",
       "marke": "Natur Lieblinge",
       "code": "4061458240673",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "datteltomaten",
+      "angebote": 0
     }
   ]
 }

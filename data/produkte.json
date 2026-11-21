@@ -1045,6 +1045,21 @@
       "codes": [
         "4009233000210"
       ]
+    },
+    {
+      "id": "datteltomaten",
+      "name": "Datteltomaten",
+      "emoji": "🍅",
+      "kategorie": "obstgemuese",
+      "woerter": [
+        "dattel tomaten",
+        "datteltomaten",
+        "cherrytomaten",
+        "natur lieblinge datteltomaten"
+      ],
+      "codes": [
+        "4061458240673"
+      ]
     }
   ]
 }
