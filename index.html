@@ -131,6 +131,27 @@
   .fact .k{display:block; color:var(--muted); font-size:.74rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em}
   .fact .v{font-weight:650; font-size:.9rem}
 
+  /* Suche & Geschäfte */
+  .such{display:flex; align-items:center; gap:6px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:3px 6px 3px 14px; box-shadow:var(--shadow); margin:0 0 10px}
+  .such .lupe{font-size:1.15rem}
+  .such input{flex:1; min-width:0; border:0; background:none; font-size:1.05rem; padding:11px 4px; color:var(--text); outline:none; font-family:inherit}
+  .such input::-webkit-search-cancel-button{display:none}
+  .such .x{border:0; background:var(--bg); color:var(--muted); width:36px; height:36px; border-radius:50%; font-size:1rem; cursor:pointer; display:none}
+  .such.voll .x{display:block}
+  .mkpick{display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; margin-bottom:6px; scrollbar-width:none}
+  .mkpick::-webkit-scrollbar{display:none}
+  .mkpick button{flex:0 0 auto; display:flex; align-items:center; gap:6px; color:var(--text); background:var(--card); border:1.5px solid var(--line); border-radius:999px; padding:8px 13px; font-size:.92rem; font-weight:700; cursor:pointer; font-family:inherit}
+  .mkpick button .n{font-size:.75rem; color:var(--muted); font-weight:800}
+  .mkpick button.on{color:#fff; border-color:transparent}
+  .mkpick button.on .n{color:#fff; opacity:.85}
+  .mkpick .dot{width:10px; height:10px; border-radius:50%}
+  .mkhead{display:flex; align-items:center; gap:10px; margin-bottom:4px}
+  .mkhead .mkname{color:#fff; font-weight:850; padding:5px 12px; border-radius:9px; font-size:1rem}
+  .mkhead .cnt{color:var(--muted); font-size:.85rem; font-weight:700}
+  .mkhead a{margin-left:auto; font-size:.82rem; font-weight:750; text-decoration:none}
+  .off .tile{width:40px; height:40px; font-size:1.25rem; border-radius:11px}
+  .subh{font-size:.74rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--warn); margin:10px 0 2px}
+
   /* Navigation */
   nav{position:fixed; left:0; right:0; bottom:0; z-index:10; background:var(--card); border-top:1px solid var(--line); padding-bottom:env(safe-area-inset-bottom)}
   nav .in{max-width:720px; margin:0 auto; display:flex}
@@ -212,13 +233,20 @@
       <button data-f="liste" class="on">🧺 Meine Liste</button>
       <button data-f="alle">🏷️ Alle Angebote</button>
     </div>
-    <div class="sec-title">📰 Prospekte direkt öffnen</div>
+    <div class="chips" id="offSort" style="margin-top:8px">
+      <button data-s="produkt" class="on">🛒 Nach Produkt</button>
+      <button data-s="markt">🏪 Nach Geschäft</button>
+    </div>
+    <div class="such" id="suchA"><span class="lupe">🔍</span><input id="sucheA" type="search" placeholder="Artikel suchen …" autocomplete="off" enterkeyhint="search" maxlength="40"><button class="x" aria-label="Suche löschen">✕</button></div>
+    <div class="mkpick" id="mkPick"></div>
+    <div class="sec-title" id="prospTitel">📰 Prospekte direkt öffnen</div>
     <div class="prosp" id="prospekte"></div>
     <div id="offers"></div>
   </section>
 
   <!-- VERLAUF -->
   <section class="view" id="v-produkte">
+    <div class="such" id="suchV"><span class="lupe">🔍</span><input id="sucheV" type="search" placeholder="Produkt suchen …" autocomplete="off" enterkeyhint="search" maxlength="40"><button class="x" aria-label="Suche löschen">✕</button></div>
     <div class="card note" style="font-size:.88rem">📈 Nach diesen Produkten wird jede Woche gesucht. Tippe auf ein Produkt: Dann siehst du, wann es zuletzt im Angebot war und wann es wieder kommt.</div>
     <div id="products"></div>
     <div class="card note">Fehlt ein Produkt oder ein Markt? Sag Bescheid. Ab der nächsten Suche wird es mitgesucht.</div>
@@ -236,6 +264,7 @@
       <div class="note" style="font-size:.9rem">
         <p>• <b>Eintragen:</b> Tippe oder scanne einen Barcode. Tippst du auf einen Eintrag, kannst du Menge, Marke und eine Notiz ergänzen.</p>
         <p>• <b>Angebote:</b> Grün heißt: jetzt im Angebot. Orange heißt: kommt bald. Preise können je Filiale leicht abweichen. Was genau gilt, steht im Prospekt.</p>
+        <p>• <b>Im Laden:</b> Unter „Angebote“ auf „🏪 Nach Geschäft“ tippen und den Markt wählen – dann siehst du alles, was dort gerade im Angebot ist. Mit der 🔍 Lupe findest du einzelne Artikel.</p>
         <p>• <b>Teilen:</b> „Liste schicken“ erzeugt einen Link. Wer ihn öffnet, übernimmt die Liste mit einem Tipp.</p>
         <p>• Deine Liste bleibt nur auf deinem Handy gespeichert.</p>
       </div>
@@ -268,6 +297,6 @@
 </div>
 
 <div class="toast" id="toast"></div>
-<script src="app.js?v=11"></script>
+<script src="app.js?v=12"></script>
 </body>
 </html>

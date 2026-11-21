@@ -36,6 +36,8 @@ if(!Array.isArray(liste)) liste = [];
 let meineMaerkte = load("maerkte", null);
 let offFilter = load("filter", "liste");
 let openProd = null, editId = null;
+let offSort = load("sort", "produkt"), offMarkt = load("omarkt", "alle");
+let sucheA = "", sucheV = "";
 
 const WUNSCH_URL = "https://ntfy.sh/kompassapps-einkauf-38fb2649f869a822";
 let WUENSCHE = [];
@@ -167,6 +169,9 @@ function wann(o){
   if(n === 1) return {txt:"bis morgen", soon:false};
   return {txt:`bis ${kurz(o.bis)}`, soon:false};
 }
+const norm = s => String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ß/g, "ss").trim();
+const prodPasst = (p, q) => !q || [p.name, ...(p.woerter || [])].some(w => norm(w).includes(q));
+const offPasst = (o, q) => !q || norm(titel(o)).includes(q);
 const titel = o => (o.marke ? o.marke + " " : "") + o.artikel;
 function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("on"), 2300); }
 
@@ -417,20 +422,31 @@ function renderProspekte(){
 }
 function offRow(o, best){
   const w = wann(o); const m = markt(o.markt); const q = safeUrl(o.quelle);
-  const pct = typeof o.statt === "number" && o.statt > o.preis ? Math.round((1 - o.preis / o.statt) * 100) : 0;
   return `<div class="off ${best ? "best" : ""}">
     ${mkBadge(m)}
     <div class="off-main">${o.marke ? `<span class="brand">${esc(o.marke)}</span> ` : ""}${esc(o.artikel)}${o.menge ? ` <span class="note">· ${esc(o.menge)}</span>` : ""}
       ${prospektLink(o, m)}
       <div class="when ${w.soon ? "soon" : ""}">${esc(w.txt)}${o.hinweis ? " · " + esc(o.hinweis) : ""}${q ? ` · <a href="${esc(q)}" target="_blank" rel="noopener">Quelle</a>` : ""}</div></div>
-    <div class="price">${pct >= 5 ? `<span class="pct">−${pct} %</span><br>` : ""}${esc(euro(o.preis))}${o.statt ? `<s>${esc(euro(o.statt))}</s>` : ""}${grundpreis(o) ? `<span class="gp">${esc(grundpreis(o))}</span>` : ""}</div></div>`;
+    ${preisHtml(o)}</div>`;
+}
+function preisHtml(o){
+  const pct = typeof o.statt === "number" && o.statt > o.preis ? Math.round((1 - o.preis / o.statt) * 100) : 0;
+  return `<div class="price">${pct >= 5 ? `<span class="pct">−${pct} %</span><br>` : ""}${esc(euro(o.preis))}${o.statt ? `<s>${esc(euro(o.statt))}</s>` : ""}${grundpreis(o) ? `<span class="gp">${esc(grundpreis(o))}</span>` : ""}</div>`;
 }
 function renderAngebote(){
   document.querySelectorAll("#offFilter button").forEach(b => b.classList.toggle("on", b.dataset.f === offFilter));
   const aufListe = new Set(liste.filter(i => !i.done).map(i => i.produkt).filter(Boolean));
+  document.querySelectorAll("#offSort button").forEach(b => b.classList.toggle("on", b.dataset.s === offSort));
   let prods = PRODUKTE.filter(p => relevante(p.id).length);
   if(offFilter === "liste") prods = prods.filter(p => aufListe.has(p.id));
+  const q = norm(sucheA);
   const h = heute();
+  const n0 = PRODUKTE.filter(p => aufListe.has(p.id) && relevante(p.id).length).length;
+  if(n0) $("#dealBadge").dataset.n = n0; else delete $("#dealBadge").dataset.n;
+  $("#prospTitel").style.display = $("#prospekte").style.display = offSort === "markt" ? "none" : "";
+  if(offSort === "markt"){ renderNachMarkt(prods, aufListe, q); return; }
+  $("#mkPick").innerHTML = "";
+  if(q) prods = prods.filter(p => prodPasst(p, q) || relevante(p.id).some(o => offPasst(o, q)));
   const jetzt = prods.filter(p => relevante(p.id).some(o => o.von <= h));
   const bald = prods.filter(p => !jetzt.includes(p));
   const card = p => {
@@ -441,6 +457,7 @@ function renderAngebote(){
   let html = "";
   if(jetzt.length) html += `<div class="sec-title">🟢 Jetzt im Angebot</div>` + jetzt.map(card).join("");
   if(bald.length) html += `<div class="sec-title">🟠 Demnächst</div>` + bald.map(card).join("");
+  if(!html && q) html = `<div class="card empty"><div class="big">🔍</div>Nichts gefunden für „${esc(sucheA)}“.${offFilter === "liste" ? `<br><br><button class="btn ghost small" id="showAll">In allen Angeboten suchen</button>` : ""}</div>`;
   if(!html){
     html = offFilter === "liste"
       ? `<div class="card empty"><div class="big">🔎</div>Für deine Liste gibt es gerade keine Angebote.<br><br><button class="btn ghost small" id="showAll">Alle Angebote zeigen</button></div>`
@@ -448,9 +465,58 @@ function renderAngebote(){
   }
   $("#offers").innerHTML = html;
   if($("#showAll")) $("#showAll").onclick = () => { offFilter = "alle"; save("filter", offFilter); renderAngebote(); };
-  const n = PRODUKTE.filter(p => aufListe.has(p.id) && relevante(p.id).length).length;
-  if(n) $("#dealBadge").dataset.n = n; else delete $("#dealBadge").dataset.n;
 }
+function renderNachMarkt(prods, aufListe, q){
+  const h = heute();
+  // alle passenden Angebote, je Geschäft
+  const offs = [];
+  for(const p of prods){
+    const pp = prodPasst(p, q);
+    for(const o of relevante(p.id)) if(pp || offPasst(o, q)) offs.push({o, p});
+  }
+  const proMarkt = {};
+  offs.forEach(x => (proMarkt[x.o.markt] = proMarkt[x.o.markt] || []).push(x));
+  const maerkte = MAERKTE.filter(m => proMarkt[m.id]);
+  if(offMarkt !== "alle" && !MAERKTE.some(m => m.id === offMarkt)) offMarkt = "alle";
+  $("#mkPick").innerHTML = `<button data-m="alle" class="${offMarkt === "alle" ? "on" : ""}" style="${offMarkt === "alle" ? "background:var(--acc)" : ""}">🏪 Alle <span class="n">${offs.length}</span></button>` +
+    MAERKTE.filter(m => meineMaerkte.includes(m.id)).map(m => { const on = offMarkt === m.id; const n = (proMarkt[m.id] || []).length;
+      return `<button data-m="${esc(m.id)}" class="${on ? "on" : ""}" style="${on ? `background:${safeColor(m.farbe)}` : ""}"><span class="dot" style="background:${on ? "#fff" : safeColor(m.farbe)}"></span>${esc(m.name)} <span class="n">${n}</span></button>`; }).join("");
+  const katPos = id => { const i = KATS.findIndex(k => k.id === id); return i < 0 ? 99 : i; };
+  const sortiere = a => a.sort((x, y) => katPos(x.p.kategorie) - katPos(y.p.kategorie) || x.p.name.localeCompare(y.p.name, "de") || x.o.preis - y.o.preis);
+  const zeile = ({o, p}) => { const w = wann(o); const m = markt(o.markt);
+    return `<div class="off">${prodTile(p)}<div class="off-main"><b>${esc(p.name)}</b>${aufListe.has(p.id) ? ' <span class="qty">auf der Liste</span>' : ""}<br>${o.marke ? `<span class="brand">${esc(o.marke)}</span> ` : ""}${esc(o.artikel)}${o.menge ? ` <span class="note">· ${esc(o.menge)}</span>` : ""}
+      ${prospektLink(o, m)}<div class="when ${w.soon ? "soon" : ""}">${esc(w.txt)}${o.hinweis ? " · " + esc(o.hinweis) : ""}</div></div>${preisHtml(o)}</div>`; };
+  const zeige = offMarkt === "alle" ? maerkte : maerkte.filter(m => m.id === offMarkt);
+  let html = zeige.map(m => {
+    const alle = proMarkt[m.id]; const jetzt = sortiere(alle.filter(x => x.o.von <= h)); const bald = sortiere(alle.filter(x => x.o.von > h));
+    const pu = safeUrl(m.prospekt);
+    return `<div class="card"><div class="mkhead"><span class="mkname" style="background:${safeColor(m.farbe)}">${esc(m.name)}</span><span class="cnt">${alle.length} Angebot${alle.length === 1 ? "" : "e"}</span>${pu ? `<a href="${esc(pu)}" target="_blank" rel="noopener">Prospekt ↗</a>` : ""}</div>
+      ${jetzt.map(zeile).join("")}${bald.length ? `<div class="subh">🟠 Demnächst</div>${bald.map(zeile).join("")}` : ""}</div>`;
+  }).join("");
+  if(!html){
+    const wo = offMarkt === "alle" ? "" : ` bei ${esc(markt(offMarkt).name)}`;
+    const was = q ? `für „${esc(sucheA)}“ ` : "";
+    html = `<div class="card empty"><div class="big">🔎</div>${offFilter === "liste" ? `Für deine Liste ${was}gibt es${wo} gerade keine Angebote.<br><br><button class="btn ghost small" id="showAll">Alle Angebote zeigen</button>` : `Gerade keine Angebote ${was}${wo} gefunden.`}</div>`;
+  }
+  $("#offers").innerHTML = html;
+  if($("#showAll")) $("#showAll").onclick = () => { offFilter = "alle"; save("filter", offFilter); renderAngebote(); };
+}
+$("#offSort").addEventListener("click", e => {
+  const b = e.target.closest("button[data-s]"); if(!b) return;
+  offSort = b.dataset.s; save("sort", offSort); renderAngebote();
+});
+$("#mkPick").addEventListener("click", e => {
+  const b = e.target.closest("button[data-m]"); if(!b) return;
+  offMarkt = b.dataset.m; save("omarkt", offMarkt); renderAngebote();
+});
+function suchFeld(boxId, setze){
+  const box = $(boxId), inp = box.querySelector("input");
+  inp.addEventListener("input", () => { box.classList.toggle("voll", !!inp.value); setze(inp.value); });
+  inp.addEventListener("keydown", e => { if(e.key === "Enter") inp.blur(); });
+  box.querySelector(".x").onclick = () => { inp.value = ""; box.classList.remove("voll"); setze(""); inp.focus(); };
+}
+suchFeld("#suchA", v => { sucheA = v; renderAngebote(); });
+suchFeld("#suchV", v => { sucheV = v; renderProdukte(); });
 $("#offFilter").addEventListener("click", e => {
   const b = e.target.closest("button[data-f]"); if(!b) return;
   offFilter = b.dataset.f; save("filter", offFilter); renderAngebote();
@@ -469,7 +535,10 @@ function rhythmus(pid){
 }
 function renderProdukte(){
   const h = heute();
-  $("#products").innerHTML = PRODUKTE.map(p => {
+  const q = norm(sucheV);
+  const liste0 = PRODUKTE.filter(p => prodPasst(p, q));
+  if(!liste0.length){ $("#products").innerHTML = `<div class="card empty"><div class="big">🔍</div>Kein Produkt gefunden für „${esc(sucheV)}“.<br><span class="note">Trag es einfach auf deiner Liste ein – dann wird es ab jetzt mitgesucht.</span></div>`; return; }
+  $("#products").innerHTML = liste0.map(p => {
     const hist = ANGEBOTE.filter(o => o.produkt === p.id && meineMaerkte.includes(o.markt)).sort((a,b) => b.von.localeCompare(a.von));
     const akt = relevante(p.id)[0];
     const letzt = hist.find(o => o.bis < h);
