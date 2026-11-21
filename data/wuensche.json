@@ -625,7 +625,9 @@
       "text": "Teekanne Rooibos",
       "marke": "",
       "code": "4009300021971",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "rooibostee",
+      "angebote": 0
     }
   ]
 }

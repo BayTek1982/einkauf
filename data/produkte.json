@@ -1060,6 +1060,21 @@
       "codes": [
         "4061458240673"
       ]
+    },
+    {
+      "id": "rooibostee",
+      "name": "Teekanne Rooibos",
+      "emoji": "🍵",
+      "kategorie": "getraenke",
+      "woerter": [
+        "teekanne rooibos",
+        "rooibos",
+        "rooibostee",
+        "rotbuschtee"
+      ],
+      "codes": [
+        "4009300021971"
+      ]
     }
   ]
 }
