@@ -1,5 +1,5 @@
 {
-  "letzte_id": "oFBCIcpDZMHF",
+  "letzte_id": "pkgg0QxFMymt",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -568,6 +568,38 @@
       "status": "erledigt",
       "produkt": "sodastreamco2",
       "angebote": 0
+    },
+    {
+      "id": "7UrXPh6YPiZ3",
+      "zeit": "2026-11-21T14:54:28+00:00",
+      "text": "Sport still",
+      "marke": "Naturalis",
+      "code": "42316954",
+      "status": "offen"
+    },
+    {
+      "id": "cOpjCGN6gLI9",
+      "zeit": "2026-11-21T15:22:22+00:00",
+      "text": "Walnusskerne naturbelassen",
+      "marke": "Alesto",
+      "code": "20005733",
+      "status": "offen"
+    },
+    {
+      "id": "rVq7rnrNqvS9",
+      "zeit": "2026-11-21T15:25:39+00:00",
+      "text": "Streichzart ungesalzen - Vorteilspack",
+      "marke": "Meggle",
+      "code": "4034900008213",
+      "status": "offen"
+    },
+    {
+      "id": "pkgg0QxFMymt",
+      "zeit": "2026-11-21T15:27:57+00:00",
+      "text": "Piccolinis Big Pack",
+      "marke": "Original Wagner",
+      "code": "4009233000210",
+      "status": "offen"
     }
   ]
 }
