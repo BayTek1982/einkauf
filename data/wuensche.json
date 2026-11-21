@@ -1,5 +1,5 @@
 {
-  "letzte_id": "x7mycMrNYglk",
+  "letzte_id": "Du6F4NQu5CzZ",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -618,6 +618,14 @@
       "status": "erledigt",
       "produkt": "datteltomaten",
       "angebote": 0
+    },
+    {
+      "id": "Du6F4NQu5CzZ",
+      "zeit": "2026-11-21T18:25:48+00:00",
+      "text": "Teekanne Rooibos",
+      "marke": "",
+      "code": "4009300021971",
+      "status": "offen"
     }
   ]
 }
