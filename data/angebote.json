@@ -461,7 +461,8 @@
       "statt": 4.19,
       "von": "2026-11-15",
       "bis": "2026-11-21",
-      "hinweis": "nur mit Lidl Plus App", "link": "https://www.prospektangebote.de/geschaefte/lidl/angebote/frische-eier-angebot-70579263/",
+      "hinweis": "nur mit Lidl Plus App",
+      "link": "https://www.prospektangebote.de/geschaefte/lidl/angebote/frische-eier-angebot-70579263/",
       "quelle": "https://www.prospektangebote.de/geschaefte/lidl/angebote/frische-eier-angebot-70579263/"
     },
     {
@@ -1052,6 +1053,73 @@
       "link": "https://www.discounto.de/Angebot/Nutella-450-g-Glas-9907380/",
       "von": "2026-11-23",
       "bis": "2026-11-28"
+    },
+    {
+      "produkt": "piccolinis",
+      "markt": "penny",
+      "marke": "Original Wagner",
+      "artikel": "Piccolinis",
+      "menge": "270 g",
+      "preis": 1.79,
+      "statt": 3.69,
+      "hinweis": "nur mit Penny App",
+      "seite": 12,
+      "von": "2026-11-23",
+      "bis": "2026-11-28",
+      "quelle": "https://www.prospektangebote.de/geschaefte/penny/angebote/wagner-piccolinis-angebot-71253706/",
+      "link": "https://www.prospektangebote.de/geschaefte/penny/angebote/wagner-piccolinis-angebot-71253706/"
+    },
+    {
+      "produkt": "piccolinis",
+      "markt": "norma",
+      "marke": "Original Wagner",
+      "artikel": "Piccolinis",
+      "menge": "270 g",
+      "preis": 1.99,
+      "statt": 3.69,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "quelle": "https://www.prospektangebote.de/geschaefte/norma/angebote/wagner-piccolinis-angebot-70468763/",
+      "link": "https://www.prospektangebote.de/geschaefte/norma/angebote/wagner-piccolinis-angebot-70468763/"
+    },
+    {
+      "produkt": "piccolinis",
+      "markt": "lidl",
+      "marke": "Original Wagner",
+      "artikel": "Piccolinis Salami XXL",
+      "menge": "1200 g",
+      "preis": 7.99,
+      "statt": 14.8,
+      "von": "2026-11-15",
+      "bis": "2026-11-21",
+      "quelle": "https://www.prospektangebote.de/geschaefte/lidl/angebote/wagner-piccolinis-salami-xxl-angebot-70579482/",
+      "link": "https://www.prospektangebote.de/geschaefte/lidl/angebote/wagner-piccolinis-salami-xxl-angebot-70579482/"
+    },
+    {
+      "produkt": "walnusskerne",
+      "markt": "lidl",
+      "marke": "Alesto",
+      "artikel": "Walnusskerne XXL",
+      "menge": "500 g",
+      "preis": 4.49,
+      "statt": 7.36,
+      "von": "2026-11-23",
+      "bis": "2026-11-29",
+      "quelle": "https://www.prospektangebote.de/geschaefte/lidl/angebote/alesto-walnusskerne-xxl-angebot-70920860/",
+      "link": "https://www.prospektangebote.de/geschaefte/lidl/angebote/alesto-walnusskerne-xxl-angebot-70920860/"
+    },
+    {
+      "produkt": "walnusskerne",
+      "markt": "norma",
+      "marke": "Ardilla",
+      "artikel": "Walnusskerne naturbelassen",
+      "menge": "200 g",
+      "preis": 2.49,
+      "statt": 2.99,
+      "von": "2026-11-16",
+      "bis": "2026-11-21",
+      "quelle": "https://www.prospektangebote.de/geschaefte/norma/angebote/ardilla-walnusskerne-naturbelassen-angebot-70469138/",
+      "link": "https://www.prospektangebote.de/geschaefte/norma/angebote/ardilla-walnusskerne-naturbelassen-angebot-70469138/"
     }
   ]
 }

@@ -575,7 +575,9 @@
       "text": "Sport still",
       "marke": "Naturalis",
       "code": "42316954",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "naturalisstill",
+      "angebote": 0
     },
     {
       "id": "cOpjCGN6gLI9",
@@ -583,7 +585,9 @@
       "text": "Walnusskerne naturbelassen",
       "marke": "Alesto",
       "code": "20005733",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "walnusskerne",
+      "angebote": 2
     },
     {
       "id": "rVq7rnrNqvS9",
@@ -591,7 +595,9 @@
       "text": "Streichzart ungesalzen - Vorteilspack",
       "marke": "Meggle",
       "code": "4034900008213",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "megglestreichzart",
+      "angebote": 0
     },
     {
       "id": "pkgg0QxFMymt",
@@ -599,7 +605,9 @@
       "text": "Piccolinis Big Pack",
       "marke": "Original Wagner",
       "code": "4009233000210",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "piccolinis",
+      "angebote": 3
     }
   ]
 }

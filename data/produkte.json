@@ -985,6 +985,66 @@
       "codes": [
         "8719128118734"
       ]
+    },
+    {
+      "id": "naturalisstill",
+      "name": "Naturalis Wasser still (Sport)",
+      "emoji": "💧",
+      "kategorie": "getraenke",
+      "woerter": [
+        "sport still",
+        "naturalis sport still",
+        "naturalis",
+        "mineralwasser still"
+      ],
+      "codes": [
+        "42316954"
+      ]
+    },
+    {
+      "id": "walnusskerne",
+      "name": "Walnusskerne",
+      "emoji": "🌰",
+      "kategorie": "vorrat",
+      "woerter": [
+        "walnusskerne naturbelassen",
+        "walnusskerne",
+        "walnüsse",
+        "alesto"
+      ],
+      "codes": [
+        "20005733"
+      ]
+    },
+    {
+      "id": "megglestreichzart",
+      "name": "Meggle Streichzart",
+      "emoji": "🧈",
+      "kategorie": "kuehl",
+      "woerter": [
+        "streichzart ungesalzen - vorteilspack",
+        "streichzart",
+        "meggle streichzart",
+        "meggle"
+      ],
+      "codes": [
+        "4034900008213"
+      ]
+    },
+    {
+      "id": "piccolinis",
+      "name": "Wagner Piccolinis",
+      "emoji": "🍕",
+      "kategorie": "tk",
+      "woerter": [
+        "piccolinis big pack",
+        "piccolinis",
+        "piccolini",
+        "wagner"
+      ],
+      "codes": [
+        "4009233000210"
+      ]
     }
   ]
 }
