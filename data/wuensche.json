@@ -1,5 +1,5 @@
 {
-  "letzte_id": "Du6F4NQu5CzZ",
+  "letzte_id": "zC33h4ypX16j",
   "wuensche": [
     {
       "id": "SbO53hXqaHYn",
@@ -628,6 +628,78 @@
       "status": "erledigt",
       "produkt": "rooibostee",
       "angebote": 0
+    },
+    {
+      "id": "DKEmZu3IaQDI",
+      "zeit": "2026-11-28T15:23:37+00:00",
+      "text": "Hähnchenschenkel Grillpfanne",
+      "marke": "Gour Meat",
+      "code": "4316268662703",
+      "status": "offen"
+    },
+    {
+      "id": "D9vKEajaY0zG",
+      "zeit": "2026-11-28T15:24:31+00:00",
+      "text": "Pazifisches Wildlachsfilet ohne Haut",
+      "marke": "Sea Gold",
+      "code": "4316268627894",
+      "status": "offen"
+    },
+    {
+      "id": "pkr8i8l6Ch5v",
+      "zeit": "2026-11-28T15:24:52+00:00",
+      "text": "Norwegische Lachsfilets",
+      "marke": "Sea Gold",
+      "code": "4316268727747",
+      "status": "offen"
+    },
+    {
+      "id": "mfnYtXg6jEjk",
+      "zeit": "2026-11-28T15:25:06+00:00",
+      "text": "Norwegische Lachsfilets ohne Haut",
+      "marke": "Netto Marken-Discount",
+      "code": "4316268707459",
+      "status": "offen"
+    },
+    {
+      "id": "4oG17PS3RCZ2",
+      "zeit": "2026-11-28T15:25:19+00:00",
+      "text": "Fischstäbchen, paniert",
+      "marke": "Sea Gold",
+      "code": "4316268451529",
+      "status": "offen"
+    },
+    {
+      "id": "lKcnJTXEypwo",
+      "zeit": "2026-11-28T15:25:32+00:00",
+      "text": "Fischstäbchen",
+      "marke": "Iglo",
+      "code": "4250241204170",
+      "status": "offen"
+    },
+    {
+      "id": "TzVBEPoBi2XZ",
+      "zeit": "2026-11-28T15:44:41+00:00",
+      "text": "Kaki",
+      "marke": "",
+      "code": "",
+      "status": "offen"
+    },
+    {
+      "id": "qNYYpoNzkrDc",
+      "zeit": "2026-11-28T15:45:34+00:00",
+      "text": "Rindfleisch",
+      "marke": "",
+      "code": "",
+      "status": "offen"
+    },
+    {
+      "id": "zC33h4ypX16j",
+      "zeit": "2026-11-28T15:45:42+00:00",
+      "text": "Fleisch",
+      "marke": "",
+      "code": "",
+      "status": "offen"
     }
   ]
 }
