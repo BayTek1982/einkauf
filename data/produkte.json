@@ -1075,6 +1075,103 @@
       "codes": [
         "4009300021971"
       ]
+    },
+    {
+      "id": "haehnchenschenkel",
+      "name": "Hähnchenschenkel",
+      "emoji": "🍗",
+      "kategorie": "fleisch",
+      "woerter": [
+        "hähnchenschenkel grillpfanne",
+        "hähnchenschenkel",
+        "hähnchenkeulen",
+        "hähnchen-schenkel",
+        "gour meat"
+      ],
+      "codes": [
+        "4316268662703"
+      ]
+    },
+    {
+      "id": "wildlachsfilet",
+      "name": "Wildlachsfilet (TK)",
+      "emoji": "🐟",
+      "kategorie": "tk",
+      "woerter": [
+        "pazifisches wildlachsfilet ohne haut",
+        "wildlachsfilet",
+        "wildlachs"
+      ],
+      "codes": [
+        "4316268627894"
+      ]
+    },
+    {
+      "id": "lachsfilet",
+      "name": "Lachsfilet",
+      "emoji": "🐟",
+      "kategorie": "tk",
+      "woerter": [
+        "norwegische lachsfilets",
+        "norwegische lachsfilets ohne haut",
+        "lachsfilets",
+        "lachsfilet",
+        "lachs"
+      ],
+      "codes": [
+        "4316268727747",
+        "4316268707459"
+      ]
+    },
+    {
+      "id": "fischstaebchen",
+      "name": "Fischstäbchen",
+      "emoji": "🐟",
+      "kategorie": "tk",
+      "woerter": [
+        "fischstäbchen paniert",
+        "fischstäbchen, paniert",
+        "fischstäbchen",
+        "backfischstäbchen"
+      ],
+      "codes": [
+        "4316268451529",
+        "4250241204170"
+      ]
+    },
+    {
+      "id": "kaki",
+      "name": "Kaki",
+      "emoji": "🟠",
+      "kategorie": "obstgemuese",
+      "woerter": [
+        "kaki",
+        "kakis",
+        "sharon",
+        "persimon"
+      ]
+    },
+    {
+      "id": "rindfleisch",
+      "name": "Rindfleisch",
+      "emoji": "🥩",
+      "kategorie": "fleisch",
+      "woerter": [
+        "rindfleisch",
+        "rindergulasch",
+        "rinderrouladen",
+        "rindersteak"
+      ]
+    },
+    {
+      "id": "fleisch",
+      "name": "Fleisch",
+      "emoji": "🥩",
+      "kategorie": "fleisch",
+      "woerter": [
+        "fleisch",
+        "frischfleisch"
+      ]
     }
   ]
 }

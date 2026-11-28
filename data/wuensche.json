@@ -635,7 +635,9 @@
       "text": "Hähnchenschenkel Grillpfanne",
       "marke": "Gour Meat",
       "code": "4316268662703",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "haehnchenschenkel",
+      "angebote": 4
     },
     {
       "id": "D9vKEajaY0zG",
@@ -643,7 +645,9 @@
       "text": "Pazifisches Wildlachsfilet ohne Haut",
       "marke": "Sea Gold",
       "code": "4316268627894",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "wildlachsfilet",
+      "angebote": 0
     },
     {
       "id": "pkr8i8l6Ch5v",
@@ -651,7 +655,9 @@
       "text": "Norwegische Lachsfilets",
       "marke": "Sea Gold",
       "code": "4316268727747",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "lachsfilet",
+      "angebote": 1
     },
     {
       "id": "mfnYtXg6jEjk",
@@ -659,7 +665,9 @@
       "text": "Norwegische Lachsfilets ohne Haut",
       "marke": "Netto Marken-Discount",
       "code": "4316268707459",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "lachsfilet",
+      "angebote": 1
     },
     {
       "id": "4oG17PS3RCZ2",
@@ -667,7 +675,9 @@
       "text": "Fischstäbchen, paniert",
       "marke": "Sea Gold",
       "code": "4316268451529",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "fischstaebchen",
+      "angebote": 3
     },
     {
       "id": "lKcnJTXEypwo",
@@ -675,7 +685,9 @@
       "text": "Fischstäbchen",
       "marke": "Iglo",
       "code": "4250241204170",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "fischstaebchen",
+      "angebote": 3
     },
     {
       "id": "TzVBEPoBi2XZ",
@@ -683,7 +695,9 @@
       "text": "Kaki",
       "marke": "",
       "code": "",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "kaki",
+      "angebote": 0
     },
     {
       "id": "qNYYpoNzkrDc",
@@ -691,7 +705,9 @@
       "text": "Rindfleisch",
       "marke": "",
       "code": "",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "rindfleisch",
+      "angebote": 1
     },
     {
       "id": "zC33h4ypX16j",
@@ -699,7 +715,9 @@
       "text": "Fleisch",
       "marke": "",
       "code": "",
-      "status": "offen"
+      "status": "erledigt",
+      "produkt": "fleisch",
+      "angebote": 0
     }
   ]
 }

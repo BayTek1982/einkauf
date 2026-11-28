@@ -2756,6 +2756,115 @@
       "von": "2026-11-30",
       "bis": "2026-12-05",
       "quelle": "https://prospekterst.com/netto-marken-discount-prospekt-angebote/"
+    },
+    {
+      "produkt": "fischstaebchen",
+      "markt": "kaufland",
+      "marke": "Iglo",
+      "artikel": "Fischstäbchen oder Backfisch-Stäbchen",
+      "preis": 2.22,
+      "von": "2026-11-30",
+      "bis": "2026-12-05",
+      "quelle": "https://prospektland.com/kaufland-prospekt-angebote/"
+    },
+    {
+      "produkt": "fischstaebchen",
+      "markt": "lidl",
+      "marke": "Iglo",
+      "artikel": "Fischstäbchen/Knusper-Fisch/Backfischstäbchen",
+      "preis": 2.99,
+      "statt": 4.89,
+      "grundpreis": "6,64 €/kg",
+      "von": "2026-11-23",
+      "bis": "2026-11-28",
+      "seite": 33,
+      "quelle": "https://www.meinprospekt.de/angebote/fischstaebchen"
+    },
+    {
+      "produkt": "fischstaebchen",
+      "markt": "kaufland",
+      "marke": "Frosta",
+      "artikel": "Fischstäbchen",
+      "preis": 2.79,
+      "von": "2026-11-23",
+      "bis": "2026-11-28",
+      "seite": 59,
+      "hinweis": "ab 2,79 €",
+      "quelle": "https://www.meinprospekt.de/angebote/fischstaebchen"
+    },
+    {
+      "produkt": "lachsfilet",
+      "markt": "netto",
+      "artikel": "Norwegisches Lachsfilet",
+      "menge": "100 g",
+      "preis": 1.49,
+      "statt": 1.79,
+      "von": "2026-11-23",
+      "bis": "2026-11-28",
+      "link": "https://www.prospektangebote.de/geschaefte/netto-marken-discount/angebote/norwegisches-lachsfilet-angebot-71196041/",
+      "quelle": "https://www.prospektangebote.de/geschaefte/netto-marken-discount/angebote/norwegisches-lachsfilet-angebot-71196041/"
+    },
+    {
+      "produkt": "haehnchenschenkel",
+      "markt": "lidl",
+      "marke": "Metzgerfrisch",
+      "artikel": "Frische Hähnchenschenkel",
+      "preis": 8.49,
+      "grundpreis": "3,40 €/kg",
+      "von": "2026-11-23",
+      "bis": "2026-11-28",
+      "seite": 7,
+      "quelle": "https://www.kaufda.de/Angebote/Haehnchenschenkel"
+    },
+    {
+      "produkt": "haehnchenschenkel",
+      "markt": "kaufland",
+      "marke": "K-Purland",
+      "artikel": "Hähnchen-Oberschenkel",
+      "preis": 3.49,
+      "statt": 4.59,
+      "von": "2026-11-23",
+      "bis": "2026-11-28",
+      "seite": 27,
+      "quelle": "https://www.kaufda.de/Angebote/Haehnchenschenkel"
+    },
+    {
+      "produkt": "haehnchenschenkel",
+      "markt": "netto",
+      "marke": "Gut Ponholz",
+      "artikel": "Hähnchen-Schenkel",
+      "preis": 3.99,
+      "statt": 5.29,
+      "grundpreis": "3,63 €/kg",
+      "von": "2026-11-23",
+      "bis": "2026-11-28",
+      "seite": 21,
+      "quelle": "https://www.kaufda.de/Angebote/Haehnchenschenkel"
+    },
+    {
+      "produkt": "haehnchenschenkel",
+      "markt": "penny",
+      "marke": "Mühlenhof Regional",
+      "artikel": "Frische Hähnchen-Unterschenkel",
+      "preis": 3.99,
+      "statt": 5.59,
+      "von": "2026-11-23",
+      "bis": "2026-11-29",
+      "seite": 10,
+      "hinweis": "ab 3,99 €",
+      "quelle": "https://www.kaufda.de/Angebote/Haehnchenschenkel"
+    },
+    {
+      "produkt": "rindfleisch",
+      "markt": "kaufland",
+      "marke": "K-Purland",
+      "artikel": "Minutensteak XXL",
+      "preis": 9.49,
+      "grundpreis": "15,82 €/kg",
+      "von": "2026-11-23",
+      "bis": "2026-11-28",
+      "seite": 26,
+      "quelle": "https://www.kaufda.de/Angebote/Rindfleisch"
     }
   ]
 }
